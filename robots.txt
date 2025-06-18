@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vinhtuan-nguyen.github.io/sitemap.xml
+Sitemap: https://khanh-doan-digital.github.io/sitemap.xml
