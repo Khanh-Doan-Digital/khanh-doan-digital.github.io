@@ -1,0 +1,16 @@
+import type { NextConfig } from "next";
+
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+process.env.NEXT_PUBLIC_BASE_PATH ??= basePath;
+
+const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
+  basePath,
+  assetPrefix: basePath,
+  images: {
+    unoptimized: true,
+  },
+};
+
+export default nextConfig;
