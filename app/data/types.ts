@@ -53,6 +53,7 @@ export type CaseStudy = {
   presentationTier: PresentationTier;
   featuredRank?: number;
   industry: LocalizedText;
+  serviceCategory?: LocalizedText;
   title: LocalizedText;
   cardDescription: LocalizedText;
   evidenceSummary: LocalizedText;

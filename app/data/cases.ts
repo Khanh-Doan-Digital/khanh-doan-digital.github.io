@@ -75,12 +75,12 @@ export const caseStudies: CaseStudy[] = [
         en: "Assigned Meta to Reach, Impressions, and Messaging; TikTok to Reach and Video Views; and Google to GDN plus Skippable, Bumper, and Non-skippable YouTube formats. Monitored frequency, CPM, and cross-platform reach to rebalance spend.",
       },
       results: {
-        vi: "Tổng chi tiêu quảng cáo đạt 854,6 triệu đồng, tạo hơn 110,4 triệu lượt hiển thị. Riêng Meta ghi nhận 12,66 triệu người tiếp cận, 71,67 triệu lượt hiển thị, 3,13 triệu lượt tương tác và 2.110 cuộc hội thoại; TikTok tạo 31,64 triệu lượt xem video; Google/YouTube tạo hơn 7,08 triệu lượt hiển thị và 3,01 triệu lượt xem công khai.",
-        en: "VND 854.6M in media spend generated more than 110.4M impressions. Meta alone reached 12.66M people, delivered 71.67M impressions, 3.13M engagements, and 2,110 conversations; TikTok generated 31.64M video views; Google/YouTube added 7.08M impressions and 3.01M public views.",
+        vi: "Tổng chi tiêu quảng cáo đạt 854,6 triệu đồng, tạo hơn 110,4 triệu lượt hiển thị. Riêng Meta ghi nhận 12,66 triệu người tiếp cận, 71,67 triệu lượt hiển thị, 3,13 triệu lượt tương tác và 2.110 cuộc hội thoại; TikTok tạo 31,23 triệu lượt xem video; Google/YouTube tạo hơn 7,08 triệu lượt hiển thị và 3,01 triệu lượt xem công khai.",
+        en: "VND 854.6M in media spend generated more than 110.4M impressions. Meta alone reached 12.66M people, delivered 71.67M impressions, 3.13M engagements, and 2,110 conversations; TikTok generated 31.23M video views; Google/YouTube added 7.08M impressions and 3.01M public views.",
       },
       accountScope: {
-        vi: "Điều phối đầu mối giữa khách hàng và team triển khai; theo dõi mục tiêu, ngân sách, lịch nội dung, kịch bản, tiến độ sản xuất và báo cáo. Tổng quy mô gói hợp tác khoảng 1,5 tỷ đồng trong 3 tháng; số liệu 854,6 triệu đồng là chi tiêu quảng cáo trong kỳ 45 ngày.",
-        en: "Served as the client–delivery team contact, coordinating objectives, budget, content schedules, scripts, production timelines, and reporting. The broader three-month engagement was approximately VND 1.5B; VND 854.6M represents media spend for the selected 45 days.",
+        vi: "Điều phối đầu mối giữa khách hàng và team triển khai; theo dõi mục tiêu, ngân sách, lịch nội dung, kịch bản, tiến độ sản xuất và báo cáo. Tổng quy mô gói hợp tác khoảng 1,5 tỷ đồng trong 3 tháng; số liệu 854,6 triệu đồng là chi tiêu quảng cáo đã xác thực trong kỳ 45 ngày.",
+        en: "Served as the client–delivery team contact, coordinating objectives, budget, content schedules, scripts, production timelines, and reporting. The broader three-month engagement was approximately VND 1.5B; VND 854.6M represents verified media spend for the selected 45 days.",
       },
       insight: {
         vi: "Phân vai kênh rõ ràng và theo dõi tần suất, CPM theo nền tảng giúp điều phối ngân sách mà không làm lẫn mục tiêu.",
@@ -108,6 +108,9 @@ export const caseStudies: CaseStudy[] = [
     featuredRank: 2,
     industry: {
       vi: "Khóa học dinh dưỡng", en: "Nutrition Education"
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
     },
     title: {
       vi: "Tăng đăng ký khóa học", en: "Course Registration Growth"
@@ -197,6 +200,9 @@ export const caseStudies: CaseStudy[] = [
     industry: {
       vi: "Bồn nước & bể phốt", en: "Water Tanks & Septic Systems"
     },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
     title: {
       vi: "Tối ưu tin nhắn và doanh thu", en: "Messages That Drive Sales"
     },
@@ -209,8 +215,8 @@ export const caseStudies: CaseStudy[] = [
       en: "24,762 conversations · 725 purchases · 5.35 ROAS",
     },
     roles: {
-      vi: "Trực tiếp vận hành Meta Ads, phát triển creative và theo dõi doanh thu sau hội thoại",
-      en: "Hands-on Meta Ads execution, creative development, and post-conversation revenue tracking",
+      vi: "Tối ưu Meta Ads và theo dõi doanh thu sau hội thoại",
+      en: "Meta Ads optimization and post-conversation revenue tracking",
     },
     roleTags: [
       "Meta Ads",
@@ -221,7 +227,7 @@ export const caseStudies: CaseStudy[] = [
       vi: "6 tháng", en: "6 months"
     },
     collaborationDuration: {
-      vi: "20 tháng", en: "20 months"
+      vi: "Khoảng 20 tháng", en: "Approximately 20 months"
     },
     platforms: [
       "Meta"
@@ -252,8 +258,8 @@ export const caseStudies: CaseStudy[] = [
         en: "VND 73.0M in spend generated 24,762 conversations at approximately VND 2,949 each. The account recorded 725 purchases, VND 390.7M in revenue, a 5.35 ROAS, and a 5.14% CTR.",
       },
       accountScope: {
-        vi: "Trực tiếp vận hành Meta Ads và phát triển creative; tiếp nhận yêu cầu, theo dõi chất lượng tin nhắn và kết quả mua hàng; tổng hợp báo cáo và đề xuất điều chỉnh theo nhu cầu thị trường. Ngân sách quảng cáo khoảng 10–15 triệu đồng mỗi tháng.",
-        en: "Handled Meta Ads execution and creative development directly; managed client requirements, monitored message quality and purchases, and translated results into reporting and market-led recommendations. Monthly media spend was approximately VND 10–15M.",
+        vi: "Tiếp nhận yêu cầu, phối hợp nội dung và theo dõi chất lượng tin nhắn, kết quả mua hàng; tổng hợp báo cáo và đề xuất điều chỉnh theo nhu cầu thị trường. Ngân sách quảng cáo khoảng 10–15 triệu đồng mỗi tháng.",
+        en: "Handled client requirements, coordinated content, monitored message quality and purchases, and translated results into reporting and market-led recommendations. Monthly media spend was approximately VND 10–15M.",
       },
       insight: {
         vi: "Đánh giá lead bằng đơn hàng và doanh thu giúp tránh tối ưu cho hội thoại rẻ nhưng kém giá trị.",
@@ -281,25 +287,34 @@ export const caseStudies: CaseStudy[] = [
     industry: {
       vi: "Nước hoa cá nhân hóa", en: "Personalized Fragrance"
     },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
     title: {
       vi: "Ra mắt sản phẩm đa kênh", en: "Multi-channel Product Launch"
     },
     cardDescription: {
-      vi: "Triển khai gói ra mắt 250 triệu đồng trong 3 tháng; trong kỳ phân tích 2 tháng, Meta đạt khoảng 1,2 triệu người tiếp cận và TikTok đạt 918 nghìn người tiếp cận cùng 2,35 triệu lượt xem video, đi kèm nhiều tín hiệu tương tác và tăng trưởng cộng đồng.",
-      en: "Delivered a VND 250M three-month launch; during the selected two-month period, Meta reached approximately 1.2M people and TikTok reached 918K people with 2.35M video views, alongside meaningful engagement and community growth.",
+      vi: "Triển khai gói ra mắt 250 triệu đồng trong 3 tháng; riêng kỳ phân tích 2 tháng, Meta và TikTok tạo hơn 3,5 triệu lượt xem/tiếp cận cùng nhiều tín hiệu tương tác và tăng trưởng cộng đồng.",
+      en: "Delivered a VND 250M three-month launch; during the selected two-month period, Meta and TikTok generated more than 3.5M views/reach signals alongside meaningful engagement and community growth.",
     },
     evidenceSummary: {
       vi: "Ra mắt đa kênh · Meta và TikTok · kỳ phân tích 2 tháng",
       en: "Multi-channel launch · Meta and TikTok · two-month analysis period",
     },
     roles: {
-      vi: "Launch Strategy · Meta Ads · TikTok Ads", en: "Launch Strategy · Meta Ads · TikTok Ads"
+      vi: "Xây dựng media plan và tối ưu chiến dịch ra mắt", en: "Media planning and launch campaign optimization"
     },
     roleTags: [
       "Launch Strategy",
       "Meta Ads",
       "TikTok Ads"
     ],
+    dataPeriod: {
+      vi: "2 tháng", en: "2 months"
+    },
+    collaborationDuration: {
+      vi: "3 tháng", en: "3 months"
+    },
     platforms: [
       "Meta",
       "TikTok"
@@ -307,20 +322,20 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Gói ra mắt sản phẩm nước hoa cá nhân hóa trong 3 tháng, với ngân sách khoảng 250 triệu đồng, cần tạo nhận biết nhanh trên Meta và TikTok trong giai đoạn launch.",
-        en: "A three-month personalized fragrance launch package worth approximately VND 250M, requiring fast awareness build-up on Meta and TikTok during the launch window.",
+        vi: "Sản phẩm nước hoa cá nhân hóa bằng AI cần đồng thời tạo độ phủ, giải thích concept mới và phát triển tín hiệu cộng đồng trên hai nền tảng.",
+        en: "An AI-personalized fragrance product needed to build awareness, explain a new concept, and grow community signals across two platforms.",
       },
       strategy: {
-        vi: "Meta đảm nhiệm độ phủ và tương tác cộng đồng; TikTok bổ sung lượt xem video và tiếp cận thêm nhóm đối tượng mới. Theo dõi song song hai nền tảng trong kỳ phân tích 2 tháng để cân đối ngân sách theo giai đoạn ra mắt.",
-        en: "Meta carried reach and community engagement while TikTok added video views and reached additional audience segments. Both platforms were tracked in parallel across the two-month analysis period to balance spend through the launch phases.",
+        vi: "Meta được phân bổ cho Reach, Engagement, Page Likes và Messaging; TikTok tập trung Reach và Follow. Creative được đánh giá theo khả năng giải thích sản phẩm và tạo hành động phù hợp với từng tầng nhận biết.",
+        en: "Meta covered Reach, Engagement, Page Likes, and Messaging, while TikTok focused on Reach and Follow growth. Creatives were assessed by their ability to explain the product and drive stage-appropriate actions.",
       },
       results: {
-        vi: "Trong kỳ phân tích 2 tháng, Meta đạt khoảng 1,2 triệu người tiếp cận, TikTok đạt 918 nghìn người tiếp cận và 2,35 triệu lượt xem video, cùng nhiều tín hiệu tương tác và tăng trưởng cộng đồng.",
-        en: "Across the two-month analysis period, Meta reached approximately 1.2M people, and TikTok reached 918K people with 2.35M video views, alongside meaningful engagement and community growth.",
+        vi: "Trong kỳ được chọn, khoảng 50 triệu đồng media tạo 228.296 lượt tương tác, 1.655 lượt thích/theo dõi trang và khoảng 1,2 triệu người tiếp cận trên Meta. TikTok tạo 2,35 triệu lượt xem video, tiếp cận 918.320 người và thêm 972 lượt theo dõi với chi phí trung bình 5.716 đồng.",
+        en: "In the selected period, approximately VND 50M in media generated 228,296 engagements, 1,655 page likes/follows, and about 1.2M reach on Meta. TikTok delivered 2.35M video views, reached 918,320 people, and added 972 follows at an average cost of VND 5,716.",
       },
       accountScope: {
-        vi: "Điều phối gói ra mắt 250 triệu đồng trong 3 tháng giữa các nền tảng, theo dõi tiến độ nội dung và báo cáo kết quả theo từng giai đoạn launch.",
-        en: "Coordinated the VND 250M three-month launch package across platforms, tracking content progress and reporting results by launch phase.",
+        vi: "Điều phối mục tiêu truyền thông, media plan, nội dung và creative giữa khách hàng với team sản xuất; theo dõi ngân sách và tiến độ ra mắt trong gói triển khai 250 triệu đồng/3 tháng.",
+        en: "Coordinated communication objectives, the media plan, content, and creative production between the client and delivery teams, while tracking budget and launch progress within a VND 250M three-month package.",
       },
       insight: {
         vi: "Giai đoạn ra mắt cần phân vai kênh rõ ràng ngay từ đầu để độ phủ và tương tác không cạnh tranh ngân sách lẫn nhau.",
@@ -346,24 +361,33 @@ export const caseStudies: CaseStudy[] = [
     industry: {
       vi: "Đào tạo kỹ năng", en: "Skills Education"
     },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
     title: {
       vi: "Thu hút học viên tiềm năng", en: "Student Lead Generation"
     },
     cardDescription: {
-      vi: "Meta tạo 5.736 cuộc hội thoại với CPA trung bình 29,9 nghìn đồng; TikTok bổ sung 2,77 triệu lượt xem và hơn 105 nghìn lượt nhấp.",
-      en: "Meta generated 5,736 conversations at an average CPA of VND 29.9K, while TikTok added 2.77M views and more than 105K clicks.",
+      vi: "Meta tạo 5.736 cuộc hội thoại với CPA trung bình 29,9 nghìn đồng; TikTok bổ sung 2,77 triệu lượt xem và hơn 105 nghìn lượt nhấp cho các khóa học trẻ em, giao tiếp và người đi làm.",
+      en: "Meta generated 5,736 conversations at an average CPA of VND 29.9K, while TikTok added 2.77M views and more than 105K clicks for children's, communication, and working-adult courses.",
     },
     evidenceSummary: {
       vi: "5.736 cuộc hội thoại · Funnel và landing page", en: "5,736 conversations · Funnel and landing-page coordination"
     },
     roles: {
-      vi: "Lead Generation · Funnel Strategy · Landing Page", en: "Lead Generation · Funnel Strategy · Landing Page"
+      vi: "Media planning, tối ưu lead và phối hợp landing page", en: "Media planning, lead optimization, and landing page coordination"
     },
     roleTags: [
       "Lead Generation",
       "Funnel Strategy",
-      "Landing Page"
+      "Landing Page Coordination"
     ],
+    dataPeriod: {
+      vi: "Meta 12 tháng · TikTok 4 tháng", en: "Meta 12 months · TikTok 4 months"
+    },
+    collaborationDuration: {
+      vi: "Khoảng 8 tháng", en: "Approximately 8 months"
+    },
     platforms: [
       "Meta",
       "TikTok"
@@ -371,20 +395,20 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Hệ thống thu lead cho ngành đào tạo kỹ năng, kết hợp hội thoại tư vấn trên Meta với traffic mở rộng từ TikTok để tăng số học viên tiềm năng tiếp cận được.",
-        en: "A lead-generation system for the skills-education category, pairing Meta conversation-based inquiries with TikTok traffic to expand the pool of reachable prospective students.",
+        vi: "Danh mục khóa học phục vụ nhiều nhóm tuổi và nhu cầu, từ trẻ em đến người lớn và người đi làm. Bài toán chính là duy trì nguồn lead ổn định trong khi thông điệp và landing page phải phù hợp với từng nhóm học viên.",
+        en: "The course portfolio served multiple age groups and needs, from children to adults and working professionals. The challenge was maintaining a stable lead flow while tailoring messages and landing pages to each learner segment.",
       },
       strategy: {
-        vi: "Meta tập trung tạo hội thoại tư vấn trực tiếp; TikTok đóng vai trò mở rộng traffic và landing page. Hai nền tảng được theo dõi và tối ưu riêng theo mục tiêu của từng kênh.",
-        en: "Meta focused on generating direct advisory conversations while TikTok expanded traffic and landing-page visits. Both platforms were tracked and optimized separately according to each channel's objective.",
+        vi: "Tách nhóm khóa học, đối tượng và creative; Meta ưu tiên hội thoại, TikTok mở rộng lượt xem và lượt nhấp. Đối chiếu chất lượng lead với tư vấn để điều chỉnh thông điệp, phân bổ ngân sách và landing page.",
+        en: "Separated courses, audiences, and creatives; Meta prioritized conversations while TikTok expanded views and clicks. Lead quality feedback from consultation informed messaging, budget allocation, and landing page refinements.",
       },
       results: {
-        vi: "Meta tạo 5.736 cuộc hội thoại với CPA trung bình 29,9 nghìn đồng; TikTok bổ sung 2,77 triệu lượt xem và hơn 105 nghìn lượt nhấp về funnel tư vấn.",
-        en: "Meta generated 5,736 conversations at an average CPA of VND 29.9K, while TikTok added 2.77M views and more than 105K clicks into the advisory funnel.",
+        vi: "Meta sử dụng 204 triệu đồng để tạo 5.736 cuộc hội thoại với CPA trung bình 29.933 đồng và CTR 3,50%. TikTok tạo 2,77 triệu lượt xem, hơn 105 nghìn lượt nhấp, CTR 3,78% và CPC trung bình 188 đồng.",
+        en: "Meta invested VND 204M to generate 5,736 conversations at an average CPA of VND 29,933 and a 3.50% CTR. TikTok delivered 2.77M views, more than 105K clicks, a 3.78% CTR, and an average CPC of VND 188.",
       },
       accountScope: {
-        vi: "Điều phối kế hoạch funnel giữa Meta và TikTok, phối hợp landing page và theo dõi luồng chuyển đổi từ hội thoại đến đăng ký tư vấn.",
-        en: "Coordinated the funnel plan across Meta and TikTok, aligned the landing page, and tracked the conversion path from conversation to advisory sign-up.",
+        vi: "Quản lý đầu mối khách hàng, thống nhất KPI; điều phối paid media, landing page, nội dung và quy trình theo dõi lead. Ngân sách quảng cáo khoảng 15–25 triệu đồng mỗi tháng, chưa gồm chi phí quản lý, nội dung và sản xuất.",
+        en: "Managed the client relationship, aligned KPIs, and coordinated paid media, landing pages, content, and lead tracking. Monthly media spend was approximately VND 15–25M, excluding management, content, and production costs.",
       },
       insight: {
         vi: "Tách vai trò rõ ràng giữa kênh tạo hội thoại và kênh mở rộng traffic giúp đánh giá đúng đóng góp của từng nền tảng vào funnel.",
@@ -409,6 +433,9 @@ export const caseStudies: CaseStudy[] = [
     featuredRank: 4,
     industry: {
       vi: "Thức ăn thú cưng", en: "Pet Food"
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
     },
     title: {
       vi: "Mở rộng độ phủ thương hiệu", en: "Always-on Brand Awareness"
@@ -490,22 +517,32 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Nhà hàng buffet", en: "Buffet Restaurant"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Tăng khách hàng địa phương", en: "Local Customer Acquisition"
     },
     cardDescription: {
-      vi: "Meta tạo 1.498 cuộc hội thoại từ 12,1 triệu đồng; TikTok bổ sung 310 nghìn lượt hiển thị cho các đợt truyền thông địa phương.", en: "Meta generated 1,498 conversations from VND 12.1M in spend; TikTok added 310K impressions across local campaign flights."
+      vi: "Meta tạo 1.498 cuộc hội thoại từ 12,1 triệu đồng, với chi phí quy đổi khoảng 8,1 nghìn đồng/cuộc hội thoại; TikTok bổ sung 310 nghìn lượt hiển thị cho các đợt truyền thông địa phương.", en: "Meta generated 1,498 conversations from VND 12.1M in spend, with an estimated blended cost of VND 8.1K per conversation; TikTok added 310K impressions across local campaign flights."
     },
     evidenceSummary: {
       vi: "1.498 cuộc hội thoại · Local Ads", en: "1,498 conversations · Local Ads"
     },
     roles: {
-      vi: "Local Ads · Message Optimization · Coordination", en: "Local Ads · Message Optimization · Coordination"
+      vi: "Quản lý account và tối ưu quảng cáo đa nền tảng", en: "Account management and cross-platform media optimization"
     }, roleTags: [
       "Local Ads",
       "Message Optimization",
-      "Coordination"
+      "Cross-platform Coordination"
     ],
+    dataPeriod: {
+      vi: "Meta 6 tháng · TikTok 1 tháng", en: "Meta 6 months · TikTok 1 month"
+    },
+    collaborationDuration: {
+      vi: "Khoảng 2 năm, triển khai theo từng đợt", en: "Approximately 2 years, activated in campaign flights"
+    },
     platforms: [
       "Meta",
       "TikTok"
@@ -513,20 +550,20 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch truyền thông địa phương cho nhà hàng buffet, tập trung tạo hội thoại đặt bàn/tư vấn trên Meta trong khi TikTok hỗ trợ độ phủ theo từng đợt truyền thông.",
-        en: "A local-awareness campaign for a buffet restaurant, focused on generating booking and inquiry conversations on Meta while TikTok supported reach across campaign flights.",
+        vi: "Hoạt động quảng cáo theo từng đợt cho nhà hàng buffet, ưu tiên tạo hội thoại ở khu vực phục vụ và bổ sung độ phủ video khi cần thúc đẩy nhận biết.",
+        en: "Campaign-flight advertising for a buffet restaurant, prioritizing local conversations and adding video reach when broader awareness was needed.",
       },
       strategy: {
-        vi: "Nhắm mục tiêu theo bán kính địa lý quanh nhà hàng, tối ưu tin nhắn cho khung giờ cao điểm và phối hợp lịch chạy TikTok theo từng đợt truyền thông để bổ trợ độ phủ.",
-        en: "Targeted a geographic radius around the restaurant, optimized messages for peak dining hours, and coordinated TikTok flights to reinforce reach alongside each campaign wave.",
+        vi: "Tách nhóm địa lý và creative theo ưu đãi, theo dõi đồng thời chi phí hội thoại, CTR và chất lượng tương tác để phân bổ ngân sách về nhóm ổn định. TikTok bổ sung độ phủ và lượt xem video trong các đợt truyền thông ngắn.",
+        en: "Segmented geography and offer-led creatives, then monitored conversation cost, CTR, and engagement quality to prioritize stable ad groups. TikTok supported short campaign flights with incremental reach and video views.",
       },
       results: {
-        vi: "Meta tạo 1.498 cuộc hội thoại từ 12,1 triệu đồng chi tiêu; TikTok bổ sung 310 nghìn lượt hiển thị cho các đợt truyền thông địa phương.",
-        en: "Meta generated 1,498 conversations from VND 12.1M in spend, while TikTok added 310K impressions across local campaign flights.",
+        vi: "Trong kỳ dữ liệu được chọn, Meta sử dụng 12,1 triệu đồng, ghi nhận 1.498 cuộc hội thoại, 477.679 lượt hiển thị và CTR 4,08%; chi phí hội thoại quy đổi khoảng 8,1 nghìn đồng. TikTok tạo 310.412 lượt hiển thị và 66.384 lượt xem tập trung 6 giây, tương đương tỷ lệ 21,39%.",
+        en: "In the selected data period, Meta spent VND 12.1M and recorded 1,498 conversations, 477,679 impressions, and a 4.08% CTR; the estimated blended cost was approximately VND 8.1K per conversation. TikTok delivered 310,412 impressions and 66,384 focused six-second views, a 21.39% rate.",
       },
       accountScope: {
-        vi: "Điều phối lịch truyền thông theo đợt giữa Meta và TikTok, theo dõi chất lượng tin nhắn và phối hợp báo cáo kết quả từng đợt.",
-        en: "Coordinated the flight schedule between Meta and TikTok, monitored message quality, and reported results for each wave.",
+        vi: "Quản lý đầu mối khách hàng, phối hợp nội dung và vận hành Meta/TikTok; theo dõi ngân sách, kết quả và báo cáo theo từng đợt. Phạm vi dữ liệu công khai gồm 12,1 triệu đồng chi tiêu Meta trong 6 tháng và 2 triệu đồng chi tiêu TikTok trong 1 tháng.",
+        en: "Managed the client relationship, coordinated content, operated Meta/TikTok campaigns, and tracked budget, results, and campaign-flight reporting. The public data scope covers VND 12.1M in Meta spend over 6 months and VND 2M in TikTok spend over 1 month.",
       },
       insight: {
         vi: "Với ngân sách địa phương nhỏ, phân vai rõ giữa kênh tạo hội thoại và kênh bổ trợ độ phủ giúp tối đa hiệu quả trên từng đồng chi tiêu.",
@@ -547,38 +584,45 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Bất động sản", en: "Real Estate"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Tăng lead qua hai điểm chạm", en: "Two-path Lead Generation"
     },
     cardDescription: {
-      vi: "Khoảng 60,2 triệu đồng chi tiêu tạo 1.282 cuộc hội thoại và 311 lượt đăng ký website, giúp so sánh trực tiếp hai luồng thu lead.", en: "Approximately VND 60.2M in spend generated 1,282 conversations and 311 website registrations, enabling direct funnel comparison."
+      vi: "Khoảng 60,2 triệu đồng chi tiêu tạo 1.282 cuộc hội thoại và 311 lượt đăng ký website, giúp so sánh trực tiếp hiệu quả giữa hai luồng thu lead.", en: "Approximately VND 60.2M in spend generated 1,282 conversations and 311 website registrations, enabling a direct comparison between two lead-capture flows."
     },
     evidenceSummary: {
       vi: "1.282 hội thoại + 311 đăng ký website · Funnel comparison", en: "1,282 conversations + 311 website registrations · Funnel comparison"
     },
     roles: {
-      vi: "Lead Generation · Meta Ads · Funnel Comparison", en: "Lead Generation · Meta Ads · Funnel Comparison"
+      vi: "Triển khai và tối ưu Meta Ads", en: "Meta Ads execution and optimization"
     }, roleTags: [
       "Lead Generation",
       "Meta Ads",
       "Funnel Comparison"
     ],
+    dataPeriod: {
+      vi: "6 tháng", en: "6 months"
+    },
     platforms: [
       "Meta"
     ],
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch bất động sản chạy song song hai luồng thu lead trên Meta — hội thoại qua tin nhắn và đăng ký trên website — nhằm so sánh trực tiếp hiệu quả giữa hai điểm chạm.",
-        en: "A real-estate campaign ran two parallel lead paths on Meta — message conversations and website registrations — to directly compare performance between the two touchpoints.",
+        vi: "Chiến dịch nhà ở xã hội vận hành song song mục tiêu Tin nhắn và Đăng ký trên website để vừa giảm ma sát tư vấn, vừa thu thập lead có cấu trúc.",
+        en: "A social housing campaign ran Messages and Website Registration objectives in parallel to reduce consultation friction while capturing structured leads.",
       },
       strategy: {
-        vi: "Phân bổ ngân sách song song cho mục tiêu Messages và mục tiêu Website Registrations, giữ nguyên tệp và creative tương đồng giữa hai luồng để phép so sánh công bằng theo chi phí và chất lượng lead.",
-        en: "Allocated budget in parallel to Messages and Website Registrations objectives, keeping audiences and creatives comparable between the two paths for a fair cost and lead-quality comparison.",
+        vi: "Tách ngân sách, creative và báo cáo cho từng luồng; đánh giá theo CPA riêng và kiểm tra chất lượng lead trước khi điều chỉnh phân bổ. Không gộp hai loại kết quả thành một chỉ số chung.",
+        en: "Separated budget, creatives, and reporting for each flow; assessed objective-specific CPA and lead quality before reallocating spend. Results were not blended into a single metric.",
       },
       results: {
-        vi: "Khoảng 60,2 triệu đồng chi tiêu tạo 1.282 cuộc hội thoại và 311 lượt đăng ký website, cho phép so sánh trực tiếp hai luồng thu lead.",
-        en: "Approximately VND 60.2M in spend generated 1,282 conversations and 311 website registrations, enabling direct funnel comparison.",
+        vi: "Luồng Tin nhắn sử dụng 41,5 triệu đồng để tạo 1.282 cuộc hội thoại với CPA 32.393 đồng. Luồng Website sử dụng 18,6 triệu đồng để tạo 311 lượt đăng ký với CPA khoảng 59.927 đồng; tổng CTR hai nhóm lần lượt đạt 3,90% và 4,75%.",
+        en: "The Messages flow invested VND 41.5M to generate 1,282 conversations at a VND 32,393 CPA. The Website flow invested VND 18.6M to generate 311 registrations at an approximate VND 59,927 CPA; CTR reached 3.90% and 4.75%, respectively.",
       },
       insight: {
         vi: "Chạy song song hai mục tiêu trên cùng tệp giúp thấy rõ luồng nào tạo lead rẻ hơn và luồng nào phù hợp hơn với hành vi tìm hiểu bất động sản.",
@@ -599,23 +643,33 @@ export const caseStudies: CaseStudy[] = [
       "account-integrated-management"
     ], presentationTier: "evidence-only",
     industry: {
-      vi: "Tiệm vàng", en: "Jewelry Retail"
-    }, title: {
+      vi: "Cửa hàng trang sức", en: "Jewelry Retail"
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Tăng khách hàng quan tâm", en: "Jewelry Customer Acquisition"
     },
     cardDescription: {
-      vi: "Khoảng 20,7 triệu đồng media tạo 417 cuộc hội thoại trên Meta, traffic và livestream trên TikTok trong một tháng.", en: "Approximately VND 20.7M in media generated 417 Meta conversations alongside TikTok traffic and livestream activity within one month."
+      vi: "Khoảng 20,7 triệu đồng media tạo 417 cuộc hội thoại trên Meta, hơn 600 nghìn lượt hiển thị traffic và 249 lượt xem livestream hiệu quả trên TikTok trong một tháng.", en: "Approximately VND 20.7M in media generated 417 Meta conversations, more than 600K TikTok traffic impressions, and 249 effective livestream views within one month."
     },
     evidenceSummary: {
       vi: "417 hội thoại · Meta Ads và TikTok Livestream", en: "417 conversations · Meta Ads and TikTok Livestream"
     },
     roles: {
-      vi: "Account Management · Meta Ads · TikTok Livestream", en: "Account Management · Meta Ads · TikTok Livestream"
+      vi: "Quản lý account, paid media và điều phối nội dung/quay dựng", en: "Account management, paid media, and content/production coordination"
     }, roleTags: [
       "Account Management",
       "Meta Ads",
       "TikTok Livestream"
     ],
+    dataPeriod: {
+      vi: "1 tháng", en: "1 month"
+    },
+    collaborationDuration: {
+      vi: "1 tháng", en: "1 month"
+    },
     platforms: [
       "Meta",
       "TikTok"
@@ -623,20 +677,20 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch một tháng cho tiệm vàng, kết hợp hội thoại tư vấn trên Meta với traffic và livestream bán hàng trên TikTok để tăng khách hàng quan tâm.",
-        en: "A one-month campaign for a jewelry retailer, combining Meta advisory conversations with TikTok traffic and livestream selling to grow interested customer volume.",
+        vi: "Chiến dịch kết hợp Meta để tạo hội thoại với TikTok Traffic và Livestream để mở rộng điểm chạm cho tiệm vàng trong một kỳ ngắn.",
+        en: "The campaign combined Meta conversation generation with TikTok Traffic and Livestream activity to expand touchpoints for a jewelry retailer within a short period.",
       },
       strategy: {
-        vi: "Meta tập trung tạo hội thoại tư vấn sản phẩm; TikTok hỗ trợ traffic và dẫn khách vào các buổi livestream bán hàng, tận dụng tương tác trực tiếp để chốt quan tâm.",
-        en: "Meta focused on generating product advisory conversations while TikTok drove traffic into livestream selling sessions, using real-time interaction to convert interest.",
+        vi: "Meta tập trung tin nhắn; TikTok tách riêng traffic và livestream để đọc đúng mục tiêu. Nội dung và lịch quay được điều phối theo từng đợt bán hàng, tránh đánh giá livestream bằng chỉ số traffic thông thường.",
+        en: "Meta focused on messages, while TikTok separated traffic and livestream activity for objective-appropriate measurement. Content and filming schedules followed sales moments, and livestreams were not judged by standard traffic metrics.",
       },
       results: {
-        vi: "Khoảng 20,7 triệu đồng media tạo 417 cuộc hội thoại trên Meta, cùng traffic và hoạt động livestream trên TikTok trong một tháng.",
-        en: "Approximately VND 20.7M in media generated 417 Meta conversations alongside TikTok traffic and livestream activity within one month.",
+        vi: "Meta sử dụng 14,7 triệu đồng để tạo 417 cuộc hội thoại với CPA 35.252 đồng, CTR 4,67% và 285.342 lượt hiển thị. TikTok Traffic tạo 600.856 lượt hiển thị, 15.640 lượt nhấp, CTR 2,60% và CPC 346 đồng; Livestream ghi nhận 249 lượt xem hiệu quả.",
+        en: "Meta invested VND 14.7M to generate 417 conversations at a VND 35,252 CPA, a 4.67% CTR, and 285,342 impressions. TikTok Traffic delivered 600,856 impressions, 15,640 clicks, a 2.60% CTR, and VND 346 CPC; Livestream activity recorded 249 effective views.",
       },
       accountScope: {
-        vi: "Điều phối lịch livestream, nội dung TikTok và hội thoại tư vấn trên Meta trong cùng một khung thời gian, đảm bảo trải nghiệm khách hàng nhất quán giữa hai kênh.",
-        en: "Coordinated the livestream schedule, TikTok content, and Meta advisory conversations within the same timeframe to keep the customer experience consistent across both channels.",
+        vi: "Quản lý đầu mối khách hàng, thống nhất kế hoạch tháng; điều phối nội dung, lịch quay dựng, phê duyệt và paid media. Tổng phạm vi dự án khoảng 40 triệu đồng trong tháng; chi tiêu quảng cáo xác thực khoảng 20,7 triệu đồng.",
+        en: "Managed the client relationship and monthly plan, coordinating content, filming/editing schedules, approvals, and paid media. The broader project scope was approximately VND 40M for the month, with about VND 20.7M in verified media spend.",
       },
       insight: {
         vi: "Với ngành hàng cần tư vấn trực tiếp như trang sức, kết hợp hội thoại 1-1 và livestream giúp khách hàng ra quyết định nhanh hơn so với chỉ chạy quảng cáo tĩnh.",
@@ -656,38 +710,45 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Nhà hàng", en: "Restaurant"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Tăng nhận biết và tương tác", en: "Local Awareness & Engagement"
     },
     cardDescription: {
-      vi: "Trong 6 tháng, 54,2 triệu đồng chi tiêu tạo 45.723 lượt tương tác và ghi nhận 834 cuộc hội thoại hỗ trợ nhu cầu địa phương.", en: "Across six months, VND 54.2M in spend generated 45,723 engagements alongside 834 conversations supporting local demand."
+      vi: "Trong 6 tháng, 54,2 triệu đồng chi tiêu tạo 45.723 lượt tương tác với chi phí trung bình 1.186 đồng, đồng thời ghi nhận 834 cuộc hội thoại hỗ trợ nhu cầu tại địa phương.", en: "Across six months, VND 54.2M in spend generated 45,723 engagements at an average cost of VND 1,186, alongside 834 conversations supporting local demand."
     },
     evidenceSummary: {
       vi: "45.723 tương tác · 834 hội thoại", en: "45,723 engagements · 834 conversations"
     },
     roles: {
-      vi: "Meta Ads · Engagement · Local Reach", en: "Meta Ads · Engagement · Local Reach"
+      vi: "Triển khai và tối ưu Meta Ads", en: "Meta Ads execution and optimization"
     }, roleTags: [
       "Meta Ads",
       "Engagement",
       "Local Reach"
     ],
+    dataPeriod: {
+      vi: "6 tháng", en: "6 months"
+    },
     platforms: [
       "Meta"
     ],
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch 6 tháng cho nhà hàng, tập trung tăng nhận biết địa phương và duy trì tương tác đều đặn để hỗ trợ nhu cầu khách hàng quanh khu vực.",
-        en: "A six-month restaurant campaign focused on building local awareness and sustaining steady engagement to support demand from the surrounding area.",
+        vi: "Hoạt động quảng cáo cho nhà hàng lẩu, ưu tiên tương tác để duy trì độ hiện diện địa phương và hỗ trợ hội thoại khi khách hàng có nhu cầu đặt bàn hoặc tìm hiểu dịch vụ.",
+        en: "Advertising for a hotpot restaurant, prioritizing engagement to sustain local visibility and support conversations around reservations and service inquiries.",
       },
       strategy: {
-        vi: "Kết hợp mục tiêu Engagement và Messages trên Meta, nhắm theo bán kính địa lý, luân phiên nội dung món ăn và ưu đãi để duy trì tương tác trong suốt 6 tháng.",
-        en: "Combined Engagement and Messages objectives on Meta, targeted by geographic radius, and rotated dish and promotion content to sustain engagement across the six months.",
+        vi: "Tối ưu creative theo nội dung có tín hiệu tương tác tốt, kiểm soát tần suất trong vùng phục vụ và theo dõi tin nhắn như chỉ số hỗ trợ thay vì trộn với mục tiêu tương tác chính.",
+        en: "Optimized creatives around strong engagement signals, controlled frequency within the service area, and tracked messages as a supporting metric rather than blending them with the primary engagement objective.",
       },
       results: {
-        vi: "Trong 6 tháng, 54,2 triệu đồng chi tiêu tạo 45.723 lượt tương tác và ghi nhận 834 cuộc hội thoại hỗ trợ nhu cầu địa phương.",
-        en: "Across six months, VND 54.2M in spend generated 45,723 engagements alongside 834 conversations supporting local demand.",
+        vi: "54,2 triệu đồng chi tiêu tạo 45.723 lượt tương tác với chi phí trung bình 1.186 đồng; chiến dịch tiếp cận 607.017 người, tạo 3,13 triệu lượt hiển thị, CTR 2,25% và ghi nhận 834 cuộc hội thoại.",
+        en: "VND 54.2M in spend generated 45,723 engagements at an average cost of VND 1,186; the campaign reached 607,017 people, delivered 3.13M impressions, achieved a 2.25% CTR, and recorded 834 conversations.",
       },
       insight: {
         vi: "Duy trì tương tác đều đặn trong thời gian dài giúp nhà hàng luôn xuất hiện trong lựa chọn của khách quanh khu vực, thay vì chỉ chạy theo từng đợt ngắn hạn.",
@@ -709,42 +770,52 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Mầm non tư thục", en: "Private Preschool"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Tuyển sinh qua Meta Ads", en: "Preschool Enrollment Campaign"
     },
     cardDescription: {
-      vi: "Trong 2 tháng, các nhóm tuyển sinh tạo 559 cuộc hội thoại, đi cùng hoạt động điều phối nội dung và lịch quay.", en: "Across two months, enrollment campaigns generated 559 conversations, supported by content and filming coordination."
+      vi: "Trong 2 tháng, các nhóm tuyển sinh tạo 559 cuộc hội thoại với chi phí trung bình khoảng 20,2 nghìn đồng, đi cùng hoạt động điều phối nội dung và lịch quay.", en: "Across two months, enrollment campaigns generated 559 conversations at an average cost of approximately VND 20.2K, supported by content and filming coordination."
     },
     evidenceSummary: {
       vi: "559 hội thoại · Tuyển sinh và production coordination", en: "559 conversations · Enrollment and production coordination"
     },
     roles: {
-      vi: "Enrollment Ads · Account Management · Production", en: "Enrollment Ads · Account Management · Production"
+      vi: "Quản lý account, quảng cáo và điều phối nội dung/quay", en: "Account management, advertising, and content/filming coordination"
     }, roleTags: [
       "Enrollment Ads",
       "Account Management",
-      "Production"
+      "Production Coordination"
     ],
+    dataPeriod: {
+      vi: "2 tháng", en: "2 months"
+    },
+    collaborationDuration: {
+      vi: "2 tháng", en: "2 months"
+    },
     platforms: [
       "Meta"
     ],
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch tuyển sinh 2 tháng cho mầm non tư thục trên Meta Ads, kết hợp quảng cáo với điều phối nội dung và lịch quay để phụ huynh có đủ thông tin trước khi liên hệ tư vấn.",
-        en: "A two-month preschool enrollment campaign on Meta Ads, paired with content and filming coordination so parents had enough information before reaching out for consultation.",
+        vi: "Chiến dịch tuyển sinh cho nhà trẻ, mầm non tư thục cần tạo hội thoại trong bán kính phù hợp và bảo đảm nội dung thể hiện môi trường học tập một cách tin cậy.",
+        en: "Enrollment advertising for a private nursery and preschool needed to generate conversations within a relevant radius while presenting the learning environment credibly.",
       },
       strategy: {
-        vi: "Chia nhóm quảng cáo theo mùa tuyển sinh và khu vực, ưu tiên nội dung hình ảnh/video thực tế lớp học, đồng thời điều phối lịch quay để nội dung mới được cập nhật liên tục.",
-        en: "Segmented ad sets by enrollment season and area, prioritized authentic classroom photo and video content, and coordinated the filming schedule to keep content refreshed.",
+        vi: "Tách riêng nhóm tuyển sinh khỏi các hoạt động tương tác, ưu tiên khu vực gần trường và điều phối nội dung cùng lịch quay theo câu hỏi thực tế của phụ huynh.",
+        en: "Separated enrollment activity from engagement campaigns, prioritized areas near the school, and coordinated content and filming around parents' actual questions.",
       },
       results: {
-        vi: "Trong 2 tháng, các nhóm quảng cáo tuyển sinh tạo 559 cuộc hội thoại, đi cùng hoạt động điều phối nội dung và lịch quay.",
-        en: "Across two months, enrollment ad sets generated 559 conversations, supported by content and filming coordination.",
+        vi: "Các nhóm tuyển sinh sử dụng khoảng 11,3 triệu đồng để tạo 559 cuộc hội thoại với chi phí trung bình khoảng 20.245 đồng. Toàn tài khoản đạt 52.018 người tiếp cận, 323.207 lượt hiển thị và CTR 3,15%.",
+        en: "Enrollment ad groups invested approximately VND 11.3M to generate 559 conversations at an average cost of about VND 20,245. The account reached 52,018 people, delivered 323,207 impressions, and achieved a 3.15% CTR.",
       },
       accountScope: {
-        vi: "Điều phối lịch quay, duyệt nội dung và tiến độ sản xuất giữa nhà trường và team quảng cáo để đảm bảo tài liệu tuyển sinh luôn sẵn sàng đúng mùa.",
-        en: "Coordinated the filming schedule, content approvals, and production timeline between the school and the ads team to keep enrollment materials ready each season.",
+        vi: "Quản lý đầu mối khách hàng và kế hoạch tuyển sinh; điều phối nội dung, lịch quay, phê duyệt và paid media. Ngân sách quảng cáo khoảng 4–5 triệu đồng mỗi tháng theo từng đợt tuyển sinh.",
+        en: "Managed the client relationship and enrollment plan, coordinating content, filming schedules, approvals, and paid media. Monthly media spend was approximately VND 4–5M during enrollment flights.",
       },
       insight: {
         vi: "Với ngành giáo dục mầm non, nội dung hình ảnh thực tế và cập nhật liên tục quan trọng không kém việc tối ưu quảng cáo, vì phụ huynh cần thấy môi trường học thật trước khi liên hệ.",
@@ -767,6 +838,9 @@ export const caseStudies: CaseStudy[] = [
     featuredRank: 5,
     industry: {
       vi: "Yoga", en: "Yoga"
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
     },
     title: {
       vi: "Tăng lượng khách hàng tư vấn", en: "Yoga Inquiry Generation"
@@ -833,35 +907,42 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Ô tô", en: "Automotive"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Thu hút khách hàng tiềm năng", en: "Automotive Lead Generation"
     },
     cardDescription: {
-      vi: "Trong 2 tháng, 17,9 triệu đồng chi tiêu tạo 253 cuộc hội thoại và tiếp cận hơn 295 nghìn người.", en: "Across two months, VND 17.9M in spend generated 253 conversations and reached more than 295K people."
+      vi: "Trong 2 tháng, 17,9 triệu đồng chi tiêu tạo 253 cuộc hội thoại, tiếp cận hơn 295 nghìn người và duy trì luồng khách quan tâm cho ngành ô tô cao cấp.", en: "Across two months, VND 17.9M in spend generated 253 conversations, reached more than 295K people, and sustained an inquiry flow for the premium automotive category."
     },
     evidenceSummary: {
       vi: "253 hội thoại · Ngành ô tô", en: "253 conversations · Automotive"
     },
     roles: {
-      vi: "Meta Ads · Message Generation · Reporting", en: "Meta Ads · Message Generation · Reporting"
+      vi: "Triển khai và tối ưu Meta Ads", en: "Meta Ads execution and optimization"
     }, roleTags: [
       "Meta Ads",
       "Message Generation",
       "Reporting"
     ],
+    dataPeriod: {
+      vi: "2 tháng", en: "2 months"
+    },
     platforms: [
       "Meta"
     ],
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch 2 tháng cho ngành ô tô, tập trung tạo hội thoại tư vấn từ khách hàng đang tìm hiểu mua xe qua Meta Ads.", en: "A two-month automotive campaign focused on generating advisory conversations from prospective car buyers through Meta Ads.",
+        vi: "Chiến dịch tin nhắn cho ngành ô tô cao cấp, nơi CPA cần được đọc cùng chất lượng hội thoại và khả năng chuyển tiếp cho đội ngũ tư vấn.", en: "A messaging campaign for premium automotive, where CPA needed to be considered alongside conversation quality and successful handoff to the sales team.",
       },
       strategy: {
-        vi: "Sử dụng mục tiêu Messages với creative tập trung vào thông số và ưu đãi xe, theo dõi độ tiếp cận song song với số hội thoại để đảm bảo quy mô tệp đủ lớn.", en: "Used the Messages objective with creatives centered on vehicle specs and promotions, tracking reach alongside conversation volume to keep the audience pool large enough.",
+        vi: "Tách creative theo nhu cầu tìm hiểu xe, kiểm soát khu vực và tần suất, đồng thời theo dõi chất lượng phản hồi để tránh tối ưu theo số lượng tin nhắn đơn thuần.", en: "Separated creatives by vehicle-interest intent, controlled geography and frequency, and monitored response quality to avoid optimizing solely for message volume.",
       },
       results: {
-        vi: "Trong 2 tháng, 17,9 triệu đồng chi tiêu tạo 253 cuộc hội thoại và tiếp cận hơn 295 nghìn người.", en: "Across two months, VND 17.9M in spend generated 253 conversations and reached more than 295K people.",
+        vi: "17,9 triệu đồng chi tiêu tạo 253 cuộc hội thoại với CPA trung bình 70.830 đồng. Chiến dịch tiếp cận 295.512 người, tạo 558.256 lượt hiển thị, CTR 1,43% và 4.272 lượt nhấp liên kết.", en: "VND 17.9M in spend generated 253 conversations at an average CPA of VND 70,830. The campaign reached 295,512 people, delivered 558,256 impressions, achieved a 1.43% CTR, and generated 4,272 link clicks.",
       },
       insight: {
         vi: "Với sản phẩm giá trị cao như ô tô, duy trì độ tiếp cận đủ rộng song song với tối ưu hội thoại giúp không bỏ lỡ khách hàng đang trong giai đoạn tìm hiểu.", en: "For a high-value product like a car, keeping reach broad alongside conversation optimization avoids missing buyers who are still in the research phase.",
@@ -880,35 +961,42 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Ô tô", en: "Automotive"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Paid Media", en: "Paid Media"
+    },
+    title: {
       vi: "Kết hợp tin nhắn và tương tác", en: "Messages & Engagement"
     },
     cardDescription: {
-      vi: "Gần 10 triệu đồng chi tiêu tạo 197 cuộc hội thoại và 1.679 lượt tương tác, với từng mục tiêu được báo cáo riêng.", en: "Nearly VND 10M in spend generated 197 conversations and 1,679 engagements, with each objective reported separately."
+      vi: "Trong một tháng, gần 10 triệu đồng chi tiêu tạo 197 cuộc hội thoại ở nhóm tin nhắn và 1.679 lượt tương tác ở nhóm nội dung, mỗi mục tiêu được báo cáo riêng.", en: "Within one month, nearly VND 10M in spend generated 197 conversations from the messaging campaign and 1,679 engagements from the content campaign, reported separately by objective."
     },
     evidenceSummary: {
       vi: "Messages và Engagement được báo cáo tách biệt", en: "Messages and Engagement reported separately"
     },
     roles: {
-      vi: "Meta Ads · Messages · Engagement", en: "Meta Ads · Messages · Engagement"
+      vi: "Triển khai và tối ưu Meta Ads", en: "Meta Ads execution and optimization"
     }, roleTags: [
       "Meta Ads",
       "Messages",
       "Engagement"
     ],
+    dataPeriod: {
+      vi: "1 tháng", en: "1 month"
+    },
     platforms: [
       "Meta"
     ],
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch ô tô chạy song song hai mục tiêu Messages và Engagement trên Meta, tách bạch báo cáo để tránh nhầm lẫn giữa hội thoại tư vấn và tương tác bề mặt.", en: "An automotive campaign ran Messages and Engagement objectives in parallel on Meta, with results reported separately to avoid conflating advisory conversations with surface-level engagement.",
+        vi: "Chiến dịch ô tô kết hợp mục tiêu Tin nhắn để thu nhu cầu và Tương tác để khuếch đại nội dung, nhưng không gộp hai loại kết quả vào cùng một chỉ số.", en: "An automotive campaign combined Messages for inquiry generation with Engagement for content amplification, while keeping objective results separate.",
       },
       strategy: {
-        vi: "Phân bổ ngân sách riêng cho từng mục tiêu, dùng creative khác nhau phù hợp với từng loại tương tác, và không gộp số liệu hai mục tiêu khi đánh giá hiệu quả.", en: "Allocated budget separately per objective, used distinct creatives suited to each interaction type, and never combined the two objectives' metrics when assessing performance.",
+        vi: "Phân tách ngân sách, creative và KPI theo mục tiêu; đánh giá tin nhắn bằng CPA và tương tác bằng chi phí mỗi kết quả, đồng thời kiểm soát độ phủ chung.", en: "Separated budgets, creatives, and KPIs by objective; evaluated messaging through CPA and engagement through cost per result while monitoring overall reach.",
       },
       results: {
-        vi: "Gần 10 triệu đồng chi tiêu tạo 197 cuộc hội thoại và 1.679 lượt tương tác, với từng mục tiêu được báo cáo riêng.", en: "Nearly VND 10M in spend generated 197 conversations and 1,679 engagements, with each objective reported separately.",
+        vi: "Nhóm Tin nhắn tạo 197 cuộc hội thoại với CPA 40.349 đồng. Nhóm Tương tác tạo 1.679 lượt tương tác với chi phí trung bình 1.222 đồng; toàn chiến dịch tiếp cận 381.553 người và tạo 739.129 lượt hiển thị.", en: "The Messages campaign generated 197 conversations at a VND 40,349 CPA. The Engagement campaign produced 1,679 engagements at an average cost of VND 1,222; the overall activity reached 381,553 people and delivered 739,129 impressions.",
       },
       insight: {
         vi: "Báo cáo tách biệt theo mục tiêu giúp tránh đánh giá sai khi gộp chung số liệu tin nhắn có giá trị chuyển đổi cao với tương tác bề mặt.", en: "Reporting by objective separately avoids misjudging performance by mixing high-intent message conversations with lower-intent surface engagement.",
@@ -930,22 +1018,32 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Xây dựng", en: "Construction"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Full-stack Marketing", en: "Full-stack Marketing"
+    },
+    title: {
       vi: "Thu hút khách hàng tiềm năng", en: "Construction Lead Generation"
     },
     cardDescription: {
-      vi: "Kết nối Meta Ads, nội dung fanpage và landing page trong một luồng thu lead; kỳ một tháng tạo 51 cuộc hội thoại.", en: "Connected Meta Ads, Facebook content, and a landing page into one lead journey; the one-month period generated 51 conversations."
+      vi: "Kết nối Meta Ads, nội dung fanpage và landing page trong một luồng thu lead; kỳ một tháng tạo 51 cuộc hội thoại với CTR 4,44%.", en: "Connected Meta Ads, Facebook content, and a landing page into one lead journey; the one-month period generated 51 conversations with a 4.44% CTR."
     },
     evidenceSummary: {
       vi: "Ads–Content–Landing page · 51 hội thoại", en: "Ads–Content–Landing page · 51 conversations"
     },
     roles: {
-      vi: "Account Management · Meta Ads · Landing Page", en: "Account Management · Meta Ads · Landing Page"
+      vi: "Account, Meta Ads, điều phối nội dung và landing page", en: "Account management, Meta Ads, content coordination, and landing page"
     }, roleTags: [
       "Account Management",
       "Meta Ads",
       "Landing Page"
     ],
+    dataPeriod: {
+      vi: "1 tháng", en: "1 month"
+    },
+    collaborationDuration: {
+      vi: "1 tháng", en: "1 month"
+    },
     platforms: [
       "Meta",
       "Landing Page"
@@ -953,16 +1051,16 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Chiến dịch xây dựng trong 1 tháng, nối liền Meta Ads, nội dung fanpage và landing page thành một luồng thu lead thống nhất thay vì chạy rời rạc từng phần.", en: "A one-month construction campaign connected Meta Ads, fanpage content, and a landing page into a single unified lead journey instead of running each piece separately.",
+        vi: "Dự án xây dựng cần một luồng thống nhất từ nội dung fanpage và quảng cáo đến landing page, giúp khách hàng hiểu dịch vụ trước khi để lại nhu cầu.", en: "A construction project needed a consistent journey from Facebook content and ads to a landing page, helping prospects understand the service before inquiring.",
       },
       strategy: {
-        vi: "Đồng bộ thông điệp giữa quảng cáo, bài đăng fanpage và landing page; dẫn traffic từ quảng cáo qua landing page trước khi chuyển thành hội thoại tư vấn.", en: "Synchronized messaging across ads, fanpage posts, and the landing page, routing ad traffic through the landing page before converting into advisory conversations.",
+        vi: "Đồng bộ thông điệp giữa fanpage, creative và landing page; tối ưu quảng cáo cho tin nhắn, đồng thời sắp xếp nội dung landing page theo nhu cầu, năng lực và lời kêu gọi hành động.", en: "Aligned messaging across the page, creatives, and landing page; optimized ads for messages and structured the landing page around needs, capabilities, and clear calls to action.",
       },
       results: {
-        vi: "Kết nối Meta Ads, nội dung fanpage và landing page trong một luồng thu lead; kỳ một tháng tạo 51 cuộc hội thoại.", en: "Connected Meta Ads, fanpage content, and a landing page into one lead journey; the one-month period generated 51 conversations.",
+        vi: "4,0 triệu đồng chi tiêu tạo 51 cuộc hội thoại với CPA 78.912 đồng. Chiến dịch tiếp cận 43.986 người, tạo 88.599 lượt hiển thị, CTR 4,44% và 1.871 lượt nhấp liên kết.", en: "VND 4.0M in spend generated 51 conversations at a VND 78,912 CPA. The campaign reached 43,986 people, delivered 88,599 impressions, achieved a 4.44% CTR, and generated 1,871 link clicks.",
       },
       accountScope: {
-        vi: "Điều phối giữa team quảng cáo, nội dung fanpage và landing page để đảm bảo thông điệp nhất quán xuyên suốt luồng thu lead.", en: "Coordinated between the ads, fanpage content, and landing-page teams to keep messaging consistent across the entire lead journey.",
+        vi: "Quản lý đầu mối khách hàng; phối hợp nội dung Facebook, landing page, phê duyệt và paid media; theo dõi tiến độ và báo cáo. Tổng phạm vi dự án khoảng 15 triệu đồng/tháng, gồm khoảng 4 triệu đồng chi tiêu quảng cáo.", en: "Managed the client relationship and coordinated Facebook content, landing page delivery, approvals, paid media, progress, and reporting. The broader project scope was approximately VND 15M per month, including about VND 4M in media spend.",
       },
       insight: {
         vi: "Với ngành cần niềm tin cao như xây dựng, nối liền quảng cáo–nội dung–landing page giúp khách hàng có đủ thông tin trước khi để lại liên hệ.", en: "For a trust-heavy category like construction, connecting ads, content, and the landing page gives customers enough information before they leave their contact details.",
@@ -983,22 +1081,32 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Giáo dục Hàn ngữ", en: "Korean Education"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Full-stack Marketing", en: "Full-stack Marketing"
+    },
+    title: {
       vi: "Tuyển sinh đa nền tảng", en: "Multi-channel Enrollment"
     },
     cardDescription: {
-      vi: "Kết hợp Facebook Messages và TikTok Click-to-Zalo trong một đợt tuyển sinh; kết quả chi tiết chờ dashboard xác thực.", en: "Combined Facebook Messages and TikTok Click-to-Zalo for enrollment; detailed results await dashboard verification."
+      vi: "Kết hợp Facebook Messages và TikTok Click-to-Zalo trong một đợt tuyển sinh, với ngân sách quảng cáo khoảng 10–16 triệu đồng và hoạt động account, nội dung, quay dựng được điều phối đồng bộ.", en: "Combined Facebook Messages and TikTok Click-to-Zalo for an enrollment campaign, with approximately VND 10–16M in media spend and coordinated account, content, and production workflows."
     },
     evidenceSummary: {
       vi: "Facebook-to-Messenger và TikTok-to-Zalo", en: "Facebook-to-Messenger and TikTok-to-Zalo"
     },
     roles: {
-      vi: "Account · Paid Media · Production Coordination", en: "Account · Paid Media · Production Coordination"
+      vi: "Account, paid media và điều phối nội dung/quay dựng", en: "Account management, paid media, and content/production coordination"
     }, roleTags: [
-      "Account",
+      "Account Management",
       "Enrollment Ads",
-      "Production"
+      "Production Coordination"
     ],
+    dataPeriod: {
+      vi: "1 tháng", en: "1 month"
+    },
+    collaborationDuration: {
+      vi: "1 tháng", en: "1 month"
+    },
     platforms: [
       "Meta",
       "TikTok",
@@ -1007,16 +1115,16 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Đợt tuyển sinh cho trung tâm giáo dục Hàn ngữ, kết hợp Facebook Messages và TikTok Click-to-Zalo thành hai luồng thu lead song song.", en: "An enrollment drive for a Korean-language education center, combining Facebook Messages and TikTok Click-to-Zalo into two parallel lead paths.",
+        vi: "Đợt tuyển sinh cho trung tâm Hàn ngữ và tư vấn du học cần kết hợp hội thoại trực tiếp trên Facebook với luồng chuyển tiếp sang Zalo từ TikTok.", en: "An enrollment campaign for Korean language and study-abroad consulting needed to combine direct Facebook conversations with TikTok traffic routed to Zalo.",
       },
       strategy: {
-        vi: "Facebook dẫn về hội thoại Messenger cho tư vấn trực tiếp; TikTok dẫn về Zalo để tiếp cận nhóm học viên trẻ quen thuộc với nền tảng này. Cả hai luồng được điều phối cùng lịch sản xuất nội dung.", en: "Facebook drove conversations into Messenger for direct advising, while TikTok routed leads to Zalo to reach a younger student segment more comfortable on that platform. Both paths were coordinated on the same content production schedule.",
+        vi: "Facebook tập trung Tin nhắn; TikTok tập trung Click-to-Zalo. Nội dung và lịch quay dựng được điều phối theo từng nhóm chương trình, bảo đảm CTA và điểm đến thống nhất.", en: "Facebook focused on Messages, while TikTok focused on Click-to-Zalo. Content and production schedules were coordinated by program group to keep calls to action and destinations consistent.",
       },
       results: {
-        vi: "Kết hợp Facebook Messages và TikTok Click-to-Zalo trong một đợt tuyển sinh; kết quả chi tiết đang chờ xác thực từ dashboard trước khi công bố số liệu cụ thể.", en: "Combined Facebook Messages and TikTok Click-to-Zalo for enrollment; detailed figures are still pending dashboard verification before being published.",
+        vi: "Hoàn thành hệ thống tuyển sinh hai nền tảng trong ngân sách quảng cáo khoảng 10–16 triệu đồng cho kỳ một tháng, với luồng Facebook-to-Messenger và TikTok-to-Zalo được theo dõi riêng. Số kết quả chi tiết chỉ public sau khi có ảnh dashboard xác thực.", en: "Delivered a two-platform enrollment system within approximately VND 10–16M in media spend for one month, with Facebook-to-Messenger and TikTok-to-Zalo flows tracked separately. Detailed results should only be published after dashboard verification.",
       },
       accountScope: {
-        vi: "Điều phối song song hai luồng Messenger và Zalo, đồng bộ lịch sản xuất nội dung và theo dõi tiến độ tuyển sinh giữa các nền tảng.", en: "Coordinated the Messenger and Zalo paths in parallel, synchronized the content production schedule, and tracked enrollment progress across platforms.",
+        vi: "Quản lý đầu mối khách hàng và kế hoạch tuyển sinh; điều phối ngân sách, paid media, nội dung, lịch quay/dựng, phê duyệt và tiến độ triển khai.", en: "Managed the client relationship and enrollment plan, coordinating budget, paid media, content, filming/editing schedules, approvals, and delivery timelines.",
       },
       insight: {
         vi: "Dẫn lead về kênh nhắn tin quen thuộc với từng nhóm đối tượng (Messenger cho Facebook, Zalo cho TikTok) giúp tăng tỷ lệ phản hồi so với dùng chung một kênh.", en: "Routing leads to the messaging channel each audience already prefers (Messenger for Facebook, Zalo for TikTok) improves response rates compared to funneling everyone into one channel.",
@@ -1036,22 +1144,29 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Dịch vụ doanh nghiệp", en: "Business Services"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Design & Copywriting", en: "Design & Copywriting"
+    },
+    title: {
       vi: "Xây dựng bộ nhận diện", en: "Brand Identity System"
     },
     cardDescription: {
-      vi: "Phát triển hệ thống nhận diện từ logo, guideline và banner đến tài liệu bán hàng, biển chỉ dẫn và nội dung thương hiệu.", en: "Developed an identity system spanning the logo, guidelines, banners, sales materials, wayfinding, and brand copy."
+      vi: "Phát triển hệ thống nhận diện có thể triển khai nhất quán từ logo, guideline và banner đến bộ tài liệu bán hàng, biển chỉ dẫn và nội dung thương hiệu.", en: "Developed a consistent identity system spanning the logo, guidelines, banners, sales materials, wayfinding, informational signage, and brand copy."
     },
     evidenceSummary: {
       vi: "Brand identity · Graphic Design · Copywriting", en: "Brand identity · Graphic Design · Copywriting"
     },
     roles: {
-      vi: "Brand Identity · Graphic Design · Copywriting", en: "Brand Identity · Graphic Design · Copywriting"
+      vi: "Thiết kế nhận diện, ấn phẩm và copywriting", en: "Brand identity, collateral design, and copywriting"
     }, roleTags: [
       "Brand Identity",
       "Graphic Design",
       "Copywriting"
     ],
+    engagement: {
+      vi: "Bắt đầu trong kỳ thực tập, tiếp tục theo hình thức freelance", en: "Began during an internship and continued as freelance work"
+    },
     platforms: [
       "Online",
       "Offline"
@@ -1059,13 +1174,13 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Xây dựng bộ nhận diện thương hiệu toàn diện cho một doanh nghiệp dịch vụ, bao phủ cả kênh online lẫn offline.", en: "Built a comprehensive brand identity system for a business-services company, spanning both online and offline touchpoints.",
+        vi: "Dự án cần một ngôn ngữ hình ảnh thống nhất cho nhiều điểm chạm, từ tài liệu bán hàng và banner đến hệ thống biển chỉ dẫn và biển thông tin.", en: "The project needed a consistent visual language across multiple touchpoints, from sales materials and banners to wayfinding and informational signage.",
       },
       strategy: {
-        vi: "Thiết kế logo và bộ guideline làm nền tảng, sau đó triển khai nhất quán xuống banner, tài liệu bán hàng, biển chỉ dẫn và nội dung thương hiệu để mọi điểm chạm dùng chung một ngôn ngữ hình ảnh.", en: "Designed the logo and guideline system as the foundation, then applied it consistently across banners, sales materials, wayfinding, and brand copy so every touchpoint shared one visual language.",
+        vi: "Chuẩn hóa cách sử dụng logo, màu sắc, bố cục và giọng điệu; xây dựng các ứng dụng thực tế để đội ngũ có thể triển khai đồng bộ trên cả kênh online và offline.", en: "Standardized logo usage, color, layout, and tone of voice, then translated the system into practical assets for consistent online and offline execution.",
       },
       results: {
-        vi: "Phát triển hệ thống nhận diện từ logo, guideline và banner đến tài liệu bán hàng, biển chỉ dẫn và nội dung thương hiệu.", en: "Developed an identity system spanning the logo, guidelines, banners, sales materials, wayfinding, and brand copy.",
+        vi: "Hoàn thiện một hệ thống nhận diện có khả năng mở rộng, giúp các ấn phẩm mới giữ được tính nhất quán mà vẫn linh hoạt theo từng mục đích truyền thông.", en: "Completed a scalable identity system that keeps new materials consistent while remaining flexible across communication needs.",
       },
       insight: {
         vi: "Một bộ guideline rõ ràng ngay từ đầu giúp các hạng mục sau (banner, tài liệu, biển chỉ dẫn) triển khai nhanh và đồng bộ hơn thay vì thiết kế rời rạc từng lần.", en: "A clear guideline set from the start lets downstream materials (banners, sales docs, wayfinding) ship faster and stay consistent, instead of being designed piecemeal each time.",
@@ -1085,35 +1200,42 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Dịch vụ marketing", en: "Marketing Services"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Branding & Copywriting", en: "Branding & Copywriting"
+    },
+    title: {
       vi: "Xây dựng logo và nội dung", en: "Logo & Content System"
     },
     cardDescription: {
-      vi: "Xây dựng logo và hệ thống nội dung nền tảng để thương hiệu trình bày dịch vụ nhất quán trên fanpage.", en: "Developed a logo and foundational content system to keep service communication consistent across the fanpage."
+      vi: "Xây dựng logo và hệ thống nội dung nền tảng để thương hiệu có hình ảnh rõ ràng hơn, đồng thời duy trì cách giới thiệu dịch vụ nhất quán trên fanpage.", en: "Developed a logo and foundational content system to clarify the brand's visual identity and keep service communication consistent across the fanpage."
     },
     evidenceSummary: {
       vi: "Logo Design · Copywriting · Content Direction", en: "Logo Design · Copywriting · Content Direction"
     },
     roles: {
-      vi: "Logo Design · Copywriting · Content Direction", en: "Logo Design · Copywriting · Content Direction"
+      vi: "Thiết kế logo, định hướng nội dung và copywriting", en: "Logo design, content direction, and copywriting"
     }, roleTags: [
       "Logo Design",
       "Copywriting",
       "Content Direction"
     ],
+    engagement: {
+      vi: "Freelance", en: "Freelance"
+    },
     platforms: [
       "Facebook"
     ],
     metrics: [],
     detail: {
       overview: {
-        vi: "Xây dựng logo và hệ thống nội dung nền tảng cho một doanh nghiệp dịch vụ marketing, giúp trình bày dịch vụ nhất quán trên fanpage.", en: "Built a logo and a foundational content system for a marketing-services business to present its offerings consistently on the fanpage.",
+        vi: "Thương hiệu cần một dấu hiệu nhận diện dễ ứng dụng cùng cách diễn đạt dịch vụ rõ ràng, phù hợp với fanpage và các điểm chạm cơ bản.", en: "The brand needed an adaptable visual mark and a clear way to communicate services across the fanpage and core touchpoints.",
       },
       strategy: {
-        vi: "Thiết kế logo trước, sau đó xây khung nội dung (chủ đề, giọng văn, định dạng bài đăng) để đội ngũ có thể sản xuất nội dung fanpage nhất quán mà không cần thiết kế lại từ đầu mỗi lần.", en: "Designed the logo first, then built a content framework (themes, tone, post formats) so the team could keep producing consistent fanpage content without redesigning from scratch each time.",
+        vi: "Thiết kế logo theo hướng dễ nhận biết và linh hoạt khi thu nhỏ; song song xây dựng nhóm chủ đề, cấu trúc bài viết và giọng điệu nhất quán.", en: "Designed a recognizable logo that remains legible at small sizes, while establishing content themes, post structures, and a consistent tone of voice.",
       },
       results: {
-        vi: "Xây dựng logo và hệ thống nội dung nền tảng để thương hiệu trình bày dịch vụ nhất quán trên fanpage.", en: "Developed a logo and foundational content system to keep service communication consistent across the fanpage.",
+        vi: "Hoàn thiện nền tảng nhận diện và nội dung giúp fanpage trình bày dịch vụ mạch lạc hơn, đồng thời tạo khuôn mẫu để phát triển các bài viết tiếp theo.", en: "Completed a visual and content foundation that communicates services more clearly and provides a reusable framework for future posts.",
       },
       insight: {
         vi: "Với doanh nghiệp dịch vụ, một hệ thống nội dung nền tảng giúp duy trì giọng thương hiệu nhất quán ngay cả khi khối lượng bài đăng tăng lên.", en: "For a services business, a foundational content system keeps the brand voice consistent even as posting volume grows.",
@@ -1134,22 +1256,29 @@ export const caseStudies: CaseStudy[] = [
     ], presentationTier: "evidence-only",
     industry: {
       vi: "Phòng khám da liễu", en: "Dermatology Clinic"
-    }, title: {
+    },
+    serviceCategory: {
+      vi: "Content & Creative", en: "Content & Creative"
+    },
+    title: {
       vi: "Nội dung đa định dạng", en: "Multi-format Content"
     },
     cardDescription: {
-      vi: "Lên kế hoạch, viết nội dung, thiết kế và sản xuất video để duy trì hệ thống truyền thông đồng bộ cho nhiều nhóm nhu cầu.", en: "Planned, wrote, designed, and produced video content to maintain a consistent communication system across audience needs."
+      vi: "Lên kế hoạch, viết nội dung, thiết kế và sản xuất video giúp phòng khám duy trì hệ thống truyền thông đồng bộ, dễ tiếp cận và phù hợp với từng nhóm nhu cầu.", en: "Planned, wrote, designed, and produced video content to build a consistent, accessible communication system for different audience needs."
     },
     evidenceSummary: {
       vi: "Content Planning · Copywriting · Video Production", en: "Content Planning · Copywriting · Video Production"
     },
     roles: {
-      vi: "Content Planning · Copywriting · Video Production", en: "Content Planning · Copywriting · Video Production"
+      vi: "Lập kế hoạch nội dung, copywriting, thiết kế, quay và dựng video", en: "Content planning, copywriting, design, filming, and video editing"
     }, roleTags: [
       "Content Planning",
       "Copywriting",
       "Video Production"
     ],
+    engagement: {
+      vi: "Full-time", en: "Full-time"
+    },
     platforms: [
       "Facebook",
       "TikTok"
@@ -1157,13 +1286,13 @@ export const caseStudies: CaseStudy[] = [
     metrics: [],
     detail: {
       overview: {
-        vi: "Duy trì hệ thống truyền thông đa định dạng cho phòng khám da liễu trên Facebook và TikTok, phục vụ nhiều nhóm nhu cầu khách hàng khác nhau.", en: "Maintained a multi-format communication system for a dermatology clinic across Facebook and TikTok, serving several distinct patient-need segments.",
+        vi: "Phụ trách nội dung in-house cho phòng khám da liễu, từ kế hoạch chủ đề đến sản xuất bài viết, thiết kế và video phục vụ truyền thông thường xuyên.", en: "Managed in-house content for a dermatology clinic, covering topic planning, copy, design, and video production for always-on communication.",
       },
       strategy: {
-        vi: "Lên kế hoạch nội dung theo từng nhóm nhu cầu (điều trị, chăm sóc da, tư vấn), viết nội dung và thiết kế phù hợp từng định dạng, đồng thời sản xuất video để phủ cả nội dung tĩnh và động.", en: "Planned content by patient-need segment (treatment, skincare, consultation), wrote and designed for each format, and produced video to cover both static and motion content.",
+        vi: "Xây dựng kế hoạch theo nhóm dịch vụ và mối quan tâm của khách hàng; phát triển thông điệp thành bài viết, thiết kế, kịch bản và video, đồng thời trực tiếp quay dựng để giữ nội dung nhất quán.", en: "Structured content around service groups and customer concerns, then developed each message into posts, designs, scripts, and videos while handling filming and editing for consistency.",
       },
       results: {
-        vi: "Lên kế hoạch, viết nội dung, thiết kế và sản xuất video để duy trì hệ thống truyền thông đồng bộ cho nhiều nhóm nhu cầu.", en: "Planned, wrote, designed, and produced video content to maintain a consistent communication system across audience needs.",
+        vi: "Hoàn thiện quy trình sản xuất nội dung đa định dạng, giúp fanpage duy trì hình ảnh đồng bộ, thông tin rõ ràng và có nền tảng tài sản để phát triển các nội dung tiếp theo.", en: "Established a multi-format content workflow that improved visual consistency, message clarity, and the reusable asset base for future communication.",
       },
       insight: {
         vi: "Với phòng khám phục vụ nhiều nhu cầu khác nhau, đa dạng định dạng nội dung (viết, thiết kế, video) giúp tiếp cận đúng nhóm khách hàng thay vì dùng một công thức chung cho tất cả.", en: "For a clinic serving varied patient needs, mixing content formats (copy, design, video) reaches each audience segment more precisely than a one-size-fits-all approach.",

@@ -46,7 +46,11 @@ export function CaseCard({ caseStudy, content, language, onSelect, previewMode }
       <div className="case-card-content">
         <div className="case-card-topline">
           <span>CASE {caseNumber}</span>
-          <span>{caseStudy.industry[language]}</span>
+          <span>
+            {caseStudy.serviceCategory
+              ? `${caseStudy.serviceCategory[language]} · ${caseStudy.industry[language]}`
+              : caseStudy.industry[language]}
+          </span>
         </div>
 
         <div className="discipline-tags" aria-label={caseStudy.disciplineTags.join(", ")}>
