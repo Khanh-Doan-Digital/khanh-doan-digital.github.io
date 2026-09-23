@@ -23,9 +23,10 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
   assert.equal((html.match(/data-expertise-kind="supporting"/g) ?? []).length, 1);
   assert.equal((html.match(/data-case-tier="flagship"/g) ?? []).length, 1);
   assert.match(html, /Tối ưu tin nhắn và doanh thu/);
-  assert.match(html, /work\/03-water-tanks-messages-to-sales\/cover\.webp/);
+  assert.match(html, /work\/03-water-tanks-messages-to-sales\/cover-brand\.svg/);
   assert.equal((html.match(/data-metric-status="verified"/g) ?? []).length, 2);
-  assert.match(html, /Các case đang được xác minh số liệu và asset trước khi public/);
+  assert.equal((html.match(/data-evidence-case="\d+"/g) ?? []).length, 14);
+  assert.match(html, /Tuyển sinh đa nền tảng/);
   assert.doesNotMatch(html, /project-carousel|PERFORMANCE \/ CREATIVE|ROAS ↗|CPL ↓|VTR ↗/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/i);
 });
@@ -36,7 +37,7 @@ test("includes GitHub Pages routing and Jekyll bypass files", async () => {
     access(new URL("404.html", pagesRoot)),
     access(new URL(".nojekyll", pagesRoot)),
     access(new URL("og-v2.png", pagesRoot)),
-    access(new URL("work/03-water-tanks-messages-to-sales/cover.webp", pagesRoot)),
+    access(new URL("work/03-water-tanks-messages-to-sales/cover-brand.svg", pagesRoot)),
     access(new URL("_next/", pagesRoot)),
   ]);
 });
@@ -56,6 +57,6 @@ test("does not ship unapproved case copy in browser assets", async () => {
   }
 
   const browserSource = (await Promise.all(files.map((file) => readFile(file, "utf8")))).join("\n");
-  assert.doesNotMatch(browserSource, /Multi-channel Enrollment|Course Registration Growth/);
+  assert.doesNotMatch(browserSource, /Course Registration Growth/);
   assert.doesNotMatch(browserSource, /🟨|\[___\]|⇔/);
 });

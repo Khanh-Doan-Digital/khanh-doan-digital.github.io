@@ -1,14 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
+
 import type { Language, PortfolioContent } from "../../data/content";
 import { expertise } from "../../data/expertise";
 import type { CaseStudy } from "../../data/types";
+import { getPublicAssetUrl } from "../../lib/assets";
 
 type AdditionalEvidenceProps = {
   caseStudies: CaseStudy[];
   content: PortfolioContent;
   language: Language;
+  onSelect: (caseStudy: CaseStudy) => void;
 };
 
-export function AdditionalEvidence({ caseStudies, content, language }: AdditionalEvidenceProps) {
+export function AdditionalEvidence({ caseStudies, content, language, onSelect }: AdditionalEvidenceProps) {
   return (
     <section className="additional-evidence" id="additional-evidence" aria-labelledby="additional-evidence-title">
       <div className="evidence-heading">
@@ -27,7 +31,24 @@ export function AdditionalEvidence({ caseStudies, content, language }: Additiona
 
           return (
             <article className="evidence-item" data-evidence-case={caseNumber} id={`case-${caseNumber}`} key={caseStudy.id}>
-              <span className="evidence-number">{caseNumber}</span>
+              <button
+                className="case-card-hitbox"
+                type="button"
+                disabled={!caseStudy.detail}
+                onClick={() => onSelect(caseStudy)}
+                aria-label={`${content.viewProject}: ${caseStudy.title[language]}`}
+              />
+              <div className="evidence-thumb">
+                {caseStudy.coverImage && (
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    src={getPublicAssetUrl(caseStudy.coverImage)}
+                  />
+                )}
+                <span className="evidence-number">{caseNumber}</span>
+              </div>
               <div className="evidence-copy">
                 <p>{caseStudy.industry[language]}</p>
                 <h4>{caseStudy.title[language]}</h4>

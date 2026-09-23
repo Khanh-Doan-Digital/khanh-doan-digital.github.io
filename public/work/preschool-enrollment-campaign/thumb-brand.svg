@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Private Preschool">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#8bd3f5" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#8bd3f5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <rect x="66" y="128" width="44" height="44" rx="8" fill="none" stroke="#8bd3f5" stroke-width="8"/>
+    <rect x="130" y="128" width="44" height="44" rx="8" fill="none" stroke="#8bd3f5" stroke-width="8"/>
+    <rect x="98" y="66" width="44" height="44" rx="8" fill="none" stroke="#8bd3f5" stroke-width="8"/>
+</svg>

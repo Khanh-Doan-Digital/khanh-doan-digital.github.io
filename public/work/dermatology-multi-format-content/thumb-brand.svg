@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Dermatology Clinic">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#ff9ccf" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ff9ccf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <path d="M120 64 c30 36 48 64 48 86 a48 48 0 0 1 -96 0 c0 -22 18 -50 48 -86 z" fill="none" stroke="#ff9ccf" stroke-width="8" stroke-linejoin="round"/>
+</svg>

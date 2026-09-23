@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Real Estate">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#ffc769" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ffc769" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <path d="M76 128 l44 -40 44 40" fill="none" stroke="#ffc769" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M90 118 v56 a6 6 0 0 0 6 6 h48 a6 6 0 0 0 6 -6 v-56" fill="none" stroke="#ffc769" stroke-width="8" stroke-linejoin="round"/>
+    <rect x="110" y="146" width="20" height="34" fill="none" stroke="#ffc769" stroke-width="7"/>
+</svg>

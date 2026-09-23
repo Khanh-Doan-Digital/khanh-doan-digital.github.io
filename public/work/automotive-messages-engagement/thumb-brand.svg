@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Automotive">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#ffc769" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ffc769" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <path d="M64 150 l14 -32 a10 10 0 0 1 9 -6 h66 a10 10 0 0 1 9 6 l14 32" fill="none" stroke="#ffc769" stroke-width="8" stroke-linejoin="round"/>
+    <rect x="56" y="150" width="128" height="30" rx="10" fill="none" stroke="#ffc769" stroke-width="8"/>
+    <circle cx="88" cy="182" r="12" fill="none" stroke="#ffc769" stroke-width="8"/>
+    <circle cx="152" cy="182" r="12" fill="none" stroke="#ffc769" stroke-width="8"/>
+</svg>

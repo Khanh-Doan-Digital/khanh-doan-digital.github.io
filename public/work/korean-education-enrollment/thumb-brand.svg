@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Korean Education">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#8bd3f5" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#8bd3f5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <path d="M120 84 c-14 -12 -38 -12 -54 -4 v78 c16 -8 40 -8 54 4 c14 -12 38 -12 54 -4 v-78 c-16 -8 -40 -8 -54 4 z" fill="none" stroke="#8bd3f5" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M120 84 v78" stroke="#8bd3f5" stroke-width="7"/>
+</svg>

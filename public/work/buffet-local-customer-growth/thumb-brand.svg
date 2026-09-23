@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Buffet Restaurant">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#d3ff3a" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#d3ff3a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <path d="M100 66 v40 a12 12 0 0 0 24 0 v-40 M112 66 v46" stroke="#d3ff3a" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M112 112 v62" stroke="#d3ff3a" stroke-width="8" stroke-linecap="round"/>
+    <path d="M150 66 v50 a10 10 0 0 0 10 10 v48" stroke="#d3ff3a" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M150 66 v34 M170 66 v34" stroke="#d3ff3a" stroke-width="8" stroke-linecap="round"/>
+</svg>

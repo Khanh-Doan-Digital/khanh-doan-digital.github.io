@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Jewelry Retail">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#b7a7ff" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#b7a7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <path d="M88 100 h64 l24 28 -56 54 -56 -54 z" fill="none" stroke="#b7a7ff" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M88 100 l32 28 32 -28 M60 128 h120 M120 128 l-32 54 M120 128 l32 54" stroke="#b7a7ff" stroke-width="5" fill="none" stroke-linejoin="round"/>
+</svg>

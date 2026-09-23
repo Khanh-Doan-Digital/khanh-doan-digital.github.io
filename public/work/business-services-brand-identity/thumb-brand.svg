@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Business Services">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#ff9ccf" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#ff9ccf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#bg)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="url(#glow)"/>
+  <rect x="4" y="4" width="232" height="232" rx="40" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+  
+    <rect x="60" y="104" width="120" height="76" rx="10" fill="none" stroke="#ff9ccf" stroke-width="8"/>
+    <path d="M96 104 v-14 a10 10 0 0 1 10 -10 h28 a10 10 0 0 1 10 10 v14" fill="none" stroke="#ff9ccf" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M60 140 h120" stroke="#ff9ccf" stroke-width="7"/>
+</svg>

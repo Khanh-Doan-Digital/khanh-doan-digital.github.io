@@ -65,7 +65,7 @@ export function WorkSection({ caseStudies, content, language, previewMode }: Wor
             </div>
           )}
 
-          <AdditionalEvidence caseStudies={evidenceCases} content={content} language={language} />
+          <AdditionalEvidence caseStudies={evidenceCases} content={content} language={language} onSelect={setSelectedCase} />
           <p className="confidential-note"><span>ⓘ</span>{content.confidential}</p>
         </div>
       </section>

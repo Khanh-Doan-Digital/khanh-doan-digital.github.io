@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Messages That Drive Sales — case cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123f59"/>
+      <stop offset="100%" stop-color="#081f2e"/>
+    </linearGradient>
+    <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffc769" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#ffc769" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#84b3ce" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#84b3ce" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1480" cy="90" r="360" fill="url(#glowGold)"/>
+  <circle cx="60" cy="860" r="320" fill="url(#glowBlue)"/>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <!-- Case number badge -->
+    <rect x="80" y="66" width="72" height="44" rx="10" fill="#ffc769"/>
+    <text x="116" y="95" text-anchor="middle" font-size="21" font-weight="700" letter-spacing="0.5" fill="#0e3b53">03</text>
+
+    <!-- Category label -->
+    <text x="168" y="94" font-size="15" font-weight="700" letter-spacing="2.4" fill="#ffc769">MESSAGE ADS</text>
+
+    <!-- Period pill -->
+    <rect x="1360" y="62" width="160" height="46" rx="23" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+    <text x="1440" y="91" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="1.6" fill="#e9eef3">6 MONTHS</text>
+
+    <!-- Headline -->
+    <text x="78" y="205" font-size="62" font-weight="800" letter-spacing="-1.4" fill="#e9eef3">Messages That Drive Sales</text>
+    <rect x="80" y="228" width="120" height="6" rx="3" fill="#ffc769"/>
+
+    <!-- Left column: three stacked stat cards -->
+    <g>
+      <rect x="80" y="330" width="660" height="146" rx="18" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.10"/>
+      <circle cx="140" cy="403" r="26" fill="#84b3ce" fill-opacity="0.16"/>
+      <path d="M128 393 h24 a6 6 0 0 1 6 6 v10 a6 6 0 0 1 -6 6 h-14 l-8 8 v-8 h-2 a6 6 0 0 1 -6 -6 v-10 a6 6 0 0 1 6 -6 z" fill="none" stroke="#84b3ce" stroke-width="2.4" stroke-linejoin="round"/>
+      <text x="184" y="392" font-size="42" font-weight="800" fill="#e9eef3">24,762</text>
+      <text x="184" y="424" font-size="14" font-weight="700" letter-spacing="1.6" fill="#9db3c2">CONVERSATIONS</text>
+    </g>
+
+    <g>
+      <rect x="80" y="494" width="660" height="146" rx="18" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.10"/>
+      <circle cx="140" cy="567" r="26" fill="#ffc769" fill-opacity="0.16"/>
+      <path d="M129 563 h22 l-2 20 h-18 z" fill="none" stroke="#ffc769" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M134 563 v-3 a6 6 0 0 1 12 0 v3" fill="none" stroke="#ffc769" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="184" y="556" font-size="42" font-weight="800" fill="#e9eef3">725</text>
+      <text x="184" y="588" font-size="14" font-weight="700" letter-spacing="1.6" fill="#9db3c2">PURCHASES</text>
+    </g>
+
+    <g>
+      <rect x="80" y="658" width="660" height="146" rx="18" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.10"/>
+      <circle cx="140" cy="731" r="26" fill="#8bd3f5" fill-opacity="0.16"/>
+      <ellipse cx="140" cy="717" rx="14" ry="5" fill="none" stroke="#8bd3f5" stroke-width="2.2"/>
+      <path d="M126 717 v18 a14 5 0 0 0 28 0 v-18 M126 726 a14 5 0 0 0 28 0" fill="none" stroke="#8bd3f5" stroke-width="2.2"/>
+      <text x="184" y="720" font-size="38" font-weight="800" fill="#e9eef3">VND 390.7M</text>
+      <text x="184" y="752" font-size="14" font-weight="700" letter-spacing="1.6" fill="#9db3c2">TRACKED REVENUE</text>
+    </g>
+
+    <!-- Right column: ROAS ring card -->
+    <rect x="800" y="330" width="720" height="474" rx="22" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.10"/>
+
+    <circle cx="1160" cy="519" r="115" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="20"/>
+    <path d="M1160,404 A115,115 0 1 1 1045,519" fill="none" stroke="#ffc769" stroke-width="20" stroke-linecap="round"/>
+
+    <text x="1160" y="497" text-anchor="middle" font-size="17" font-weight="700" letter-spacing="2" fill="#9db3c2">ROAS</text>
+    <text x="1160" y="560" text-anchor="middle" font-size="58" font-weight="800" fill="#e9eef3">5.35</text>
+
+    <rect x="1040" y="680" width="240" height="60" rx="30" fill="#ffc769"/>
+    <text x="1160" y="718" text-anchor="middle" font-size="19" font-weight="800" letter-spacing="0.5" fill="#0e3b53">CPA VND 2.9K</text>
+  </g>
+</svg>
