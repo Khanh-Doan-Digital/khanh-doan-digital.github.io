@@ -50,9 +50,9 @@ export function ExperienceSection({ content }: { content: PortfolioContent }) {
         <svg className="roadmap-line" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="roadmap-gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#84b3ce" />
-              <stop offset="0.48" stopColor="#7da8bc" />
-              <stop offset="1" stopColor="#16587b" />
+              <stop offset="0" stopColor="#2dd4a7" />
+              <stop offset="0.48" stopColor="#4a95c9" />
+              <stop offset="1" stopColor="#1976d2" />
             </linearGradient>
           </defs>
           <path
