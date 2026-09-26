@@ -42,7 +42,6 @@ export function NumbersSection({ content, language }: NumbersSectionProps) {
               i
             </button>
             <div className="stat-tooltip" id={`stat-tooltip-${index}`} role="tooltip">
-              <span>{String(index + 1).padStart(2, "0")}</span>
               <p>{content.statDescriptions[index]}</p>
             </div>
           </div>

@@ -13,7 +13,7 @@ export const copy = {
     heroTitleB: "và tối ưu cho kết quả.",
     heroDescription:
       "Mình là Khánh Đoan. Chuyên lập kế hoạch, chạy và tối ưu quảng cáo trên {platforms}, kết nối dữ liệu, funnel và làm việc cùng khách hàng để ra kết quả đo được.",
-    viewWork: "Các case study nổi bật",
+    viewWork: "Case study nổi bật",
     scroll: "Khám phá thêm về mình",
     livePanel: "TỪNG PHỤ TRÁCH",
     monthlySpend: "Từng quản lý ngân sách quảng cáo lên đến",
@@ -30,10 +30,10 @@ export const copy = {
     stats: ["năm kinh nghiệm", "ngân sách / tháng", "nền tảng quảng cáo", "tư duy marketing"],
     statsValues: ["3+", "600M+", "04", "360°"],
     statDescriptions: [
-      "3 năm làm việc thực tế tại agency, với nhiều ngành hàng khác nhau.",
-      "Mình đang quản lý và tối ưu hơn 600 triệu đồng ngân sách quảng cáo mỗi tháng.",
-      "Mình chạy quảng cáo trên Meta, TikTok, Google và YouTube.",
-      "Nhìn chiến lược, sáng tạo, dữ liệu và hiệu suất như một bức tranh chung.",
+      "Hơn 3 năm làm việc thực tế tại các agency, với nhiều ngành hàng khác nhau.",
+      "Mình từng quản lý và tối ưu ngân sách quảng cáo lên đến hơn 600 triệu đồng mỗi tháng.",
+      "Mình chuyên chạy quảng cáo trên Meta, TikTok, Google và YouTube.",
+      "Có tầm nhìn chiến lược, sáng tạo, thu thập dữ liệu và đánh giá hiệu suất để tối ưu kết quả quảng cáo.",
     ],
     expertiseKicker: "NĂNG LỰC CỐT LÕI",
     expertiseTitle: "Những gì mình làm được, qua công việc thật.",
@@ -131,7 +131,7 @@ export const copy = {
     heroTitleB: "optimize for results.",
     heroDescription:
       "I’m Khánh Đoan. I plan, run, and optimize ads on {platforms}, connecting data and funnels and working closely with clients to deliver measurable results.",
-    viewWork: "Featured case studies",
+    viewWork: "Case studies",
     scroll: "Discover more about me",
     livePanel: "WHAT I’VE MANAGED",
     monthlySpend: "Managed ad budgets of up to",
@@ -149,7 +149,7 @@ export const copy = {
     statsValues: ["3+", "VND 600M+", "04", "360°"],
     statDescriptions: [
       "3 years of hands-on agency experience across multiple industries.",
-      "I currently manage and optimize over VND 600M in ad spend every month.",
+      "I’ve managed and optimized ad budgets of up to VND 600M+ per month.",
       "I run ads on Meta, TikTok, Google, and YouTube.",
       "I see strategy, creative, data, and performance as one big picture.",
     ],
