@@ -6,7 +6,7 @@ export const expertise: Expertise[] = [
     kind: "core",
     title: { vi: "Chiến lược Paid Media", en: "Paid Media Strategy" },
     description: {
-      vi: "Lập kế hoạch, phân vai kênh, phân bổ ngân sách và vận hành chiến dịch đa nền tảng hoặc always-on.",
+      vi: "Mình lên kế hoạch, phân vai từng kênh, chia ngân sách và vận hành chiến dịch đa nền tảng hoặc always-on.",
       en: "Plans channel roles, allocates budgets, and runs multi-platform or always-on campaigns.",
     },
     subskills: [
@@ -14,20 +14,20 @@ export const expertise: Expertise[] = [
       { vi: "Phân bổ ngân sách", en: "Budget allocation" },
       { vi: "Lập kế hoạch đối tượng và mục tiêu", en: "Audience and objective planning" },
       { vi: "Triển khai đa nền tảng", en: "Multi-platform execution" },
-      { vi: "Nhịp thử nghiệm creative", en: "Creative testing cadence" },
+      { vi: "Lịch thử nghiệm creative", en: "Creative testing cadence" },
     ],
     proofs: [
       {
         caseId: 1,
         text: {
-          vi: "Case 01 · Chiến dịch đa nền tảng quy mô lớn",
+          vi: "Dự án 01 · Chiến dịch đa nền tảng quy mô lớn",
           en: "Case 01 · Large-scale multi-platform campaign",
         },
       },
       {
         caseId: 6,
         text: {
-          vi: "Case 06 · Always-on và hợp tác hơn 5 năm",
+          vi: "Dự án 06 · Always-on và hợp tác hơn 5 năm",
           en: "Case 06 · Always-on delivery and a 5+ year partnership",
         },
       },
@@ -39,7 +39,7 @@ export const expertise: Expertise[] = [
     kind: "core",
     title: { vi: "Tạo Lead & Tối ưu Funnel", en: "Lead Generation & Funnel Optimization" },
     description: {
-      vi: "Thiết kế và tối ưu luồng thu lead qua Messenger, website, landing page và Zalo, theo dõi riêng từng điểm chạm.",
+      vi: "Mình thiết kế và tối ưu luồng thu lead qua Messenger, website, landing page và Zalo, đồng thời theo dõi riêng từng điểm chạm.",
       en: "Designs and optimizes lead journeys across Messenger, websites, landing pages, and Zalo, with each touchpoint measured separately.",
     },
     subskills: [
@@ -53,14 +53,14 @@ export const expertise: Expertise[] = [
       {
         caseId: 2,
         text: {
-          vi: "Case 02 · 7.705 lượt đăng ký website",
+          vi: "Dự án 02 · 7.705 lượt đăng ký website",
           en: "Case 02 · 7,705 website registrations",
         },
       },
       {
         caseId: 3,
         text: {
-          vi: "Case 03 · Hội thoại được đối chiếu với đơn hàng",
+          vi: "Dự án 03 · Hội thoại được đối chiếu với đơn hàng",
           en: "Case 03 · Conversations matched against purchases",
         },
       },
@@ -72,28 +72,28 @@ export const expertise: Expertise[] = [
     kind: "core",
     title: { vi: "Phân tích & Tối ưu Hiệu suất", en: "Performance Analysis & Optimization" },
     description: {
-      vi: "Đọc dữ liệu theo mục tiêu, tìm nguyên nhân, kiểm soát chất lượng tín hiệu và chuyển insight thành quyết định tối ưu.",
+      vi: "Mình đọc dữ liệu theo từng mục tiêu, tìm nguyên nhân, kiểm soát chất lượng tín hiệu và biến insight thành quyết định tối ưu.",
       en: "Interprets objective-level data, diagnoses root causes, controls signal quality, and turns insights into optimization decisions.",
     },
     subskills: [
       { vi: "Phân rã KPI", en: "KPI decomposition" },
       { vi: "So sánh funnel", en: "Funnel comparison" },
       { vi: "Theo dõi doanh thu và ROAS", en: "Revenue and ROAS tracking" },
-      { vi: "Chẩn đoán chất lượng tệp", en: "Audience-quality diagnosis" },
-      { vi: "Báo cáo và insight hành động", en: "Reporting and actionable insight" },
+      { vi: "Đánh giá chất lượng tệp đối tượng", en: "Audience-quality diagnosis" },
+      { vi: "Báo cáo và insight có thể hành động", en: "Reporting and actionable insight" },
     ],
     proofs: [
       {
         caseId: 3,
         text: {
-          vi: "Case 03 · Theo dõi doanh thu và ROAS",
+          vi: "Dự án 03 · Theo dõi doanh thu và ROAS",
           en: "Case 03 · Revenue and ROAS tracking",
         },
       },
       {
         caseId: 12,
         text: {
-          vi: "Case 12 · Chẩn đoán và làm sạch tín hiệu tệp",
+          vi: "Dự án 12 · Tìm nguyên nhân và làm sạch tín hiệu tệp",
           en: "Case 12 · Audience-signal diagnosis and cleanup",
         },
       },
@@ -108,7 +108,7 @@ export const expertise: Expertise[] = [
       en: "Account & Integrated Campaign Management",
     },
     description: {
-      vi: "Quản lý đầu mối khách hàng, thống nhất KPI và điều phối ngân sách, nội dung, landing page, production, phê duyệt và báo cáo.",
+      vi: "Mình là đầu mối với khách hàng, thống nhất KPI và điều phối ngân sách, nội dung, landing page, production, phê duyệt và báo cáo.",
       en: "Manages client communication and KPI alignment while coordinating budgets, content, landing pages, production, approvals, and reporting.",
     },
     subskills: [
@@ -122,21 +122,21 @@ export const expertise: Expertise[] = [
       {
         caseId: 1,
         text: {
-          vi: "Case 01 · Điều phối khách hàng và team đa nền tảng",
+          vi: "Dự án 01 · Điều phối khách hàng và team đa nền tảng",
           en: "Case 01 · Multi-platform client and delivery coordination",
         },
       },
       {
         caseId: 2,
         text: {
-          vi: "Case 02 · Paid media, landing page và lead tracking",
+          vi: "Dự án 02 · Paid media, landing page và lead tracking",
           en: "Case 02 · Paid media, landing pages, and lead tracking",
         },
       },
       {
         caseId: 6,
         text: {
-          vi: "Case 06 · Quản lý mô hình always-on dài hạn",
+          vi: "Dự án 06 · Quản lý mô hình always-on dài hạn",
           en: "Case 06 · Long-term always-on account management",
         },
       },
@@ -151,7 +151,7 @@ export const expertise: Expertise[] = [
       en: "Brand, Content & Creative Production",
     },
     description: {
-      vi: "Hỗ trợ performance và account bằng khả năng xây dựng nhận diện, copywriting, content planning, design và video production.",
+      vi: "Mình hỗ trợ mảng performance và account bằng kỹ năng xây dựng nhận diện, copywriting, content planning, design và video production.",
       en: "Supports performance and account work through brand identity, copywriting, content planning, design, and video production.",
     },
     subskills: [

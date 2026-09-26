@@ -9,7 +9,7 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
 
   assert.match(html, /^<!DOCTYPE html>/i);
   assert.match(html, /<title>Khánh Đoan — Performance Marketing &amp; Account Management/i);
-  assert.match(html, /Từ chiến lược media/);
+  assert.match(html, /Đọc dữ liệu, tìm nguyên nhân,/);
   assert.match(html, /id="expertise"/);
   assert.match(html, /id="work"/);
   assert.match(html, /id="additional-evidence"/);

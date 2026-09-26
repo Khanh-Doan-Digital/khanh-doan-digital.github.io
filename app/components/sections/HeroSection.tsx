@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 
 import type { Language, PortfolioContent } from "../../data/content";
-import { ArrowDownIcon, ArrowDownRightIcon, DownloadIcon } from "../ui/Icons";
+import { ArrowDownIcon, ArrowDownRightIcon, DownloadIcon, PlatformIcon, platforms } from "../ui/Icons";
 
-function AnimatedSpend() {
-  const target = 600;
+function useCountUp(target: number, delay = 0) {
   const [value, setValue] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -22,10 +21,10 @@ function AnimatedSpend() {
       }
 
       const duration = 950;
-      const startTime = window.performance.now();
+      const startTime = window.performance.now() + delay;
 
       const update = (currentTime: number) => {
-        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const progress = Math.min(Math.max((currentTime - startTime) / duration, 0), 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         setValue(Math.round(target * eased));
 
@@ -36,17 +35,35 @@ function AnimatedSpend() {
     });
 
     return () => window.cancelAnimationFrame(frameId);
-  }, [target]);
+  }, [target, delay]);
 
-  const formattedValue = `${value}M`;
-  const accessibleValue = "VND 600M+";
+  return { value, isVisible };
+}
+
+function AnimatedSpend() {
+  const { value, isVisible } = useCountUp(600);
 
   return (
-    <strong className={isVisible ? "board-spend is-visible" : "board-spend"} aria-label={accessibleValue}>
-      <span aria-hidden="true">{formattedValue}</span><sup aria-hidden="true">+</sup>
+    <strong className={isVisible ? "board-spend is-visible" : "board-spend"} aria-label="VND 600M+">
+      <span aria-hidden="true">{value}M</span><sup aria-hidden="true">+</sup>
     </strong>
   );
 }
+
+type BoardCountProps = {
+  target: number;
+  delay: number;
+  format: (value: number) => string;
+};
+
+function BoardCount({ target, delay, format }: BoardCountProps) {
+  const { value } = useCountUp(target, delay);
+
+  return <strong aria-label={format(target)}><span aria-hidden="true">{format(value)}</span></strong>;
+}
+
+const formatPlatforms = (value: number) => value.toString().padStart(2, "0");
+const formatIndustries = (value: number) => `${value}+`;
 
 type HeroSectionProps = {
   content: PortfolioContent;
@@ -55,6 +72,10 @@ type HeroSectionProps = {
 
 export function HeroSection({ content, language }: HeroSectionProps) {
   const [descriptionLead, descriptionTail] = content.heroDescription.split("Khánh Đoan");
+  const [tailBeforePlatforms, tailAfterPlatforms] = descriptionTail.split("{platforms}");
+  // Keep punctuation right after the icons (e.g. ",") on the same line as them.
+  const iconsPunctuation = tailAfterPlatforms.match(/^\S*/)?.[0] ?? "";
+  const currentRole = content.experiences[0];
 
   return (
     <section className="hero section-shell" id="home">
@@ -65,7 +86,14 @@ export function HeroSection({ content, language }: HeroSectionProps) {
           <em>{content.heroTitleB}</em>
         </h1>
         <p className="hero-description reveal reveal-delay-2">
-          {descriptionLead}<strong className="hero-name">Khánh Đoan</strong>{descriptionTail}
+          {descriptionLead}<strong className="hero-name">Khánh Đoan</strong>{tailBeforePlatforms}
+          <span className="hero-platforms-group">
+            <span className="hero-platforms">
+              {platforms.map((platform) => <PlatformIcon key={platform} name={platform} />)}
+            </span>
+            {iconsPunctuation}
+          </span>
+          {tailAfterPlatforms.slice(iconsPunctuation.length)}
         </p>
         <div className="hero-actions reveal reveal-delay-3">
           <a className="primary-button" href="#work">{content.viewWork}<ArrowDownRightIcon /></a>
@@ -76,28 +104,38 @@ export function HeroSection({ content, language }: HeroSectionProps) {
       <div className="performance-board-reveal reveal reveal-delay-2">
         <div className="performance-board-stage">
           <div className="performance-board" aria-label={content.livePanel}>
-            <div className="board-head">
-              <span>{content.livePanel}</span>
-              <span className="status"><i /> {content.active}</span>
+            <div className="board-role">
+              <strong>{currentRole.role}</strong>
+              <span>{content.since} {currentRole.start}</span>
             </div>
             <div className="board-main">
               <p>{content.monthlySpend}</p>
-              <AnimatedSpend key={language} />
-              <span className="board-currency">{content.monthlySpendCurrency}</span>
+              <div className="board-spend-row">
+                <AnimatedSpend key={language} />
+                <span className="board-currency">
+                  <span>{content.monthlySpendCurrency.slice(0, 1)}</span>{content.monthlySpendCurrency.slice(1)}
+                </span>
+              </div>
             </div>
-            <div className="mini-chart" aria-hidden="true">
-              <span style={{ height: "28%" }} />
-              <span style={{ height: "43%" }} />
-              <span style={{ height: "36%" }} />
-              <span style={{ height: "58%" }} />
-              <span style={{ height: "52%" }} />
-              <span style={{ height: "72%" }} />
-              <span style={{ height: "64%" }} />
-              <span style={{ height: "88%" }} />
+            <div className="board-scope">
+              <p>{content.scopeLabel}</p>
+              <ol>
+                {content.scopeSteps.map((step, index) => (
+                  <li key={step}><b>{String(index + 1).padStart(2, "0")}</b><span>{step}</span></li>
+                ))}
+              </ol>
             </div>
             <div className="board-grid">
-              <div><span>{content.platforms}</span><strong>04</strong><small>META · TIKTOK · GOOGLE · YOUTUBE</small></div>
-              <div><span>{content.testing}</span><strong>∞</strong><small>{content.optimization.toUpperCase()}</small></div>
+              <div>
+                <span>{content.platforms}</span>
+                <BoardCount key={language} target={platforms.length} delay={110} format={formatPlatforms} />
+                <small>META · TIKTOK · GOOGLE · YOUTUBE</small>
+              </div>
+              <div>
+                <span>{content.industries}</span>
+                <BoardCount key={language} target={content.industriesCount} delay={220} format={formatIndustries} />
+                <small>{content.industriesExamples}</small>
+              </div>
             </div>
           </div>
         </div>

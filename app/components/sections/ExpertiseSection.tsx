@@ -89,7 +89,7 @@ export function ExpertiseSection({ content, language, visibleCaseIds }: Expertis
                   )}
                   {availableEvidence.length > 0 && (
                     <p className="expertise-evidence-count">
-                      +{availableEvidence.length} {language === "vi" ? "dẫn chứng bổ sung" : "additional evidence items"}
+                      +{availableEvidence.length} {language === "vi" ? "các dự án khác" : "additional evidence items"}
                     </p>
                   )}
                 </div>

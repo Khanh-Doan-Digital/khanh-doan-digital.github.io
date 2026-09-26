@@ -461,6 +461,24 @@ a {
   font-weight: 800;
 }
 
+.hero-platforms-group {
+  white-space: nowrap;
+}
+
+.hero-platforms {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  margin-inline: .1em;
+  vertical-align: -0.16em;
+}
+
+.platform-icon {
+  width: auto;
+  height: 1.15em;
+  overflow: visible;
+}
+
 .hero-actions {
   display: flex;
   align-items: center;
@@ -551,6 +569,8 @@ a {
 
 .performance-board {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 500px;
   padding: 20px;
   background:
@@ -586,8 +606,9 @@ a {
 }
 
 .board-head,
+.board-role,
 .board-main,
-.mini-chart,
+.board-scope,
 .board-grid {
   position: relative;
   transform: translateZ(16px);
@@ -599,7 +620,7 @@ a {
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line-dark);
   font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -622,31 +643,66 @@ a {
   box-shadow: 0 0 10px var(--status-green);
 }
 
-.board-main {
-  padding: 30px 0 20px;
+.board-role {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 14px;
 }
 
-.board-main > p,
-.board-main > span {
+.board-role strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.board-role span {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: .05em;
+}
+
+.board-main {
+  padding: 22px 0 20px;
+}
+
+.board-main > p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.47);
-  font-size: 11px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+}
+
+/* Font size lives on the row so the currency can scale with the spend number. */
+.board-spend-row {
+  display: flex;
+  align-items: baseline;
+  gap: .16em;
+  margin-top: 12px;
+  font-size: clamp(54px, 6vw, 82px);
 }
 
 .board-main .board-currency {
-  display: inline-block;
-  margin-top: 10px;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 14px;
+  font-size: .84em;
   font-weight: 750;
-  letter-spacing: .1em;
+  line-height: 1;
+  letter-spacing: -0.11em;
+}
+
+/* The V's diagonal already leaves a wide optical gap, so its pair needs less tightening. */
+.board-main .board-currency > span {
+  letter-spacing: -0.04em;
 }
 
 .board-main strong {
-  display: block;
-  margin: 6px 0 -4px;
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
   font-family: var(--font-geist-mono), monospace;
-  font-size: clamp(54px, 6vw, 82px);
+  font-size: 1em;
   line-height: 1;
   letter-spacing: -0.08em;
 }
@@ -673,34 +729,76 @@ a {
 }
 
 .board-main sup {
+  margin: .3em 0 0 .06em;
   color: var(--lime);
-  font-size: 26px;
-  vertical-align: top;
+  font-size: .46em;
+  line-height: 1;
 }
 
-.mini-chart {
-  height: 130px;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  padding: 10px 0 0;
-  border-bottom: 1px solid var(--line-dark);
+.board-scope {
+  padding: 18px 0 22px;
+  border-top: 1px solid var(--line-dark);
 }
 
-.mini-chart span {
-  flex: 1;
-  background: linear-gradient(to top, rgba(25, 118, 210, .3), var(--lime));
-  transition: opacity 180ms ease;
+.board-scope > p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
 }
 
-.performance-board:hover .mini-chart span:nth-child(even) {
-  opacity: .55;
+.board-scope ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.board-scope li {
+  position: relative;
+  text-align: center;
+}
+
+/* Connects this node to the next one, 6px clear of each; the next node's left edge sits at 150% + gap(12px) - radius(12px). */
+.board-scope li:not(:last-child)::after {
+  position: absolute;
+  top: 12px;
+  left: calc(50% + 18px);
+  right: calc(6px - 50%);
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, rgba(45, 212, 167, 0.6), var(--line-dark));
+}
+
+.board-scope b {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 10px;
+  border: 1px solid rgba(45, 212, 167, 0.5);
+  border-radius: 50%;
+  background: rgba(45, 212, 167, 0.08);
+  color: var(--status-green);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.board-scope span {
+  display: block;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .board-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 18px;
+  margin-top: auto;
   border-top: 1px solid var(--line-dark);
   border-left: 1px solid var(--line-dark);
   border-radius: var(--radius-sm);
@@ -714,10 +812,10 @@ a {
   border-bottom: 1px solid var(--line-dark);
 }
 
-.board-grid span {
+.board-grid > div > span {
   display: block;
-  color: rgba(255, 255, 255, .4);
-  font-size: 8px;
+  color: rgba(255, 255, 255, .58);
+  font-size: 13px;
   letter-spacing: .05em;
 }
 
@@ -2261,7 +2359,7 @@ footer {
   .stat-info-trigger { top: 12px; right: 12px; width: 22px; height: 22px; }
   .performance-board-stage { transform: translate3d(0, -2px, 0); }
   .performance-board { min-height: 440px; padding: 16px; transform: none; }
-  .board-main strong { font-size: 60px; }
+  .board-spend-row { font-size: 60px; }
   .board-grid > div { padding: 12px; }
   .expertise, .about, .contact, .work, .experience { padding-top: 92px; padding-bottom: 92px; }
   .section-heading { margin-bottom: 46px; }
