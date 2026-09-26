@@ -1515,7 +1515,7 @@ a {
 
 .about {
   display: grid;
-  grid-template-columns: minmax(240px, .38fr) 1fr;
+  grid-template-columns: minmax(260px, .46fr) 1fr;
   gap: clamp(60px, 9vw, 140px);
 }
 
@@ -1527,7 +1527,7 @@ a {
 .portrait-placeholder {
   position: relative;
   aspect-ratio: 4 / 5;
-  max-width: 330px;
+  max-width: 390px;
   container-type: inline-size;
   display: flex;
   flex-direction: column;
@@ -1581,9 +1581,11 @@ a {
   position: relative;
   z-index: 1;
   align-self: flex-end;
-  font-size: 8px;
+  text-align: right;
+  font-size: clamp(9px, 3.4cqw, 13px);
   font-style: normal;
-  color: rgba(255,255,255,.5);
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.6);
 }
 
 .about-copy h2 {
@@ -1598,31 +1600,55 @@ a {
   line-height: 1.75;
 }
 
+.principles-label {
+  margin: 0 0 14px;
+  color: var(--accent-ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
 .principles {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   border-top: 1px solid var(--line-light);
   border-left: 1px solid var(--line-light);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
 
-.principles span {
+.principles li {
   min-height: 80px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
-  padding: 20px;
+  padding: 22px 20px;
   border-right: 1px solid var(--line-light);
   border-bottom: 1px solid var(--line-light);
-  font-size: 13px;
-  font-weight: 650;
 }
 
 .principles i {
+  flex: 0 0 14px;
+  padding-top: 4px;
   color: var(--muted);
   font-size: 9px;
   font-style: normal;
+}
+
+.principles strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.principles p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .experience {

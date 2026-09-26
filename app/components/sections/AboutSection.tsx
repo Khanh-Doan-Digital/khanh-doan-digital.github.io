@@ -18,16 +18,25 @@ export function AboutSection({ content }: { content: PortfolioContent }) {
             loading="lazy"
             decoding="async"
           />
-          <i aria-hidden="true">PORTRAIT<br />TO BE ADDED</i>
+          <i aria-hidden="true">{content.experiences[0].role.toUpperCase()}</i>
         </div>
       </div>
       <div className="about-copy">
         <h2>{content.aboutTitle}</h2>
         <p>{content.aboutText}</p>
-        <div className="principles">
-          {content.principles.map((principle, index) => (
-            <span key={principle}><i>0{index + 1}</i>{principle}</span>
-          ))}
+        <div className="principles-block">
+          <p className="principles-label">{content.principlesLabel}</p>
+          <ul className="principles">
+            {content.principles.map((principle, index) => (
+              <li key={principle}>
+                <i aria-hidden="true">0{index + 1}</i>
+                <div>
+                  <strong>{principle}</strong>
+                  <p>{content.principleDescriptions[index]}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
