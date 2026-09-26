@@ -976,8 +976,19 @@ a {
   padding-bottom: 130px;
 }
 
-/* Watercolor wash behind the light sections. The texture has the paper color baked in,
-   so the faded top/bottom edges melt into neighbouring sections without a seam. */
+/* Watercolor wash behind the light sections. The textures have the paper color baked in,
+   so the faded top/bottom edges melt into neighbouring sections without a seam.
+   Each section gets a fixed default here; the inline script in app/layout.tsx reassigns
+   --wash-<section> / --wash-<section>-flip at random before first paint. */
+:root {
+  --wash-1: url("./assets/watercolor/brand-1.webp");
+  --wash-2: url("./assets/watercolor/brand-2.webp");
+  --wash-3: url("./assets/watercolor/brand-3.webp");
+  --wash-4: url("./assets/watercolor/brand-4.webp");
+  --wash-5: url("./assets/watercolor/brand-5.webp");
+  --wash-6: url("./assets/watercolor/brand-6.webp");
+}
+
 .about,
 .expertise,
 .experience,
@@ -999,17 +1010,17 @@ a {
   bottom: 0;
   left: calc((100vw - 100%) / -2);
   width: 100vw;
-  background: url("./assets/watercolor-brand.webp") center / cover no-repeat;
+  background: center / cover no-repeat;
   opacity: .35;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
 }
 
-/* mirror the wash per section so the pink accent and blooms never repeat in the same spot */
-.expertise::before { transform: scaleX(-1); }
-.experience::before { transform: scaleY(-1); }
-.contact::before { transform: scale(-1, -1); }
+.about::before { background-image: var(--wash-about, var(--wash-1)); transform: var(--wash-about-flip, none); }
+.expertise::before { background-image: var(--wash-expertise, var(--wash-3)); transform: var(--wash-expertise-flip, scaleX(-1)); }
+.experience::before { background-image: var(--wash-experience, var(--wash-5)); transform: var(--wash-experience-flip, scaleY(-1)); }
+.contact::before { background-image: var(--wash-contact, var(--wash-2)); transform: var(--wash-contact-flip, scale(-1, -1)); }
 
 .section-heading {
   display: grid;

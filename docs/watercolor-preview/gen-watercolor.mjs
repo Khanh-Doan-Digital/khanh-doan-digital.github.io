@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const outDir = dirname(fileURLToPath(import.meta.url));
 mkdirSync(outDir, { recursive: true });
@@ -72,30 +72,38 @@ const edgeFilter = (id, seed) => `
 // how far each patch spreads — raise to widen every color field at once
 const SPREAD = { wash: 1.4, edges: 1.3 };
 
-function build({ paper, wash, edges, streak }) {
+const DEFAULT_BLOOMS = [[640, 740, 80, 56], [1000, 560, 70, 50], [420, 330, 50, 40]];
+const DEFAULT_VEIN = "M260 420 C 360 500, 440 560, 540 640 S 700 760, 780 900";
+
+export function build({
+  paper, wash, edges, streak,
+  wetSeed = 17, mottleSeed = 51, outlineSeed = 23,
+  blooms = DEFAULT_BLOOMS, vein = DEFAULT_VEIN,
+  spread = [-240, 10, 1800, 1260], // [x, y, w, h] of the area the wash bleeds into
+}) {
   const ellipse = ([cx, cy, rx, ry, color, op], extra = "", k = 1) =>
     `<ellipse cx="${cx}" cy="${cy}" rx="${Math.round(rx * k)}" ry="${Math.round(ry * k)}" fill="${color}" opacity="${op}" ${extra}/>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
   <defs>
     <filter id="wet" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.004" numOctaves="4" seed="17" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.004" numOctaves="4" seed="${wetSeed}" result="warp"/>
       <feDisplacementMap in="SourceGraphic" in2="warp" scale="260" xChannelSelector="R" yChannelSelector="G" result="shape"/>
       <feGaussianBlur in="shape" stdDeviation="48"/>
     </filter>
     <filter id="mottle" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="3" seed="51"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="3" seed="${mottleSeed}"/>
       <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.4 -0.45"/>
       <feGaussianBlur stdDeviation="20"/>
     </filter>
     <filter id="outline" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="4" seed="23" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="4" seed="${outlineSeed}" result="warp"/>
       <feDisplacementMap in="SourceGraphic" in2="warp" scale="280" xChannelSelector="R" yChannelSelector="G"/>
       <feGaussianBlur stdDeviation="36"/>
     </filter>
     <mask id="spread" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000">
       <rect width="1600" height="1000" fill="#000"/>
-      <rect x="-240" y="10" width="1800" height="1260" rx="280" fill="#fff" filter="url(#outline)"/>
+      <rect x="${spread[0]}" y="${spread[1]}" width="${spread[2]}" height="${spread[3]}" rx="280" fill="#fff" filter="url(#outline)"/>
     </mask>${edges.map((e, i) => edgeFilter(`edge${i}`, e[6])).join("")}
     <filter id="bloom" x="-60%" y="-60%" width="220%" height="220%">
       <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="9" result="n"/>
@@ -127,21 +135,21 @@ function build({ paper, wash, edges, streak }) {
 
     <!-- blooms: soft pale spots where water pushed pigment away -->
     <g fill="${paper}" opacity="0.38" filter="url(#bloom)">
-      <ellipse cx="640" cy="740" rx="80" ry="56"/>
-      <ellipse cx="1000" cy="560" rx="70" ry="50"/>
-      <ellipse cx="420" cy="330" rx="50" ry="40"/>
+      ${blooms.map(([cx, cy, rx, ry]) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"/>`).join("\n      ")}
     </g>
 
     <!-- faint pigment veins -->
     <g fill="none" stroke="${streak}" stroke-linecap="round" opacity="0.2" filter="url(#streak)" style="mix-blend-mode:multiply">
-      <path d="M260 420 C 360 500, 440 560, 540 640 S 700 760, 780 900" stroke-width="1.8"/>
+      <path d="${vein}" stroke-width="1.8"/>
     </g>
   </g>
 </svg>
 `;
 }
 
-for (const [name, v] of Object.entries(variants)) {
-  writeFileSync(`${outDir}/watercolor-${name}.svg`, build(v));
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  for (const [name, v] of Object.entries(variants)) {
+    writeFileSync(`${outDir}/watercolor-${name}.svg`, build(v));
+  }
+  console.log("ok");
 }
-console.log("ok");
