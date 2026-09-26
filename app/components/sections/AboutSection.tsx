@@ -5,8 +5,8 @@ import { getPublicAssetUrl } from "../../lib/assets";
 export function AboutSection({ content }: { content: PortfolioContent }) {
   return (
     <section className="about section-shell" id="about">
+      <p className="kicker about-kicker">{content.aboutKicker}</p>
       <div className="about-label">
-        <p className="kicker">{content.aboutKicker}</p>
         <div className="portrait-placeholder">
           <span aria-hidden="true">KHÁNH<br />ĐOAN</span>
           <img

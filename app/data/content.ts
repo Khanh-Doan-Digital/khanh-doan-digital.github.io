@@ -54,9 +54,9 @@ export const copy = {
     noPublishedCases: "Mình đang kiểm tra lại số liệu và hình ảnh của các dự án, sẽ đăng sớm.",
     confidential: "Mình đã ẩn một số dữ liệu để đảm bảo bảo mật cho khách hàng.",
     aboutKicker: "GIỚI THIỆU",
-    aboutTitle: "Mình vừa làm sáng tạo, vừa nghĩ bằng con số.",
+    aboutTitle: "Sáng tạo là điểm xuất\u00a0phát, con số mới là thước\u00a0đo.",
     aboutText:
-      "Mình bắt đầu từ content, thiết kế và quay dựng, rồi chuyển sang chạy và tối ưu quảng cáo tại agency. Nhờ vậy, khi nhìn một chiến dịch, mình hiểu cả creative cần gì để thu hút lẫn con số cần gì để ra kết quả. Hiện mình tập trung vào Performance Ads và quản lý account: làm việc trực tiếp với khách hàng, biến brief thành media plan, và báo cáo rõ ràng để hai bên cùng ra quyết định.",
+      "Mình bắt đầu từ content, thiết kế và quay dựng, rồi chuyển sang chạy và tối ưu quảng cáo tại Agency. Nhờ vậy, khi nhìn một chiến dịch, mình hiểu cả creative cần gì để thu hút lẫn con số cần gì để ra kết quả. Hiện mình tập trung vào Performance Ads và quản lý account: làm việc trực tiếp với khách hàng, biến brief thành media plan, và báo cáo rõ ràng để hai bên cùng ra quyết định.",
     principlesLabel: "NGUYÊN TẮC LÀM VIỆC",
     principles: ["Quyết định bằng dữ liệu", "Chủ động đề xuất", "Giao tiếp rõ ràng", "Thử nghiệm liên tục"],
     principleDescriptions: [
@@ -178,7 +178,7 @@ export const copy = {
     noPublishedCases: "I’m double-checking project data and visuals, and they’ll be published soon.",
     confidential: "I’ve hidden some data to protect client confidentiality.",
     aboutKicker: "ABOUT",
-    aboutTitle: "Creative at heart, driven by numbers.",
+    aboutTitle: "Creativity is where I start. Numbers are how I measure.",
     aboutText:
       "I started out in content, design, and video, then moved into running and optimizing ads at an agency. So when I look at a campaign, I understand both what the creative needs to grab attention and what the numbers need to deliver results. Today I focus on Performance Ads and account management: working directly with clients, turning briefs into media plans, and reporting clearly so we can make decisions together.",
     principlesLabel: "HOW I WORK",
