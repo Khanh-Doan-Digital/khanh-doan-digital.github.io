@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
+import { isPlatform, PlatformIcon } from "../ui/Icons";
 import { CaseAssetCarousel } from "./CaseAssetCarousel";
 
 type CaseDetailModalProps = {
@@ -164,7 +165,14 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
           <dl className="case-modal-meta">
             {caseStudy.dataPeriod && <div><dt>{content.dataPeriod}</dt><dd>{caseStudy.dataPeriod[language]}</dd></div>}
             {caseStudy.collaborationDuration && <div><dt>{content.collaborationDuration}</dt><dd>{caseStudy.collaborationDuration[language]}</dd></div>}
-            <div><dt>{content.platformsLabel}</dt><dd>{caseStudy.platforms.join(" · ")}</dd></div>
+            <div>
+              <dt>{content.platformsLabel}</dt>
+              <dd className="case-modal-platforms">
+                {caseStudy.platforms.map((platform) => (isPlatform(platform)
+                  ? <PlatformIcon key={platform} name={platform} onLight />
+                  : <span key={platform}>{platform}</span>))}
+              </dd>
+            </div>
           </dl>
 
           <div className="case-detail-block" id={`case-overview-${caseNumber}`}>

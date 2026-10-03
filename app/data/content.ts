@@ -35,7 +35,7 @@ export const copy = {
       "Có tầm nhìn chiến lược, sáng tạo, thu thập dữ liệu và đánh giá hiệu suất để tối ưu kết quả quảng cáo.",
     ],
     expertiseKicker: "NĂNG LỰC CỐT LÕI",
-    expertiseTitle: "Những giải pháp mình làm tốt nhất, qua dự án thực tế.",
+    expertiseTitle: "Những giải pháp mình làm tốt nhất",
     expertiseIntro:
       "Tập trung vào 4 trụ cột chính: Lập kế hoạch, Tối ưu Funnel, Phân tích dữ liệu và Quản lý Account. Yếu tố Sáng tạo (Creative) được lồng ghép chặt chẽ để thúc đẩy hiệu quả cho toàn bộ luồng vận hành.",
     expertiseProofLabel: "VÍ DỤ TIÊU BIỂU",
@@ -161,7 +161,7 @@ export const copy = {
       "Combining strategic vision, creativity, data collection, and performance evaluation to optimize ad results.",
     ],
     expertiseKicker: "CORE EXPERTISE",
-    expertiseTitle: "What I can do, proven through real work.",
+    expertiseTitle: "The solutions I do best, proven through real projects.",
     expertiseIntro:
       "I’m strongest in four areas: planning, funnels, performance analysis, and account management. Creative is what I use to support all four.",
     expertiseProofLabel: "KEY EXAMPLES",
