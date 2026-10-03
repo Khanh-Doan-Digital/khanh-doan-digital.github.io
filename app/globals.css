@@ -2655,21 +2655,31 @@ footer {
 
 .expertise-panels { display: grid; min-width: 0; }
 
+/* One pastel gradient per core capability, all within the site's blue-to-teal family. */
+.expertise-tone-paid-media-strategy { --tone: #7cc8f2; --tone-soft: #b5e3fa; }
+.expertise-tone-lead-generation-funnel { --tone: #7fdcdc; --tone-soft: #b6efe9; }
+.expertise-tone-performance-analysis { --tone: #86e3c2; --tone-soft: #bdf2dc; }
+.expertise-tone-account-integrated-management { --tone: #9db8f5; --tone-soft: #c7d6fb; }
+
 .expertise-panel {
   grid-area: 1 / 1;
   display: grid;
   grid-template-rows: auto 1fr;
   min-width: 0;
   padding: clamp(26px, 2.8vw, 40px);
-  border: 1px solid var(--line-light);
+  border: 1px solid color-mix(in srgb, var(--tone) 45%, var(--line-light));
   border-radius: var(--radius-lg);
+  /* A light wash of the capability's colour over the usual frosted card. */
   background:
-    radial-gradient(120% 140% at 100% 0%, rgba(45, 212, 167, .1), transparent 60%),
-    rgba(255, 255, 255, .38);
+    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--tone-soft) 38%, transparent), transparent 62%),
+    linear-gradient(color-mix(in srgb, var(--tone) 12%, transparent), color-mix(in srgb, var(--tone) 12%, transparent)),
+    rgba(255, 255, 255, .42);
   opacity: 0;
   visibility: hidden;
   transition: opacity 180ms ease, visibility 0s 180ms;
 }
+
+.expertise-panel .expertise-index { border-color: transparent; background: linear-gradient(135deg, var(--tone), var(--tone-soft)); color: var(--ink); font-weight: 600; }
 
 .expertise-panel.is-active {
   opacity: 1;
@@ -2736,15 +2746,14 @@ footer {
 .expertise-slice:hover path { fill: rgba(255, 255, 255, .92); }
 .expertise-slice:focus-visible path { stroke: var(--accent-ink); stroke-width: 3; }
 
-/* Selected slice: brand gradient, scaled up and pushed out along its own axis. */
+/* Selected slice: its own colour, scaled up and pushed out along its own axis. */
 .expertise-slice.is-active {
   opacity: 1;
   transform: translate(calc(var(--pop-x) * 9px), calc(var(--pop-y) * 9px)) scale(1.06);
   filter: drop-shadow(0 14px 22px rgba(11, 53, 86, .22));
 }
 
-.expertise-slice.is-active path { fill: url(#expertise-wheel-gradient); stroke: transparent; }
-.expertise-slice.is-active text { fill: #fff; }
+.expertise-slice.is-active path { fill: var(--tone-fill, var(--tone)); stroke: transparent; }
 
 .expertise-wheel-hub {
   position: absolute;

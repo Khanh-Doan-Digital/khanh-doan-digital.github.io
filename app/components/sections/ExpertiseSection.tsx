@@ -21,6 +21,8 @@ const supportingExpertise = expertise.filter((item) => item.kind === "supporting
 const WHEEL_OUTER = 190;
 const WHEEL_INNER = 70;
 const WHEEL_GAP = 4;
+// Radius that rounds off each slice's two pointed inner corners.
+const WHEEL_CORNER = 14;
 const WHEEL_VIEW = 215;
 
 const round = (value: number) => Number(value.toFixed(2));
@@ -31,19 +33,41 @@ const wheelSlices = coreExpertise.map((item, index) => {
   const start = Math.PI * 1.25 + index * sweep;
   const end = start + sweep;
   const middle = start + sweep / 2;
-  // A constant-width gap needs a larger angular inset on the inner edge than on the outer one.
-  const outerInset = Math.asin(WHEEL_GAP / 2 / WHEEL_OUTER);
-  const innerInset = Math.asin(WHEEL_GAP / 2 / WHEEL_INNER);
+  // The straight edges sit half a gap off the cut line, so the gap keeps a constant width.
+  const halfGap = WHEEL_GAP / 2;
+  const outerInset = Math.asin(halfGap / WHEEL_OUTER);
   const point = (radius: number, angle: number) => `${round(radius * Math.cos(angle))} ${round(radius * Math.sin(angle))}`;
   const labelRadius = (WHEEL_OUTER + WHEEL_INNER) / 2;
+  // An inner corner is rounded by a fillet circle that touches both the inner arc and the straight edge.
+  // `side` is 1 on the start edge and -1 on the end edge: it points the edge normal into the slice.
+  const innerCorner = (edge: number, side: 1 | -1) => {
+    const alongX = Math.cos(edge);
+    const alongY = Math.sin(edge);
+    const normalX = -alongY * side;
+    const normalY = alongX * side;
+    const offset = halfGap + WHEEL_CORNER;
+    const reach = Math.sqrt((WHEEL_INNER + WHEEL_CORNER) ** 2 - offset ** 2);
+    const centreX = reach * alongX + offset * normalX;
+    const centreY = reach * alongY + offset * normalY;
+    const toArc = WHEEL_INNER / (WHEEL_INNER + WHEEL_CORNER);
+
+    return {
+      onEdge: `${round(centreX - WHEEL_CORNER * normalX)} ${round(centreY - WHEEL_CORNER * normalY)}`,
+      onArc: `${round(centreX * toArc)} ${round(centreY * toArc)}`,
+    };
+  };
+  const startCorner = innerCorner(start, 1);
+  const endCorner = innerCorner(end, -1);
 
   return {
     id: item.id,
     path: [
       `M ${point(WHEEL_OUTER, start + outerInset)}`,
       `A ${WHEEL_OUTER} ${WHEEL_OUTER} 0 0 1 ${point(WHEEL_OUTER, end - outerInset)}`,
-      `L ${point(WHEEL_INNER, end - innerInset)}`,
-      `A ${WHEEL_INNER} ${WHEEL_INNER} 0 0 0 ${point(WHEEL_INNER, start + innerInset)}`,
+      `L ${endCorner.onEdge}`,
+      `A ${WHEEL_CORNER} ${WHEEL_CORNER} 0 0 1 ${endCorner.onArc}`,
+      `A ${WHEEL_INNER} ${WHEEL_INNER} 0 0 0 ${startCorner.onArc}`,
+      `A ${WHEEL_CORNER} ${WHEEL_CORNER} 0 0 1 ${startCorner.onEdge}`,
       "Z",
     ].join(" "),
     labelX: round(labelRadius * Math.cos(middle)),
@@ -158,7 +182,7 @@ export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase
             <article
               aria-hidden={index === activeIndex ? undefined : true}
               aria-labelledby={`expertise-slice-${item.id}`}
-              className={index === activeIndex ? "expertise-panel is-active" : "expertise-panel"}
+              className={`expertise-panel expertise-tone-${item.id}${index === activeIndex ? " is-active" : ""}`}
               data-expertise-kind={item.kind}
               id={`expertise-panel-${item.id}`}
               key={item.id}
@@ -176,12 +200,6 @@ export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase
             role="tablist"
             viewBox={`${-WHEEL_VIEW} ${-WHEEL_VIEW} ${WHEEL_VIEW * 2} ${WHEEL_VIEW * 2}`}
           >
-            <defs>
-              <linearGradient id="expertise-wheel-gradient" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="var(--gradient-start)" />
-                <stop offset="1" stopColor="var(--gradient-end)" />
-              </linearGradient>
-            </defs>
             {wheelSlices.map((slice, index) => {
               const item = coreExpertise[index];
               const number = String(index + 1).padStart(2, "0");
@@ -191,7 +209,7 @@ export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase
                   aria-controls={`expertise-panel-${slice.id}`}
                   aria-label={`${number} ${item.title[language]}`}
                   aria-selected={index === activeIndex}
-                  className={index === activeIndex ? "expertise-slice is-active" : "expertise-slice"}
+                  className={`expertise-slice expertise-tone-${slice.id}${index === activeIndex ? " is-active" : ""}`}
                   id={`expertise-slice-${slice.id}`}
                   key={slice.id}
                   onClick={() => setActiveIndex(index)}
@@ -201,9 +219,14 @@ export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase
                     setActiveIndex(index);
                   }}
                   role="tab"
-                  style={{ "--pop-x": slice.popX, "--pop-y": slice.popY } as CSSProperties}
+                  style={{ "--pop-x": slice.popX, "--pop-y": slice.popY, "--tone-fill": `url(#expertise-gradient-${slice.id})` } as CSSProperties}
                   tabIndex={0}
                 >
+                  {/* Declared inside the slice so its stops inherit the slice's tone colours. */}
+                  <linearGradient id={`expertise-gradient-${slice.id}`} x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" style={{ stopColor: "var(--tone)" }} />
+                    <stop offset="1" style={{ stopColor: "var(--tone-soft)" }} />
+                  </linearGradient>
                   <path d={slice.path} />
                   <text x={slice.labelX} y={slice.labelY}>{number}</text>
                 </g>
