@@ -14,6 +14,7 @@ type WorkSectionProps = {
   language: Language;
   previewMode: boolean;
   selectedCase: CaseStudy | null;
+  totalCases: number;
   onSelectCase: (caseStudy: CaseStudy | null) => void;
 };
 
@@ -23,6 +24,7 @@ export function WorkSection({
   language,
   previewMode,
   selectedCase,
+  totalCases,
   onSelectCase: setSelectedCase,
 }: WorkSectionProps) {
   const flagshipCases = useMemo(
@@ -38,9 +40,10 @@ export function WorkSection({
     [caseStudies],
   );
   const closeCase = useCallback(() => setSelectedCase(null), [setSelectedCase]);
+  // Ordered by case number; unpublished cases are simply skipped (4/19 → 6/19).
   const navigableCases = useMemo(
-    () => [...flagshipCases, ...evidenceCases].filter((item) => item.detail),
-    [flagshipCases, evidenceCases],
+    () => caseStudies.filter((item) => item.detail).sort((left, right) => left.id - right.id),
+    [caseStudies],
   );
   const selectedIndex = selectedCase ? navigableCases.findIndex((item) => item.id === selectedCase.id) : -1;
   const navigateCase = (direction: -1 | 1) => {
@@ -94,7 +97,7 @@ export function WorkSection({
           language={language}
           onClose={closeCase}
           onNavigate={selectedIndex >= 0 && navigableCases.length > 1 ? navigateCase : undefined}
-          position={selectedIndex >= 0 ? `${selectedIndex + 1}/${navigableCases.length}` : undefined}
+          position={`${selectedCase.id}/${totalCases}`}
           previewMode={previewMode}
         />
       )}

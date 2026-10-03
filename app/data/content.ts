@@ -35,9 +35,9 @@ export const copy = {
       "Có tầm nhìn chiến lược, sáng tạo, thu thập dữ liệu và đánh giá hiệu suất để tối ưu kết quả quảng cáo.",
     ],
     expertiseKicker: "NĂNG LỰC CỐT LÕI",
-    expertiseTitle: "Những gì mình làm được, qua công việc thật.",
+    expertiseTitle: "Những giải pháp mình làm tốt nhất, qua dự án thực tế.",
     expertiseIntro:
-      "Mình mạnh ở bốn mảng: lên kế hoạch, funnel, phân tích hiệu suất và quản lý account. Creative là phần mình dùng để hỗ trợ cả bốn mảng đó.",
+      "Tập trung vào 4 trụ cột chính: Lập kế hoạch, Tối ưu Funnel, Phân tích dữ liệu và Quản lý Account. Yếu tố Sáng tạo (Creative) được lồng ghép chặt chẽ để thúc đẩy hiệu quả cho toàn bộ luồng vận hành.",
     expertiseProofLabel: "VÍ DỤ TIÊU BIỂU",
     expertiseSkillsLabel: "KỸ NĂNG CHI TIẾT",
     supportingCapability: "KỸ NĂNG HỖ TRỢ",

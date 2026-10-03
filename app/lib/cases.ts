@@ -94,6 +94,9 @@ export function validateCaseStudies() {
 
 validateCaseStudies();
 
+// Every case counts, published or not, so the modal's "4/19" counter keeps a stable total.
+export const totalCaseCount = caseStudies.length;
+
 export function getCaseStudiesForRender({ preview }: { preview: boolean }) {
   if (preview) return caseStudies.filter((item) => item.presentationTier !== "hidden");
 

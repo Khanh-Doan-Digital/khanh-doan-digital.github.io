@@ -20,9 +20,10 @@ import { SiteCursor } from "./ui/SiteCursor";
 type PortfolioClientProps = {
   caseStudies: CaseStudy[];
   previewMode: boolean;
+  totalCases: number;
 };
 
-export function PortfolioClient({ caseStudies, previewMode }: PortfolioClientProps) {
+export function PortfolioClient({ caseStudies, previewMode, totalCases }: PortfolioClientProps) {
   const { language, setLanguage } = useLanguage();
   const content = copy[language];
   const { activeSection, setActiveSection, showBackToTop } = useActiveSection(copy.vi.navIds);
@@ -56,6 +57,7 @@ export function PortfolioClient({ caseStudies, previewMode }: PortfolioClientPro
         language={language}
         previewMode={previewMode}
         selectedCase={selectedCase}
+        totalCases={totalCases}
         onSelectCase={setSelectedCase}
       />
       <ExperienceSection content={content} />
