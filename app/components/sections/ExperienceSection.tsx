@@ -4,23 +4,14 @@ import type { PortfolioContent } from "../../data/content";
 import { useExperienceRoadmap } from "../../hooks/useExperienceRoadmap";
 import { ArrowDownIcon } from "../ui/Icons";
 
-function LanaLogo() {
-  return (
-    <svg className="company-logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <rect x="1" y="1" width="22" height="22" rx="6" />
-      <path d="M7.5 6.5v11h8.8M11 6.5v7.2h5.3" />
-    </svg>
-  );
-}
-
 function ExperienceMilestoneLogo({ company }: { company: string }) {
-  if (company.startsWith("LANA")) return <LanaLogo />;
-
-  const label = company.startsWith("Lạc")
-    ? "LẠC"
-    : company === "Freelance"
-      ? "Freelance"
-      : "S4S";
+  const label = company.startsWith("LANA")
+    ? "LANA"
+    : company.startsWith("Lạc")
+      ? "LẠC"
+      : company === "Freelance"
+        ? "Freelance"
+        : "S4S";
 
   return <span className="milestone-monogram" aria-hidden="true">{label}</span>;
 }

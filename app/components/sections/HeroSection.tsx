@@ -75,7 +75,7 @@ export function HeroSection({ content, language }: HeroSectionProps) {
   const [tailBeforePlatforms, tailAfterPlatforms] = descriptionTail.split("{platforms}");
   // Keep punctuation right after the icons (e.g. ",") on the same line as them.
   const iconsPunctuation = tailAfterPlatforms.match(/^\S*/)?.[0] ?? "";
-  const currentRole = content.experiences[0];
+  const currentRole = content.experiences.find((item) => item.company.startsWith("LANA")) ?? content.experiences[0];
 
   return (
     <section className="hero section-shell" id="home">

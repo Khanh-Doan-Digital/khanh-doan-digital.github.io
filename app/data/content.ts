@@ -67,8 +67,16 @@ export const copy = {
     experienceScrollLabel: "Cuộn để theo dõi hành trình",
     experiences: [
       {
-        start: "04/2025",
+        start: "08/2023",
         end: "Hiện tại",
+        company: "Freelance",
+        role: "Digital Marketer & Graphic Designer",
+        text: "Mình nhận các dự án marketing tự do, từ lên kế hoạch và sản xuất nội dung đến thiết kế banner, poster và ấn phẩm truyền thông. Mình cũng lên kế hoạch và chạy quảng cáo Facebook theo mục tiêu của từng dự án.",
+        tags: ["Content Planning", "Graphic Design", "Facebook Ads", "Freelance Projects"],
+      },
+      {
+        start: "04/2025",
+        end: "09/2026",
         company: "LANA Digital",
         role: "Optimizer & Account Executive",
         text: "Mình lập kế hoạch, chạy và tối ưu quảng cáo cho nhiều thương hiệu trên Meta, Google, YouTube và TikTok, quản lý hơn 600 triệu đồng mỗi tháng. Ngoài tối ưu hiệu suất, mình còn nhận brief, làm rõ mục tiêu, đề xuất media plan, phối hợp các bộ phận và báo cáo kết quả cho khách hàng.",
@@ -81,14 +89,6 @@ export const copy = {
         role: "Marketing Executive",
         text: "Mình nghiên cứu thị trường, lên kế hoạch khuyến mãi và sản xuất nội dung cho Facebook, TikTok. Mình tự viết nội dung, thiết kế, quay dựng video, đồng thời quản lý gian hàng Shopee, xử lý đơn hàng và hỗ trợ khách hàng.",
         tags: ["Campaign Planning", "Content & Design", "Video Production", "E-commerce"],
-      },
-      {
-        start: "08/2023",
-        end: "Hiện tại",
-        company: "Freelance",
-        role: "Digital Marketer & Graphic Designer",
-        text: "Mình nhận các dự án marketing tự do, từ lên kế hoạch và sản xuất nội dung đến thiết kế banner, poster và ấn phẩm truyền thông. Mình cũng lên kế hoạch và chạy quảng cáo Facebook theo mục tiêu của từng dự án.",
-        tags: ["Content Planning", "Graphic Design", "Facebook Ads", "Freelance Projects"],
       },
       {
         start: "05/2023",
@@ -190,11 +190,19 @@ export const copy = {
     experienceScrollLabel: "Scroll to follow the journey",
     experiences: [
       {
-        start: "04/2025",
+        start: "08/2023",
         end: "Present",
+        company: "Freelance",
+        role: "Digital Marketer & Graphic Designer",
+        text: "I take on freelance marketing projects, from planning and producing content to designing banners, posters, and marketing materials. I also plan and run Facebook ads based on each project’s goals.",
+        tags: ["Content Planning", "Graphic Design", "Facebook Ads", "Freelance Projects"],
+      },
+      {
+        start: "04/2025",
+        end: "09/2026",
         company: "LANA Digital",
         role: "Optimizer & Account Executive",
-        text: "I plan, run, and optimize ads for multiple brands on Meta, Google, YouTube, and TikTok, managing over VND 600 million a month. Beyond performance optimization, I take client briefs, clarify objectives, propose media plans, coordinate across teams, and report results to clients.",
+        text: "I planned, ran, and optimized ads for multiple brands on Meta, Google, YouTube, and TikTok, managing over VND 600 million a month. Beyond performance optimization, I took client briefs, clarified objectives, proposed media plans, coordinated across teams, and reported results to clients.",
         tags: ["Paid Media", "Budget & Scaling", "A/B Testing", "Client Coordination"],
       },
       {
@@ -204,14 +212,6 @@ export const copy = {
         role: "Marketing Executive",
         text: "I researched the market, planned promotions, and produced content for Facebook and TikTok. I wrote the copy, designed, and shot and edited videos myself, while also managing the Shopee store, processing orders, and supporting customers.",
         tags: ["Campaign Planning", "Content & Design", "Video Production", "E-commerce"],
-      },
-      {
-        start: "08/2023",
-        end: "Present",
-        company: "Freelance",
-        role: "Digital Marketer & Graphic Designer",
-        text: "I take on freelance marketing projects, from planning and producing content to designing banners, posters, and marketing materials. I also plan and run Facebook ads based on each project’s goals.",
-        tags: ["Content Planning", "Graphic Design", "Facebook Ads", "Freelance Projects"],
       },
       {
         start: "05/2023",

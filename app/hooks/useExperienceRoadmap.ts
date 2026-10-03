@@ -89,7 +89,7 @@ export function useExperienceRoadmap() {
           const visibility = Math.min(Math.max((viewportHeight - cardTop) / fadeDistance, 0), 1);
           const isCurrent = index === nextActiveIndex;
           const isPast = index < nextActiveIndex;
-          const opacity = isCurrent ? 1 : isPast ? 0.72 : 0.08 + visibility * 0.82;
+          const opacity = isCurrent ? 1 : isPast ? 0.9 : 0.08 + visibility * 0.82;
           const scale = isCurrent ? 1.015 : isPast ? 0.985 : 0.94 + visibility * 0.055;
           const shift = isCurrent || isPast ? 0 : (1 - visibility) * 42;
           const milestoneOpacity = index <= nextActiveIndex ? 1 : 0.18 + visibility * 0.58;

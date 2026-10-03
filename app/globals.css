@@ -1687,7 +1687,7 @@ a {
   width: fit-content;
   margin-top: 26px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .08em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -1795,14 +1795,6 @@ a {
 .milestone-freelance .milestone-logo { background: linear-gradient(145deg, #2dd4a7, #3fa0c9); }
 .milestone-s4s .milestone-logo { background: linear-gradient(145deg, #6ee0c2, #2170ad); }
 
-.milestone-logo .company-logo {
-  width: 46%;
-  height: 46%;
-  flex: none;
-  fill: var(--ink);
-  stroke: var(--paper);
-}
-
 .milestone-monogram {
   font-size: clamp(12px, 1.35vw, 17px);
   font-weight: 800;
@@ -1810,7 +1802,7 @@ a {
 }
 
 .milestone-freelance .milestone-monogram {
-  font-size: clamp(8px, .8vw, 11px);
+  font-size: clamp(10px, 1vw, 13px);
   letter-spacing: -.08em;
 }
 
@@ -1836,22 +1828,12 @@ a {
 .experience-card {
   width: 100%;
   min-width: 0;
-  padding: 0 clamp(22px, 2.3vw, 34px) clamp(24px, 2.7vw, 38px);
   opacity: var(--step-opacity, .08);
-  background:
-    linear-gradient(155deg, rgba(255,255,255,.58), rgba(255,255,255,.24)),
-    rgba(233, 238, 243, .42);
-  border: 1px solid var(--line-light);
-  border-top: 2px solid var(--ink);
-  border-radius: 26px;
-  box-shadow: 0 14px 45px rgba(16, 74, 104, .05);
   transform: translateY(var(--step-shift, 42px)) scale(var(--step-scale, .94));
   transform-origin: center;
   transition:
     opacity 180ms linear,
-    transform 260ms cubic-bezier(.2,.75,.2,1),
-    box-shadow 700ms ease,
-    border-color 500ms ease;
+    transform 260ms cubic-bezier(.2,.75,.2,1);
   will-change: opacity, transform;
 }
 
@@ -1862,14 +1844,11 @@ a {
 
 .roadmap-step.is-active .experience-card {
   opacity: 1;
-  border-color: rgba(22, 88, 123, .36);
-  box-shadow: 0 30px 80px rgba(16, 74, 104, .14);
   transform: translate(0, 0) scale(1.015);
 }
 
 .roadmap-step.is-revealed:not(.is-active) .experience-card:hover {
   opacity: 1;
-  box-shadow: 0 22px 58px rgba(16, 74, 104, .11);
   transform: translateY(-5px) scale(1);
 }
 
@@ -1880,7 +1859,7 @@ a {
   align-items: center;
   padding: 18px 0;
   border-bottom: 1px solid var(--line-light);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .experience-date i {
@@ -1895,7 +1874,7 @@ a {
 .experience-body > div:first-child p {
   margin: 0 0 8px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .company-name {
@@ -1908,17 +1887,6 @@ a {
   background: rgba(255,255,255,.3);
 }
 
-.company-logo {
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
-  fill: var(--ink);
-  stroke: var(--lime);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 .experience-body h3 {
   margin: 16px 0 0;
   font-size: clamp(25px, 2.55vw, 36px);
@@ -1929,7 +1897,7 @@ a {
 .experience-body > p {
   margin: clamp(24px, 2.5vw, 34px) 0;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -1944,7 +1912,7 @@ a {
   border: 1px solid var(--line-light);
   border-radius: var(--radius-pill);
   background: rgba(255,255,255,.2);
-  font-size: 9px;
+  font-size: 12px;
 }
 
 @keyframes roadmap-cue-bob {
@@ -2377,7 +2345,7 @@ footer {
   .experience h2 { font-size: clamp(28px, 8vw, 42px); line-height: 1; }
   .project-content h3,
   .experience-body h3 { font-size: 22px; }
-  .roadmap-scroll-cue { gap: 10px; margin-top: 18px; font-size: 9px; }
+  .roadmap-scroll-cue { gap: 10px; margin-top: 18px; font-size: 11px; }
   .experience-roadmap {
     min-height: 2240px;
   }
@@ -2393,17 +2361,13 @@ footer {
     height: 52px;
   }
   .roadmap-step-right .roadmap-milestone { left: 21px; }
-  .experience-card {
-    padding-inline: 16px;
-    padding-bottom: 22px;
-    border-radius: 20px;
-  }
-  .experience-date { gap: 10px; font-size: 9px; }
+  .milestone-freelance .milestone-monogram { font-size: 9px; }
+  .experience-date { gap: 10px; font-size: 12px; }
   .experience-body { padding-top: 24px; }
-  .experience-body > div:first-child p { font-size: 9px; }
-  .experience-body > p { margin: 22px 0; font-size: 14px; line-height: 1.62; }
+  .experience-body > div:first-child p { font-size: 12px; }
+  .experience-body > p { margin: 22px 0; font-size: 15px; line-height: 1.62; }
   .experience-tags { gap: 6px; }
-  .experience-tags span { padding: 7px 9px; font-size: 8px; }
+  .experience-tags span { padding: 7px 10px; font-size: 11px; }
   .contact::after {
     left: 0;
     bottom: 0;

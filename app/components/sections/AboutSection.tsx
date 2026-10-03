@@ -3,6 +3,8 @@ import type { PortfolioContent } from "../../data/content";
 import { getPublicAssetUrl } from "../../lib/assets";
 
 export function AboutSection({ content }: { content: PortfolioContent }) {
+  const featuredRole = content.experiences.find((item) => item.company.startsWith("LANA")) ?? content.experiences[0];
+
   return (
     <section className="about section-shell" id="about">
       <p className="kicker about-kicker">{content.aboutKicker}</p>
@@ -18,7 +20,7 @@ export function AboutSection({ content }: { content: PortfolioContent }) {
             loading="lazy"
             decoding="async"
           />
-          <i aria-hidden="true">{content.experiences[0].role.toUpperCase()}</i>
+          <i aria-hidden="true">{featuredRole.role.toUpperCase()}</i>
         </div>
       </div>
       <div className="about-copy">
