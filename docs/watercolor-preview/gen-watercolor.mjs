@@ -1,56 +1,8 @@
-import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
-
-const outDir = dirname(fileURLToPath(import.meta.url));
-mkdirSync(outDir, { recursive: true });
-
+// Builds one watercolor wash as an SVG string. Used by gen-brand-set.mjs.
+//
 // Layer 1 — wet-on-wet wash: large, heavily blurred color fields that melt into each other.
 // Layer 2 — pigment edges: a few patches drawn mostly as dried "tide lines" with a faint body.
 // Layer 3 — irregular mask so the whole wash fades into bare paper at the top/right.
-const variants = {
-  brand: {
-    paper: "#fcfdfd",
-    wash: [
-      // [cx, cy, rx, ry, color, opacity]
-      [180, 700, 560, 460, "#4fc3f7", 0.55],
-      [520, 420, 420, 360, "#5fa8f0", 0.4],
-      [300, 260, 320, 260, "#90d4f8", 0.35],
-      [900, 500, 420, 380, "#6cc9e6", 0.32],
-      [1100, 580, 400, 300, "#5fdcbc", 0.42],
-      [700, 880, 460, 220, "#26c6da", 0.45],
-      // pink accent, top right — blended "normal" so it doesn't turn grey over teal
-      [1330, 170, 330, 210, "#f7a8cf", 0.62, "normal"],
-    ],
-    edges: [
-      // [cx, cy, rx, ry, color, opacity, seed]
-      [1320, 200, 200, 140, "#ec7fb4", 0.14, 37],
-      [300, 560, 300, 240, "#1e88e5", 0.3, 3],
-      [640, 360, 260, 200, "#42a5f5", 0.22, 11],
-      [1060, 600, 300, 220, "#1fbf95", 0.26, 8],
-      [620, 820, 320, 160, "#00acc1", 0.26, 21],
-    ],
-    streak: "#0277bd",
-  },
-  pink: {
-    paper: "#fdfcfd",
-    wash: [
-      [180, 700, 560, 460, "#4fc3f7", 0.55],
-      [480, 400, 400, 340, "#7fb8f5", 0.38],
-      [300, 240, 320, 260, "#9adaf9", 0.32],
-      [760, 440, 380, 340, "#b3a8ee", 0.36],
-      [1140, 360, 400, 320, "#f59ac6", 0.46],
-      [700, 880, 460, 220, "#26c6da", 0.45],
-    ],
-    edges: [
-      [300, 560, 300, 240, "#1e88e5", 0.28, 3],
-      [760, 380, 240, 200, "#8e7fe0", 0.2, 11],
-      [1120, 400, 300, 240, "#e56aa7", 0.24, 8],
-      [620, 820, 320, 160, "#00acc1", 0.26, 21],
-    ],
-    streak: "#0288d1",
-  },
-};
 
 const edgeFilter = (id, seed) => `
     <filter id="${id}" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
@@ -145,11 +97,4 @@ export function build({
   </g>
 </svg>
 `;
-}
-
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  for (const [name, v] of Object.entries(variants)) {
-    writeFileSync(`${outDir}/watercolor-${name}.svg`, build(v));
-  }
-  console.log("ok");
 }

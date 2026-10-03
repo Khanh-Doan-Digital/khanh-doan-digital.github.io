@@ -43,7 +43,6 @@ test("includes GitHub Pages routing and Jekyll bypass files", async () => {
     access(new URL("404.html", pagesRoot)),
     access(new URL(".nojekyll", pagesRoot)),
     access(new URL("og-v3.jpg", pagesRoot)),
-    access(new URL("work/03-water-tanks-messages-to-sales/cover-brand.svg", pagesRoot)),
     access(new URL("_next/", pagesRoot)),
   ]);
 });

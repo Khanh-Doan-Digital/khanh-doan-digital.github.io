@@ -66,7 +66,6 @@ export type CaseStudy = {
   metrics: VerifiedMetric[];
   detail?: CaseDetail;
   coverVariant: CapabilityId;
-  coverImage?: string;
   assets: CaseAsset[];
   confidential: boolean;
   dataStatus: DataStatus;

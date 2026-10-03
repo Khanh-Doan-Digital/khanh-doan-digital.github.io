@@ -1,5 +1,5 @@
 // Generates the set of brand watercolor washes used as random section backgrounds.
-// Same palette + technique as watercolor-brand (brand-1); each layout moves the color
+// One palette and technique throughout; each layout moves the color
 // masses, pink accent, blooms and bleed area so no two sections look alike.
 //
 //   node docs/watercolor-preview/gen-brand-set.mjs   -> docs/watercolor-preview/set/brand-N.svg
@@ -23,7 +23,7 @@ const C = {
 const pink = (cx, cy, rx, ry, op = 0.62) => [cx, cy, rx, ry, C.pink, op, "normal"];
 
 const layouts = {
-  // brand-1 is the original watercolor-brand: blue left, teal right, pink top-right
+  // brand-1 is the original layout: blue left, teal right, pink top-right
   "brand-1": {
     wash: [
       [180, 700, 560, 460, C.sky, 0.55], [520, 420, 420, 360, C.blue, 0.4], [300, 260, 320, 260, C.mist, 0.35],

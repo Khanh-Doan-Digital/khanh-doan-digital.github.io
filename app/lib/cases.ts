@@ -62,8 +62,7 @@ export function validateCaseStudies() {
       throw new Error(`Case ${item.id} contains an internal brief marker.`);
     }
     if (item.dataStatus === "approved" && item.presentationTier === "flagship") {
-      if (!item.coverImage || !item.detail) throw new Error(`Approved flagship Case ${item.id} is missing cover or detail data.`);
-      if (/^https?:/i.test(item.coverImage)) throw new Error(`Approved flagship Case ${item.id} must use a local cover asset.`);
+      if (!item.detail) throw new Error(`Approved flagship Case ${item.id} is missing detail data.`);
       if (item.metrics.some((metric) => !metric.verified)) {
         throw new Error(`Approved flagship Case ${item.id} contains an unverified metric.`);
       }
@@ -102,7 +101,7 @@ export function getCaseStudiesForRender({ preview }: { preview: boolean }) {
 
   const published = caseStudies.filter((item) => {
     if (item.dataStatus !== "approved" || item.presentationTier === "hidden") return false;
-    if (item.presentationTier === "flagship") return Boolean(item.coverImage && item.detail);
+    if (item.presentationTier === "flagship") return Boolean(item.detail);
     return true;
   });
 

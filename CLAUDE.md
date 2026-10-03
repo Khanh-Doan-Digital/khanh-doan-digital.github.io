@@ -27,13 +27,13 @@ To preview a case study that hasn't been approved yet, set `NEXT_PUBLIC_CASE_PRE
 **Publish gating (`app/lib/cases.ts`) is the core invariant to respect.** `validateCaseStudies()` runs at module load (import time) and throws if case data is malformed — this means simply importing `app/data/cases.ts` anywhere validates it. Rules enforced there:
 - Exactly 19 cases, IDs 1–19, unique IDs and slugs.
 - Every case needs localized (`vi`+`en`) industry/title/summary text with no internal draft markers (`🟨`, `[___]`, `⇔`, "để chỗ") — these mark unfinished internal briefs and must never leak into public copy.
-- A case with `dataStatus === "approved"` and `presentationTier === "flagship"` must have a local (non-URL) cover image, full `detail`, and only `verified` metrics.
+- A case with `dataStatus === "approved"` and `presentationTier === "flagship"` must have full `detail` and only `verified` metrics.
 - `presentationTier === "hidden"` cases are excluded from preview mode too.
 - `expertise.ts` entries must only reference case IDs that exist.
 
 `getCaseStudiesForRender` (not `validateCaseStudies`) additionally enforces: at most 6 flagship cases may be published at once.
 
-`getCaseStudiesForRender({ preview })` — preview mode (dev, or `NEXT_PUBLIC_CASE_PREVIEW=1`) shows everything except `hidden`; production mode additionally requires `dataStatus === "approved"` and, for flagships, cover+detail present.
+`getCaseStudiesForRender({ preview })` — preview mode (dev, or `NEXT_PUBLIC_CASE_PREVIEW=1`) shows everything except `hidden`; production mode additionally requires `dataStatus === "approved"` and, for flagships, `detail` present.
 
 When adding or editing a case study in `app/data/cases.ts`, keep it consistent with these rules or the build will fail fast (by design).
 
