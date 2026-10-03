@@ -2622,11 +2622,17 @@ footer {
   display: inline-flex;
   gap: 8px;
   margin-top: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
   color: var(--accent-ink);
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
 }
+
+.expertise-evidence-count:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 4px; }
 
 .expertise-label + .expertise-evidence-count { margin-top: 0; }
 
@@ -2869,85 +2875,6 @@ footer {
 .case-empty-state span { color: var(--lime); font-size: 9px; letter-spacing: .1em; }
 .case-empty-state p { max-width: 540px; margin: 0; color: rgba(255,255,255,.55); line-height: 1.7; }
 
-.additional-evidence {
-  margin-top: 120px;
-  padding-top: 80px;
-  border-top: 1px solid var(--line-dark);
-  scroll-margin-top: 92px;
-}
-
-.evidence-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
-  gap: 50px;
-  align-items: end;
-  margin-bottom: 42px;
-}
-
-.evidence-heading .kicker { color: var(--lime); }
-.evidence-heading h3 { max-width: 760px; margin: 14px 0 0; font-size: clamp(35px, 5vw, 66px); line-height: .98; letter-spacing: -.06em; }
-.evidence-heading > p { margin: 0; color: rgba(255,255,255,.52); font-size: 14px; line-height: 1.7; }
-
-.evidence-list { border-top: 1px solid var(--line-dark); }
-
-.evidence-empty-state {
-  padding: 28px 0;
-  border-top: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
-}
-
-.evidence-empty-state p { margin: 0; color: rgba(255,255,255,.48); font-size: 13px; }
-
-.evidence-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 64px minmax(0, 1.2fr) minmax(260px, .8fr);
-  gap: 24px;
-  align-items: center;
-  padding: 25px 0;
-  border-bottom: 1px solid var(--line-dark);
-  scroll-margin-top: 96px;
-  transition: background 220ms ease;
-}
-
-.evidence-item:has(.case-card-hitbox:not(:disabled)):hover,
-.evidence-item:has(.case-card-hitbox:not(:disabled)):focus-within {
-  background: rgba(255,255,255,.03);
-}
-
-.evidence-item:focus-within .evidence-thumb,
-.evidence-item:hover .evidence-thumb { border-color: rgba(255,255,255,.28); }
-
-.evidence-thumb {
-  position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0c3450;
-  border: 1px solid var(--line-dark);
-  transition: border-color 220ms ease;
-}
-
-.evidence-thumb img { width: 100%; height: 100%; display: block; object-fit: cover; }
-
-.evidence-thumb .evidence-number {
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
-  padding: 2px 6px;
-  border-radius: 6px;
-  background: rgba(5,29,42,.72);
-}
-
-.evidence-number { color: var(--lime); font-size: 9px; }
-.evidence-copy p { margin: 0 0 8px; color: rgba(255,255,255,.42); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
-.evidence-copy h4 { margin: 0; font-size: clamp(20px, 2.2vw, 30px); line-height: 1.1; letter-spacing: -.035em; }
-.evidence-copy > span { display: block; margin-top: 10px; color: rgba(255,255,255,.55); font-size: 12px; line-height: 1.55; }
-.evidence-meta { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; gap: 9px; text-align: right; }
-.evidence-meta > span { color: var(--lime); font-size: 10px; }
-.evidence-meta small { color: rgba(255,255,255,.4); font-size: 8px; line-height: 1.5; }
-
 .case-modal-backdrop {
   position: fixed;
   z-index: 120;
@@ -3130,10 +3057,6 @@ footer {
 @media (max-width: 900px) {
   .case-card:first-child { grid-column: auto; }
   .case-card:first-child .case-card-content { min-height: 100%; }
-  .evidence-heading { grid-template-columns: 1fr; gap: 22px; }
-  .evidence-item { grid-template-columns: 52px minmax(0, 1fr); }
-  .evidence-thumb { width: 52px; height: 52px; border-radius: 13px; }
-  .evidence-meta { grid-column: 2; align-items: flex-start; text-align: left; }
   .case-modal { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); height: calc(100vh - 30px); }
   /* Fixed header height so switching cases doesn't shift the body; text is clamped to fit. */
   .case-modal-header {
@@ -3166,9 +3089,6 @@ footer {
   .case-card-content { padding: 26px 22px; }
   .case-card h3, .case-card:not(:first-child) h3 { font-size: 32px; }
   .case-card-metrics { grid-template-columns: 1fr; }
-  .additional-evidence { margin-top: 80px; padding-top: 58px; }
-  .evidence-item { gap: 12px; padding: 22px 0; }
-  .evidence-meta small { display: none; }
   .case-modal-backdrop { padding: 14px; }
   .case-modal-header { --header-inline: 24px 64px; --header-bottom: 22px; padding: 26px 64px 22px 24px; }
   .case-modal-header h2 { font-size: 28px; -webkit-line-clamp: 3; line-clamp: 3; }

@@ -47,9 +47,6 @@ export const copy = {
     workIntro:
       "Đây là những dự án thể hiện rõ nhất quy mô mình từng làm, cách mình nghĩ về funnel, cách mình tìm nguyên nhân và tác động tới kinh doanh. Các dự án còn lại cho thấy mình đã làm việc với nhiều ngành và bài toán khác nhau.",
     viewProject: "Xem dự án",
-    evidenceKicker: "ADDITIONAL EVIDENCE",
-    evidenceTitle: "Thêm dự án từ nhiều ngành khác nhau",
-    evidenceIntro: "Mỗi dự án được tính riêng. Mình không cộng gộp số liệu giữa các khách hàng hay các giai đoạn khác nhau.",
     previewNotice: "Bản xem thử · Nội dung các dự án đang chờ kiểm tra lại trước khi đăng.",
     noPublishedCases: "Mình đang kiểm tra lại số liệu và hình ảnh của các dự án, sẽ đăng sớm.",
     confidential: "Mình đã ẩn một số dữ liệu để đảm bảo bảo mật cho khách hàng.",
@@ -173,9 +170,6 @@ export const copy = {
     workIntro:
       "These projects best show the scale I’ve worked at, how I think about funnels, how I find root causes, and the impact on the business. The rest show the range of industries and problems I’ve worked on.",
     viewProject: "View project",
-    evidenceKicker: "ADDITIONAL EVIDENCE",
-    evidenceTitle: "More projects across different industries",
-    evidenceIntro: "Each project is counted on its own. I never combine numbers across clients or time periods.",
     previewNotice: "Preview · Project content is waiting for a final check before publishing.",
     noPublishedCases: "I’m double-checking project data and visuals, and they’ll be published soon.",
     confidential: "I’ve hidden some data to protect client confidentiality.",

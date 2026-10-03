@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import type { CaseStudy } from "../data/types";
 import { copy } from "../data/content";
@@ -28,13 +28,24 @@ export function PortfolioClient({ caseStudies, previewMode, totalCases }: Portfo
   const content = copy[language];
   const { activeSection, setActiveSection, showBackToTop } = useActiveSection(copy.vi.navIds);
   const visibleCaseIds = caseStudies.map((item) => item.id);
-  const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
+  // `scope` limits the modal's prev/next to those case IDs; null means every published case.
+  const [selection, setSelection] = useState<{ caseStudy: CaseStudy; scope: number[] | null } | null>(null);
+  const selectCase = useCallback((caseStudy: CaseStudy | null, scope: number[] | null = null) => {
+    setSelection(caseStudy ? { caseStudy, scope } : null);
+  }, []);
   // Returns false when the case has no detail to show, so the caller can fall back to its anchor link.
   const openCaseById = (caseId: number) => {
     const caseStudy = caseStudies.find((item) => item.id === caseId);
     if (!caseStudy?.detail) return false;
-    setSelectedCase(caseStudy);
+    selectCase(caseStudy);
     return true;
+  };
+  // Opens the first of a capability's extra projects and keeps prev/next within that set.
+  const openEvidenceCases = (caseIds: number[]) => {
+    const first = caseStudies
+      .filter((item) => item.detail && caseIds.includes(item.id))
+      .sort((left, right) => left.id - right.id)[0];
+    if (first) selectCase(first, caseIds);
   };
 
   return (
@@ -50,15 +61,22 @@ export function PortfolioClient({ caseStudies, previewMode, totalCases }: Portfo
       <HeroSection content={content} language={language} />
       <NumbersSection content={content} language={language} />
       <AboutSection content={content} />
-      <ExpertiseSection content={content} language={language} visibleCaseIds={visibleCaseIds} onOpenCase={openCaseById} />
+      <ExpertiseSection
+        content={content}
+        language={language}
+        visibleCaseIds={visibleCaseIds}
+        onOpenCase={openCaseById}
+        onOpenEvidence={openEvidenceCases}
+      />
       <WorkSection
         caseStudies={caseStudies}
         content={content}
         language={language}
         previewMode={previewMode}
-        selectedCase={selectedCase}
+        selectedCase={selection?.caseStudy ?? null}
+        caseScope={selection?.scope ?? null}
         totalCases={totalCases}
-        onSelectCase={setSelectedCase}
+        onSelectCase={selectCase}
       />
       <ExperienceSection content={content} />
       <ContactSection content={content} />

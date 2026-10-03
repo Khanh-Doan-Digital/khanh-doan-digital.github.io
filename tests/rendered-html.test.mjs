@@ -12,7 +12,6 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
   assert.match(html, /Đọc dữ liệu - tìm insight,/);
   assert.match(html, /id="expertise"/);
   assert.match(html, /id="work"/);
-  assert.match(html, /id="additional-evidence"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /\/_next\/static\//);
   const sectionOrder = ["home", "numbers", "about", "expertise", "work", "experience", "contact"]
@@ -25,8 +24,9 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
   assert.match(html, /Tối ưu tin nhắn và doanh thu/);
   assert.match(html, /work\/03-water-tanks-messages-to-sales\/cover-brand\.svg/);
   assert.equal((html.match(/data-metric-status="verified"/g) ?? []).length, 10);
-  assert.equal((html.match(/data-evidence-case="\d+"/g) ?? []).length, 14);
-  assert.match(html, /Tuyển sinh đa nền tảng/);
+  // Evidence-only cases have no list of their own; each capability opens them in the case modal.
+  assert.doesNotMatch(html, /additional-evidence|data-evidence-case/);
+  assert.equal((html.match(/<button[^>]*class="expertise-evidence-count"/g) ?? []).length, 5);
   assert.doesNotMatch(html, /project-carousel|PERFORMANCE \/ CREATIVE|ROAS ↗|CPL ↓|VTR ↗/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/i);
   // Link previews on social and chat platforms depend on these tags.

@@ -341,7 +341,6 @@ export const caseStudies: CaseStudy[] = [
         en: "A launch phase needs clear channel roles from day one so reach and engagement don't compete for the same budget.",
       },
     },
-    coverImage: "/work/personalized-fragrance-launch/thumb-brand.svg",
     coverVariant: "paid-media-strategy",
     assets: [], confidential: true, dataStatus: "approved",
   },
@@ -414,7 +413,6 @@ export const caseStudies: CaseStudy[] = [
         en: "Clearly separating the conversation channel from the traffic channel let me measure each platform’s real contribution to the funnel.",
       },
     },
-    coverImage: "/work/skills-education-lead-generation/thumb-brand.svg",
     coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -569,7 +567,6 @@ export const caseStudies: CaseStudy[] = [
         en: "With a small local budget, clearly splitting the conversation channel from the reach channel helped me get the most out of every dong spent.",
       },
     },
-    coverImage: "/work/buffet-local-customer-growth/thumb-brand.svg",
     coverVariant: "paid-media-strategy", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -628,7 +625,6 @@ export const caseStudies: CaseStudy[] = [
         en: "Running two objectives in parallel on the same audience showed me clearly which flow produced cheaper leads, and which better fit how people research real estate.",
       },
     },
-    coverImage: "/work/real-estate-dual-lead-flows/thumb-brand.svg",
     coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -696,7 +692,6 @@ export const caseStudies: CaseStudy[] = [
         en: "For a category that relies on direct consultation like jewelry, pairing 1-on-1 conversations with livestream selling speeds up customer decisions compared to static ads alone.",
       },
     },
-    coverImage: "/work/jewelry-customer-acquisition/thumb-brand.svg",
     coverVariant: "account-integrated-management", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -754,7 +749,6 @@ export const caseStudies: CaseStudy[] = [
         en: "Sustaining steady engagement over time keeps the restaurant top of mind for nearby customers, rather than relying on short, isolated bursts of activity.",
       },
     },
-    coverImage: "/work/restaurant-local-engagement/thumb-brand.svg",
     coverVariant: "paid-media-strategy", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -821,7 +815,6 @@ export const caseStudies: CaseStudy[] = [
         en: "In early-childhood education, authentic and continuously refreshed content matters as much as ad optimization, since parents need to see the real learning environment before reaching out.",
       },
     },
-    coverImage: "/work/preschool-enrollment-campaign/thumb-brand.svg",
     coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -947,7 +940,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với sản phẩm giá trị cao như ô tô, giữ độ tiếp cận đủ rộng song song với tối ưu hội thoại giúp mình không bỏ lỡ những khách còn đang tìm hiểu.", en: "For a high-value product like a car, keeping reach broad alongside conversation optimization helped me avoid missing buyers who were still researching.",
       },
     },
-    coverImage: "/work/automotive-customer-inquiries/thumb-brand.svg",
     coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -1001,7 +993,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Báo cáo tách biệt theo mục tiêu giúp mình tránh đánh giá sai khi trộn tin nhắn có ý định cao với tương tác bề mặt.", en: "Reporting separately by objective kept me from misjudging performance by mixing high-intent messages with surface-level engagement.",
       },
     },
-    coverImage: "/work/automotive-messages-engagement/thumb-brand.svg",
     coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -1065,7 +1056,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với ngành cần nhiều niềm tin như xây dựng, việc nối liền quảng cáo, nội dung và landing page giúp khách có đủ thông tin trước khi để lại liên hệ.", en: "For a trust-heavy category like construction, connecting ads, content, and the landing page gives customers enough information before they leave their contact details.",
       },
     },
-    coverImage: "/work/construction-customer-inquiries/thumb-brand.svg",
     coverVariant: "account-integrated-management", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -1129,7 +1119,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Dẫn lead về kênh nhắn tin mà từng nhóm đối tượng quen dùng (Messenger cho Facebook, Zalo cho TikTok) giúp tăng tỷ lệ phản hồi so với dồn tất cả vào một kênh.", en: "Routing leads to the messaging channel each audience already prefers (Messenger for Facebook, Zalo for TikTok) improves response rates compared to funneling everyone into one channel.",
       },
     },
-    coverImage: "/work/korean-education-enrollment/thumb-brand.svg",
     coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -1185,7 +1174,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Có bộ guideline rõ ràng ngay từ đầu giúp các hạng mục sau (banner, tài liệu, biển chỉ dẫn) được triển khai nhanh và đồng bộ hơn, thay vì thiết kế rời rạc từng lần.", en: "A clear guideline set from the start lets downstream materials (banners, sales docs, wayfinding) ship faster and stay consistent, instead of being designed piecemeal each time.",
       },
     },
-    coverImage: "/work/business-services-brand-identity/thumb-brand.svg",
     coverVariant: "brand-content-creative", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -1240,7 +1228,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với doanh nghiệp dịch vụ, một hệ thống nội dung nền tảng giúp giữ giọng thương hiệu nhất quán ngay cả khi số lượng bài đăng tăng lên.", en: "For a services business, a foundational content system keeps the brand voice consistent even as posting volume grows.",
       },
     },
-    coverImage: "/work/marketing-services-brand-content/thumb-brand.svg",
     coverVariant: "brand-content-creative", assets: [], confidential: true, dataStatus: "approved",
   },
   {
@@ -1297,7 +1284,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với phòng khám phục vụ nhiều nhu cầu khác nhau, đa dạng định dạng nội dung (bài viết, thiết kế, video) giúp tiếp cận đúng từng nhóm khách hơn là dùng một công thức chung.", en: "For a clinic serving varied patient needs, mixing content formats (copy, design, video) reaches each audience segment more precisely than a one-size-fits-all approach.",
       },
     },
-    coverImage: "/work/dermatology-multi-format-content/thumb-brand.svg",
     coverVariant: "brand-content-creative", assets: [], confidential: true, dataStatus: "approved",
   },
 ];

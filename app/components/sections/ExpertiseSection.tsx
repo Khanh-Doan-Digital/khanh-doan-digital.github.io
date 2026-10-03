@@ -10,9 +10,10 @@ type ExpertiseSectionProps = {
   language: Language;
   visibleCaseIds?: number[];
   onOpenCase?: (caseId: number) => boolean;
+  onOpenEvidence?: (caseIds: number[]) => void;
 };
 
-export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase }: ExpertiseSectionProps) {
+export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase, onOpenEvidence }: ExpertiseSectionProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -102,9 +103,9 @@ export function ExpertiseSection({ content, language, visibleCaseIds, onOpenCase
                       </div>
                     )}
                     {availableEvidence.length > 0 && (
-                      <a className="expertise-evidence-count" href="#additional-evidence">
+                      <button className="expertise-evidence-count" type="button" onClick={() => onOpenEvidence?.(availableEvidence)}>
                         +{availableEvidence.length} {content.expertiseMoreEvidence}<i aria-hidden="true">↘</i>
-                      </a>
+                      </button>
                     )}
                   </div>
                 )}
