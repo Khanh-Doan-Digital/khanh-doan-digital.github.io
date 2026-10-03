@@ -3031,7 +3031,7 @@ footer {
 .case-modal-header-account-integrated-management { --case-accent: #b7a7ff; }
 .case-modal-header-brand-content-creative { --case-accent: #ff9ccf; }
 
-.case-modal-overline { order: 1; align-self: stretch; margin-top: auto; padding-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: rgba(255,255,255,.72); font-size: 11px; letter-spacing: .08em; }
+.case-modal-overline { order: 1; align-self: stretch; margin-top: auto; padding-top: 28px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; color: rgba(255,255,255,.72); font-size: 11px; letter-spacing: .08em; }
 .case-modal-overline > p { min-width: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
 
 .case-modal-nav { flex: none; display: flex; align-items: center; gap: 10px; }
@@ -3116,17 +3116,30 @@ footer {
   .evidence-thumb { width: 52px; height: 52px; border-radius: 13px; }
   .evidence-meta { grid-column: 2; align-items: flex-start; text-align: left; }
   .case-modal { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); height: calc(100vh - 30px); }
-  .case-modal-header { padding: 34px 68px 26px 42px; }
-  .case-modal-header .discipline-tags { margin-bottom: 18px; }
-  .case-modal-header > p { margin-top: 16px; }
-  .case-modal-overline { padding-top: 20px; }
+  /* Fixed header height so switching cases doesn't shift the body; text is clamped to fit. */
+  .case-modal-header {
+    --header-ease: .38s cubic-bezier(.22, .8, .3, 1);
+    --header-inline: 42px 68px;
+    --header-bottom: 26px;
+    height: 310px;
+    padding: 34px 68px 26px 42px;
+    transition: border-color .25s ease, height var(--header-ease), padding var(--header-ease);
+  }
+  .case-modal-header .discipline-tags { flex: none; max-width: 100%; max-height: 34px; flex-wrap: nowrap; margin-bottom: 18px; overflow-x: auto; scrollbar-width: none; transition: max-height var(--header-ease), margin var(--header-ease), opacity .2s ease; }
+  .case-modal-header .discipline-tags::-webkit-scrollbar { display: none; }
+  .case-modal-header .discipline-tags span { flex: none; white-space: nowrap; }
+  .case-modal-header h2 { flex: none; max-width: 100%; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; padding-block: .08em; line-height: 1.08; overflow: hidden; transition: font-size var(--header-ease), letter-spacing var(--header-ease); }
+  .case-modal-header > p { flex: none; max-height: 3.4em; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; margin-top: 16px; overflow: hidden; transition: max-height var(--header-ease), margin var(--header-ease), opacity .2s ease; }
+  /* Pinned to the header's bottom edge so it rides up smoothly as the header shrinks. */
+  .case-modal-overline { position: absolute; inset: auto 0 var(--header-bottom); margin: 0; padding: 0; padding-inline: var(--header-inline); transition: bottom var(--header-ease); }
+  .case-modal-overline > p { transition: opacity .2s ease, visibility .2s; }
   .case-modal-body { padding-right: clamp(28px, 5vw, 68px); }
-  /* Once the body is scrolled, the stacked header shrinks to a one-line title bar. */
-  .case-modal[data-condensed] .case-modal-header { flex-direction: row; align-items: center; gap: 14px; padding-block: 16px; }
-  .case-modal[data-condensed] .case-modal-header > :not(h2, .case-modal-overline),
-  .case-modal[data-condensed] .case-modal-overline > p { display: none; }
-  .case-modal[data-condensed] .case-modal-overline { align-self: center; margin: 0; padding: 0; }
-  .case-modal[data-condensed] .case-modal-header h2 { flex: 1; min-width: 0; font-size: 20px; line-height: 1.2; letter-spacing: -.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Once the body is scrolled, the stacked header eases down to a one-line title bar. */
+  .case-modal[data-condensed] .case-modal-header { --header-bottom: 16px; height: 68px; padding-block: 22px 16px; }
+  .case-modal[data-condensed] .case-modal-header .discipline-tags,
+  .case-modal[data-condensed] .case-modal-header > p { max-height: 0; margin-block: 0; opacity: 0; overflow: hidden; }
+  .case-modal[data-condensed] .case-modal-overline > p { opacity: 0; visibility: hidden; }
+  .case-modal[data-condensed] .case-modal-header h2 { max-width: calc(100% - 140px); display: block; padding-block: 0; font-size: 20px; line-height: 1.2; letter-spacing: -.03em; white-space: nowrap; text-overflow: ellipsis; }
 }
 
 @media (max-width: 680px) {
@@ -3138,8 +3151,8 @@ footer {
   .evidence-item { gap: 12px; padding: 22px 0; }
   .evidence-meta small { display: none; }
   .case-modal-backdrop { padding: 14px; }
-  .case-modal-header { padding: 26px 64px 22px 24px; }
-  .case-modal-header h2 { font-size: 32px; }
+  .case-modal-header { --header-inline: 24px 64px; --header-bottom: 22px; padding: 26px 64px 22px 24px; }
+  .case-modal-header h2 { font-size: 28px; -webkit-line-clamp: 3; line-clamp: 3; }
   .case-modal-body { padding: 44px 23px 40px; }
   .case-modal-meta, .case-modal-results { grid-template-columns: 1fr; }
   .case-detail-block { grid-template-columns: 1fr; gap: 11px; }
@@ -3149,5 +3162,5 @@ footer {
   .case-card { transition: none; }
   .case-card:hover { transform: none; }
   .case-modal-backdrop, .case-modal, .case-modal-nav > span { animation: none; }
-  .case-modal-header { transition: none; }
+  .case-modal-header, .case-modal-header *, .case-modal-overline { transition: none; }
 }

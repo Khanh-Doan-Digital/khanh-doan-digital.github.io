@@ -29,6 +29,11 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
   assert.match(html, /Tuyển sinh đa nền tảng/);
   assert.doesNotMatch(html, /project-carousel|PERFORMANCE \/ CREATIVE|ROAS ↗|CPL ↓|VTR ↗/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/i);
+  // Link previews on social and chat platforms depend on these tags.
+  assert.match(html, /<meta name="description" content="[^"]{50,}"/);
+  assert.match(html, /<meta property="og:image" content="[^"]+\/og-v3\.jpg"/);
+  assert.match(html, /<meta property="og:url" content="[^"]+"/);
+  assert.match(html, /<meta name="twitter:card" content="summary_large_image"/);
 });
 
 test("includes GitHub Pages routing and Jekyll bypass files", async () => {
@@ -36,7 +41,7 @@ test("includes GitHub Pages routing and Jekyll bypass files", async () => {
     access(new URL("index.html", pagesRoot)),
     access(new URL("404.html", pagesRoot)),
     access(new URL(".nojekyll", pagesRoot)),
-    access(new URL("og-v2.png", pagesRoot)),
+    access(new URL("og-v3.jpg", pagesRoot)),
     access(new URL("work/03-water-tanks-messages-to-sales/cover-brand.svg", pagesRoot)),
     access(new URL("_next/", pagesRoot)),
   ]);

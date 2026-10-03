@@ -90,7 +90,7 @@ app/
   page.tsx              # Ghép các section thành trang portfolio
 
 public/
-  og-v2.png            # Social preview theo định vị mới
+  og-v3.jpg            # Social preview 1200×630 (og:image / twitter:image)
 
 scripts/
   export-github-pages.mjs

@@ -8,21 +8,30 @@ const title = "Khánh Đoan — Performance Marketing & Account Management";
 const description =
   "Portfolio Performance Marketing & Account Management của Khánh Đoan — chiến lược paid media, tối ưu funnel, phân tích hiệu suất và điều phối account.";
 
+// 1200×630 JPEG kept small so chat apps (Zalo, Messenger, WhatsApp) fetch it reliably.
+// Rename the file when the artwork changes: platforms cache previews by image URL.
+const shareImage = { url: `${siteUrl}/og-v3.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: title };
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  authors: [{ name: "Khánh Đoan" }],
+  alternates: { canonical: `${siteUrl}/` },
   openGraph: {
     title,
     description,
     type: "website",
-    images: [{ url: `${siteUrl}/og-v2.png`, width: 1734, height: 907, alt: "Khánh Đoan — Performance Marketing & Account Management" }],
+    url: `${siteUrl}/`,
+    siteName: "Khánh Đoan",
+    locale: "vi_VN",
+    images: [shareImage],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [`${siteUrl}/og-v2.png`],
+    images: [{ url: shareImage.url, alt: shareImage.alt }],
   },
 };
 
