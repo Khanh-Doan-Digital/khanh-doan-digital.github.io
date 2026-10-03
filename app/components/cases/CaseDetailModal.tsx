@@ -192,8 +192,9 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
         <div className="case-modal-ghost" ref={ghostRef} aria-hidden="true" />
 
         <button ref={closeButtonRef} className="case-modal-close" type="button" onClick={requestClose} aria-label={content.close}>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-            <path d="M6 6l12 12M18 6L6 18" />
+          {/* 16px icon in a 34px inner box: an even gap on every side, so the cross sits on whole pixels. */}
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <path d="M4 4l8 8M12 4l-8 8" />
           </svg>
         </button>
 

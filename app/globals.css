@@ -3117,6 +3117,7 @@ footer {
   height: 36px;
   display: grid;
   place-items: center;
+  padding: 0;
   border: 1px solid var(--line-light);
   border-radius: 50%;
   background: var(--paper);
@@ -3125,6 +3126,8 @@ footer {
   cursor: pointer;
   transition: background-color .15s ease, color .15s ease;
 }
+
+.case-modal-close svg { display: block; }
 
 .case-modal-close:hover { background: var(--ink); color: var(--white); }
 
