@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
@@ -13,10 +13,18 @@ type WorkSectionProps = {
   content: PortfolioContent;
   language: Language;
   previewMode: boolean;
+  selectedCase: CaseStudy | null;
+  onSelectCase: (caseStudy: CaseStudy | null) => void;
 };
 
-export function WorkSection({ caseStudies, content, language, previewMode }: WorkSectionProps) {
-  const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
+export function WorkSection({
+  caseStudies,
+  content,
+  language,
+  previewMode,
+  selectedCase,
+  onSelectCase: setSelectedCase,
+}: WorkSectionProps) {
   const flagshipCases = useMemo(
     () => caseStudies
       .filter((item) => item.presentationTier === "flagship")
@@ -29,7 +37,7 @@ export function WorkSection({ caseStudies, content, language, previewMode }: Wor
       .sort((left, right) => left.id - right.id),
     [caseStudies],
   );
-  const closeCase = useCallback(() => setSelectedCase(null), []);
+  const closeCase = useCallback(() => setSelectedCase(null), [setSelectedCase]);
 
   return (
     <>

@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import type { CaseStudy } from "../data/types";
 import { copy } from "../data/content";
 import { useActiveSection } from "../hooks/useActiveSection";
@@ -25,6 +27,14 @@ export function PortfolioClient({ caseStudies, previewMode }: PortfolioClientPro
   const content = copy[language];
   const { activeSection, setActiveSection, showBackToTop } = useActiveSection(copy.vi.navIds);
   const visibleCaseIds = caseStudies.map((item) => item.id);
+  const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
+  // Returns false when the case has no detail to show, so the caller can fall back to its anchor link.
+  const openCaseById = (caseId: number) => {
+    const caseStudy = caseStudies.find((item) => item.id === caseId);
+    if (!caseStudy?.detail) return false;
+    setSelectedCase(caseStudy);
+    return true;
+  };
 
   return (
     <main>
@@ -39,12 +49,14 @@ export function PortfolioClient({ caseStudies, previewMode }: PortfolioClientPro
       <HeroSection content={content} language={language} />
       <NumbersSection content={content} language={language} />
       <AboutSection content={content} />
-      <ExpertiseSection content={content} language={language} visibleCaseIds={visibleCaseIds} />
+      <ExpertiseSection content={content} language={language} visibleCaseIds={visibleCaseIds} onOpenCase={openCaseById} />
       <WorkSection
         caseStudies={caseStudies}
         content={content}
         language={language}
         previewMode={previewMode}
+        selectedCase={selectedCase}
+        onSelectCase={setSelectedCase}
       />
       <ExperienceSection content={content} />
       <ContactSection content={content} />

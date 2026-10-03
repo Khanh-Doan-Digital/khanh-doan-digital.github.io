@@ -9,8 +9,8 @@ export const copy = {
     menu: "Mở menu",
     closeMenu: "Đóng menu",
     heroLabel: "PERFORMANCE MARKETING · ACCOUNT MANAGEMENT",
-    heroTitleA: "Đọc dữ liệu, tìm nguyên nhân,",
-    heroTitleB: "và tối ưu cho kết quả.",
+    heroTitleA: "Đọc dữ liệu - tìm insight,",
+    heroTitleB: "optimize cho ra kết quả.",
     heroDescription:
       "Mình là Khánh Đoan. Chuyên lập kế hoạch, chạy và tối ưu quảng cáo trên {platforms}, kết nối dữ liệu, funnel và làm việc cùng khách hàng để ra kết quả đo được.",
     viewWork: "Case study nổi bật",
@@ -41,7 +41,7 @@ export const copy = {
     expertiseProofLabel: "VÍ DỤ TIÊU BIỂU",
     expertiseSkillsLabel: "KỸ NĂNG CHI TIẾT",
     supportingCapability: "KỸ NĂNG HỖ TRỢ",
-    evidencePreparing: "Phần Creative mình đang hoàn thiện, sẽ sớm có thêm ví dụ.",
+    expertiseMoreEvidence: "dự án khác",
     workKicker: "FLAGSHIP CASES · 2023—2026",
     workTitle: "Những dự án mình tự hào",
     workIntro:
@@ -133,7 +133,7 @@ export const copy = {
     menu: "Open menu",
     closeMenu: "Close menu",
     heroLabel: "PERFORMANCE MARKETING · ACCOUNT MANAGEMENT",
-    heroTitleA: "Read the data, find the cause,",
+    heroTitleA: "Read the data, find the insight,",
     heroTitleB: "optimize for results.",
     heroDescription:
       "I’m Khánh Đoan. I plan, run, and optimize ads on {platforms}, connecting data and funnels and working closely with clients to deliver measurable results.",
@@ -165,7 +165,7 @@ export const copy = {
     expertiseProofLabel: "KEY EXAMPLES",
     expertiseSkillsLabel: "DETAILED SKILLS",
     supportingCapability: "SUPPORTING SKILLS",
-    evidencePreparing: "I’m still finishing the Creative section, with more examples coming soon.",
+    expertiseMoreEvidence: "more projects",
     workKicker: "FLAGSHIP CASES · 2023—2026",
     workTitle: "Projects I’m proud of",
     workIntro:
