@@ -38,6 +38,15 @@ export function WorkSection({
     [caseStudies],
   );
   const closeCase = useCallback(() => setSelectedCase(null), [setSelectedCase]);
+  const navigableCases = useMemo(
+    () => [...flagshipCases, ...evidenceCases].filter((item) => item.detail),
+    [flagshipCases, evidenceCases],
+  );
+  const selectedIndex = selectedCase ? navigableCases.findIndex((item) => item.id === selectedCase.id) : -1;
+  const navigateCase = (direction: -1 | 1) => {
+    if (selectedIndex < 0) return;
+    setSelectedCase(navigableCases[(selectedIndex + direction + navigableCases.length) % navigableCases.length]);
+  };
 
   return (
     <>
@@ -84,6 +93,8 @@ export function WorkSection({
           content={content}
           language={language}
           onClose={closeCase}
+          onNavigate={selectedIndex >= 0 && navigableCases.length > 1 ? navigateCase : undefined}
+          position={selectedIndex >= 0 ? `${selectedIndex + 1}/${navigableCases.length}` : undefined}
           previewMode={previewMode}
         />
       )}

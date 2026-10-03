@@ -124,6 +124,8 @@ export const copy = {
     verifiedResults: "Kết quả trong giai đoạn phân tích",
     previousAsset: "Hình trước",
     nextAsset: "Hình tiếp theo",
+    previousCase: "Case trước",
+    nextCase: "Case tiếp theo",
   },
   en: {
     nav: ["Home", "About", "Expertise", "Case Studies", "Experience", "Contact"],
@@ -248,6 +250,8 @@ export const copy = {
     verifiedResults: "Results in the analysis period",
     previousAsset: "Previous image",
     nextAsset: "Next image",
+    previousCase: "Previous case",
+    nextCase: "Next case",
   },
 };
 
