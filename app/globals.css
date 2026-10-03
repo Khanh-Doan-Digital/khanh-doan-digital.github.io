@@ -2639,7 +2639,7 @@ footer {
 /* Core capabilities: detail panel on the left, a four-slice donut selector on the right. */
 .expertise-wheel-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 540px);
+  grid-template-columns: minmax(0, 1fr) clamp(360px, 45%, 540px);
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
   margin-bottom: 14px;
@@ -2767,12 +2767,16 @@ footer {
   animation: expertise-rise 380ms cubic-bezier(.2,.7,.2,1) both;
 }
 
-@media (max-width: 980px) {
-  .expertise-pillars,
-  .expertise-pillar-supporting { grid-template-columns: 1fr; }
+/* Below this width the detail panel would get too narrow next to the wheel, so the wheel moves on top. */
+@media (max-width: 1080px) {
   .expertise-wheel-layout { grid-template-columns: 1fr; gap: 28px; }
   .expertise-wheel { order: -1; max-width: 460px; }
   .expertise-wheel-hub strong { font-size: clamp(11px, 2.9vw, 14px); }
+}
+
+@media (max-width: 980px) {
+  .expertise-pillars,
+  .expertise-pillar-supporting { grid-template-columns: 1fr; }
   .expertise-pillar-supporting { grid-column: auto; }
   .expertise-pillar-supporting .expertise-pillar-heading { padding-right: 0; }
   .expertise-pillar-supporting .expertise-pillar-body {
