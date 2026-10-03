@@ -2,7 +2,6 @@ import type {
   CaseStudy
 } from "./types";
 
-const needsVerification = "needs-verification" as const;
 
 export const caseStudies: CaseStudy[] = [
   {
@@ -91,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
     coverVariant: "paid-media-strategy",
     assets: [],
     confidential: true,
-    dataStatus: needsVerification,
+    dataStatus: "approved",
   },
   {
     id: 2,
@@ -182,7 +181,7 @@ export const caseStudies: CaseStudy[] = [
     coverVariant: "lead-generation-funnel",
     assets: [],
     confidential: true,
-    dataStatus: needsVerification,
+    dataStatus: "approved",
   },
   {
     id: 3,
@@ -503,7 +502,7 @@ export const caseStudies: CaseStudy[] = [
     },
     coverImage: "/work/pet-food-always-on-awareness/cover-brand.svg",
     coverVariant: "account-integrated-management",
-    assets: [], confidential: true, dataStatus: needsVerification,
+    assets: [], confidential: true, dataStatus: "approved",
   },
   {
     id: 7,
@@ -895,7 +894,7 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     coverImage: "/work/yoga-inquiry-generation/cover-brand.svg",
-    coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: needsVerification,
+    coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: "approved",
   },
   {
     id: 13,

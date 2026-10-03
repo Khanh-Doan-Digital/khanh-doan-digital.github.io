@@ -21,10 +21,10 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
   assert.deepEqual([...sectionOrder].sort((left, right) => left - right), sectionOrder);
   assert.equal((html.match(/data-expertise-kind="core"/g) ?? []).length, 4);
   assert.equal((html.match(/data-expertise-kind="supporting"/g) ?? []).length, 1);
-  assert.equal((html.match(/data-case-tier="flagship"/g) ?? []).length, 1);
+  assert.equal((html.match(/data-case-tier="flagship"/g) ?? []).length, 5);
   assert.match(html, /Tối ưu tin nhắn và doanh thu/);
   assert.match(html, /work\/03-water-tanks-messages-to-sales\/cover-brand\.svg/);
-  assert.equal((html.match(/data-metric-status="verified"/g) ?? []).length, 2);
+  assert.equal((html.match(/data-metric-status="verified"/g) ?? []).length, 10);
   assert.equal((html.match(/data-evidence-case="\d+"/g) ?? []).length, 14);
   assert.match(html, /Tuyển sinh đa nền tảng/);
   assert.doesNotMatch(html, /project-carousel|PERFORMANCE \/ CREATIVE|ROAS ↗|CPL ↓|VTR ↗/);
