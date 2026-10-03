@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
@@ -20,14 +20,35 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
   const dialogRef = useRef<HTMLElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const bodyRef = useRef<HTMLDivElement | null>(null);
-  const navigateRef = useRef(onNavigate);
+  const navigateRef = useRef<((direction: -1 | 1) => void) | undefined>(undefined);
+  const swapTimerRef = useRef<number | null>(null);
   const [condensed, setCondensed] = useState(false);
+  const [swap, setSwap] = useState<{ phase: "out" | "in"; direction: -1 | 1 } | null>(null);
   const caseNumber = String(caseStudy.id).padStart(2, "0");
   const metrics = caseStudy.metrics.filter((metric) => metric.verified || previewMode);
 
+  // Slide the current case out before swapping, then slide the next one in from the same direction.
+  const navigate = (direction: -1 | 1) => {
+    if (!onNavigate || swapTimerRef.current !== null) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      onNavigate(direction);
+      return;
+    }
+    setSwap({ phase: "out", direction });
+    swapTimerRef.current = window.setTimeout(() => {
+      swapTimerRef.current = null;
+      onNavigate(direction);
+      setSwap({ phase: "in", direction });
+    }, 120);
+  };
+
   useEffect(() => {
-    navigateRef.current = onNavigate;
-  }, [onNavigate]);
+    navigateRef.current = onNavigate ? navigate : undefined;
+  });
+
+  useEffect(() => () => {
+    if (swapTimerRef.current !== null) window.clearTimeout(swapTimerRef.current);
+  }, []);
 
   useEffect(() => {
     bodyRef.current?.scrollTo({ top: 0 });
@@ -90,6 +111,8 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
       <section
         className="case-modal"
         data-condensed={condensed ? "true" : undefined}
+        data-swap={swap?.phase}
+        style={{ "--swap-direction": swap?.direction ?? 1 } as CSSProperties}
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
@@ -107,9 +130,9 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
             <p><span>CASE {caseNumber}</span><span>{caseStudy.industry[language]}</span></p>
             {onNavigate && (
               <nav className="case-modal-nav" aria-label={`${content.previousCase} / ${content.nextCase}`}>
-                <button type="button" onClick={() => onNavigate(-1)} aria-label={content.previousCase}>←</button>
-                {position && <span>{position}</span>}
-                <button type="button" onClick={() => onNavigate(1)} aria-label={content.nextCase}>→</button>
+                <button type="button" onClick={() => navigate(-1)} aria-label={content.previousCase}>←</button>
+                {position && <span key={position}>{position}</span>}
+                <button type="button" onClick={() => navigate(1)} aria-label={content.nextCase}>→</button>
               </nav>
             )}
           </div>
