@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
-import { CaseCard } from "../cases/CaseCard";
 import { CaseDetailModal } from "../cases/CaseDetailModal";
+import { CaseFolder } from "../cases/CaseFolder";
 
 type WorkSectionProps = {
   caseStudies: CaseStudy[];
@@ -32,10 +32,19 @@ export function WorkSection({
   const flagshipCases = useMemo(
     () => caseStudies
       .filter((item) => item.presentationTier === "flagship")
-      .sort((left, right) => (left.featuredRank ?? 99) - (right.featuredRank ?? 99)),
+      .sort((left, right) => left.id - right.id),
     [caseStudies],
   );
-  const closeCase = useCallback(() => setSelectedCase(null), [setSelectedCase]);
+  // Set when a folder was clicked, so the modal unfolds out of it; cases opened elsewhere just fade in.
+  const [openedFromFolder, setOpenedFromFolder] = useState(false);
+  const closeCase = useCallback(() => {
+    setOpenedFromFolder(false);
+    setSelectedCase(null);
+  }, [setSelectedCase]);
+  const openFolder = (caseStudy: CaseStudy) => {
+    setOpenedFromFolder(true);
+    setSelectedCase(caseStudy);
+  };
   // Ordered by case number; unpublished and out-of-scope cases are simply skipped (4/19 → 6/19).
   const navigableCases = useMemo(
     () => caseStudies
@@ -64,14 +73,15 @@ export function WorkSection({
           {previewMode && <p className="case-preview-notice"><span>PREVIEW</span>{content.previewNotice}</p>}
 
           {flagshipCases.length > 0 ? (
-            <div className="selected-case-grid">
+            <div className="case-folder-stack">
               {flagshipCases.map((caseStudy) => (
-                <CaseCard
+                <CaseFolder
                   caseStudy={caseStudy}
                   content={content}
+                  isOpen={selectedCase?.id === caseStudy.id}
                   key={caseStudy.id}
                   language={language}
-                  onSelect={setSelectedCase}
+                  onSelect={openFolder}
                   previewMode={previewMode}
                 />
               ))}
@@ -96,6 +106,7 @@ export function WorkSection({
           onNavigate={selectedIndex >= 0 && navigableCases.length > 1 ? navigateCase : undefined}
           position={`${selectedCase.id}/${totalCases}`}
           previewMode={previewMode}
+          unfold={openedFromFolder}
         />
       )}
     </>

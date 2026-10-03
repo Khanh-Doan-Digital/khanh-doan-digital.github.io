@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
@@ -15,10 +15,18 @@ type CaseDetailModalProps = {
   onNavigate?: (direction: -1 | 1) => void;
   position?: string;
   previewMode: boolean;
+  // True when the modal was opened by clicking a folder, so it should unfold out of that folder.
+  unfold?: boolean;
 };
 
-export function CaseDetailModal({ caseStudy, content, language, onClose, onNavigate, position, previewMode }: CaseDetailModalProps) {
+const UNFOLD_EASING = "cubic-bezier(.3, .75, .2, 1)";
+
+export function CaseDetailModal({ caseStudy, content, language, onClose, onNavigate, position, previewMode, unfold = false }: CaseDetailModalProps) {
+  const backdropRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLElement | null>(null);
+  const ghostRef = useRef<HTMLDivElement | null>(null);
+  const requestCloseRef = useRef<() => void>(() => {});
+  const closingRef = useRef(false);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const bodyRef = useRef<HTMLDivElement | null>(null);
   const navigateRef = useRef<((direction: -1 | 1) => void) | undefined>(undefined);
@@ -43,9 +51,68 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
     }, 120);
   };
 
+  // Morphs the modal between the folder's slot in the stack and its own centred position.
+  // Returns null when there is no visible folder for this case or motion is reduced.
+  const playUnfold = (direction: "open" | "close") => {
+    const dialog = dialogRef.current;
+    const folder = document.querySelector<HTMLElement>(`#case-${caseNumber} .case-folder-body`);
+    if (!dialog || !folder || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+
+    const from = folder.getBoundingClientRect();
+    if (from.width === 0 || from.bottom <= 0 || from.top >= window.innerHeight) return null;
+
+    const to = dialog.getBoundingClientRect();
+    const x = from.left + from.width / 2 - (to.left + to.width / 2);
+    const y = from.top + from.height / 2 - (to.top + to.height / 2);
+    const scaleX = from.width / to.width;
+    const scaleY = from.height / to.height;
+    const opening = direction === "open";
+    // In the stack → lifted clear of it → unfolded in the centre.
+    const frames = [
+      { transform: `translate(${x}px, ${y}px) scale(${scaleX}, ${scaleY})`, offset: 0 },
+      { transform: `translate(${x}px, ${y - 28}px) scale(${scaleX * 1.04}, ${scaleY * 1.04})`, offset: 0.26 },
+      { transform: "translate(0, 0) scale(1, 1)", offset: 1 },
+    ];
+    const ghostFrames = [
+      { opacity: 1, offset: 0 },
+      { opacity: 1, offset: 0.46 },
+      { opacity: 0, offset: 1 },
+    ];
+    const timing: KeyframeAnimationOptions = {
+      duration: opening ? 640 : 480,
+      easing: UNFOLD_EASING,
+      direction: opening ? "normal" : "reverse",
+      fill: opening ? "none" : "forwards",
+    };
+
+    ghostRef.current?.animate(ghostFrames, timing);
+    return dialog.animate(frames, timing);
+  };
+
+  // Every way of closing (button, Esc, backdrop) folds the modal back into its folder when one is on screen.
+  const requestClose = () => {
+    if (closingRef.current) return;
+    const animation = playUnfold("close");
+    if (!animation) {
+      onClose();
+      return;
+    }
+    closingRef.current = true;
+    backdropRef.current?.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 480, easing: "ease-in", fill: "forwards" });
+    animation.finished.then(onClose, onClose);
+  };
+
   useEffect(() => {
     navigateRef.current = onNavigate ? navigate : undefined;
+    requestCloseRef.current = requestClose;
   });
+
+  // Runs before first paint so the modal is never seen at full size before it unfolds.
+  const unfoldOnMountRef = useRef(unfold);
+  useLayoutEffect(() => {
+    if (unfoldOnMountRef.current) playUnfold("open");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => () => {
     if (swapTimerRef.current !== null) window.clearTimeout(swapTimerRef.current);
@@ -62,7 +129,7 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        onClose();
+        requestCloseRef.current();
         return;
       }
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
@@ -98,7 +165,7 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
       window.removeEventListener("keydown", onKeyDown);
       window.requestAnimationFrame(() => returnTarget?.focus());
     };
-  }, [onClose]);
+  }, []);
 
   const detail = caseStudy.detail;
   if (!detail) return null;
@@ -106,13 +173,15 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
   return (
     <div
       className="case-modal-backdrop"
+      ref={backdropRef}
       role="presentation"
-      onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}
+      onMouseDown={(event) => { if (event.currentTarget === event.target) requestClose(); }}
     >
       <section
         className="case-modal"
         data-condensed={condensed ? "true" : undefined}
         data-swap={swap?.phase}
+        data-unfold={unfold ? "true" : undefined}
         style={{ "--swap-direction": swap?.direction ?? 1 } as CSSProperties}
         ref={dialogRef}
         role="dialog"
@@ -120,7 +189,9 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
         aria-labelledby={`case-title-${caseNumber}`}
         aria-describedby={`case-overview-${caseNumber}`}
       >
-        <button ref={closeButtonRef} className="case-modal-close" type="button" onClick={onClose} aria-label={content.close}>
+        <div className="case-modal-ghost" ref={ghostRef} aria-hidden="true" />
+
+        <button ref={closeButtonRef} className="case-modal-close" type="button" onClick={requestClose} aria-label={content.close}>
           <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
             <path d="M6 6l12 12M18 6L6 18" />
           </svg>

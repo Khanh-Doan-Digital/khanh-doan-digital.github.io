@@ -22,7 +22,8 @@ test("exports the portfolio as a static GitHub Pages document", async () => {
   assert.equal((html.match(/data-expertise-kind="supporting"/g) ?? []).length, 1);
   assert.equal((html.match(/data-case-tier="flagship"/g) ?? []).length, 5);
   assert.match(html, /Tối ưu tin nhắn và doanh thu/);
-  assert.match(html, /work\/03-water-tanks-messages-to-sales\/cover-brand\.svg/);
+  // Flagship cases render as a stack of folders, each with its tab and two headline metrics.
+  assert.equal((html.match(/class="case-folder-tab"/g) ?? []).length, 5);
   assert.equal((html.match(/data-metric-status="verified"/g) ?? []).length, 10);
   // Evidence-only cases have no list of their own; each capability opens them in the case modal.
   assert.doesNotMatch(html, /additional-evidence|data-evidence-case/);

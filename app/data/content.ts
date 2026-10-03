@@ -43,7 +43,7 @@ export const copy = {
     supportingCapability: "KỸ NĂNG HỖ TRỢ",
     expertiseMoreEvidence: "dự án khác",
     workKicker: "FLAGSHIP CASES · 2023—2026",
-    workTitle: "Những dự án mình tự hào",
+    workTitle: "Những con số đáng tự hào của mình",
     workIntro:
       "Đây là những dự án thể hiện rõ nhất quy mô mình từng làm, cách mình nghĩ về funnel, cách mình tìm nguyên nhân và tác động tới kinh doanh. Các dự án còn lại cho thấy mình đã làm việc với nhiều ngành và bài toán khác nhau.",
     viewProject: "Xem dự án",
@@ -166,7 +166,7 @@ export const copy = {
     supportingCapability: "SUPPORTING SKILLS",
     expertiseMoreEvidence: "more projects",
     workKicker: "FLAGSHIP CASES · 2023—2026",
-    workTitle: "Projects I’m proud of",
+    workTitle: "The numbers I’m proud of",
     workIntro:
       "These projects best show the scale I’ve worked at, how I think about funnels, how I find root causes, and the impact on the business. The rest show the range of industries and problems I’ve worked on.",
     viewProject: "View project",

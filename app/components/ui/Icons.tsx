@@ -6,14 +6,6 @@ export function ArrowDownRightIcon() {
   );
 }
 
-export function ProjectArrowIcon() {
-  return (
-    <svg className="project-link-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
-      <path d="M4 14 14 4M6 4h8v8" />
-    </svg>
-  );
-}
-
 export function DownloadIcon() {
   return (
     <svg className="action-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
