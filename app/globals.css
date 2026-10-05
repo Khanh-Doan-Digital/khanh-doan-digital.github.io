@@ -1989,7 +1989,7 @@ html:has(iframe:hover) .site-cursor {
   overflow: hidden;
 }
 
-.contact-actions button {
+.contact-actions a {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1999,21 +1999,17 @@ html:has(iframe:hover) .site-cursor {
   background: var(--ink);
   color: var(--white);
   font-size: 13px;
-  cursor: not-allowed;
+  transition: background-color .2s ease;
 }
 
-.contact-actions button + button {
+.contact-actions a + a {
   border-left-color: rgba(255,255,255,.18);
 }
 
-.contact-actions button span { color: var(--lime); font-size: 20px; }
-
-.pending-note {
-  margin: 16px 0 0;
-  text-align: right;
-  color: var(--muted);
-  font-size: 9px;
-}
+.contact-actions a span { color: var(--lime); font-size: 20px; transition: transform .2s ease; }
+.contact-actions a:hover { background: var(--ink-soft); }
+.contact-actions a:hover span { transform: translate(3px, -3px); }
+.contact-actions a:focus-visible { outline: 2px solid var(--lime); outline-offset: -4px; }
 
 footer {
   background: var(--gradient-ink);
@@ -2406,8 +2402,7 @@ footer {
   .about-label { margin-bottom: 40px; }
   .principles { grid-template-columns: 1fr; }
   .contact-actions { grid-template-columns: 1fr; }
-  .contact-actions button + button { border-left-color: var(--ink); border-top-color: rgba(255,255,255,.18); }
-  .pending-note { text-align: left; }
+  .contact-actions a + a { border-left-color: var(--ink); border-top-color: rgba(255,255,255,.18); }
   .footer-inner { grid-template-columns: 1fr auto; padding: 28px 0; }
   .footer-inner > span { display: none; }
   .footer-inner > a {

@@ -1,4 +1,4 @@
-import type { PortfolioContent } from "../../data/content";
+import { contactDetails, type PortfolioContent } from "../../data/content";
 
 export function ContactSection({ content }: { content: PortfolioContent }) {
   return (
@@ -8,11 +8,17 @@ export function ContactSection({ content }: { content: PortfolioContent }) {
       <div className="contact-bottom">
         <p>{content.contactText}</p>
         <div className="contact-actions">
-          <button type="button" title={content.pendingContact}>{content.email}<span>↗</span></button>
-          <button type="button" title={content.pendingContact}>{content.linkedin}<span>↗</span></button>
+          {/* Gmail's compose page rather than mailto:, which does nothing when no mail app is set up. */}
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contactDetails.email)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {content.email}<span aria-hidden="true">↗</span>
+          </a>
+          <a href={contactDetails.linkedin} target="_blank" rel="noopener noreferrer">{content.linkedin}<span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <p className="pending-note">{content.pendingContact}</p>
     </section>
   );
 }

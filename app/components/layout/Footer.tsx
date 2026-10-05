@@ -11,7 +11,7 @@ export function Footer({ content, language, showBackToTop }: FooterProps) {
     <footer>
       <div className="section-shell footer-inner">
         <div><strong>Khánh Đoan</strong><span>{content.footer}</span></div>
-        <span>© 2026 · HO CHI MINH CITY, VN</span>
+        <span>© 2026 · CAN THO CITY, VN</span>
         <a
           className={showBackToTop ? "back-to-top is-visible" : "back-to-top"}
           href="#home"

@@ -105,7 +105,6 @@ export const copy = {
       "Nếu bạn đang tìm một marketer vừa nhìn được bức tranh lớn, vừa đào sâu vào hiệu quả quảng cáo, mình rất muốn được trò chuyện với bạn.",
     email: "Gửi email",
     linkedin: "Xem LinkedIn",
-    pendingContact: "Mình sẽ sớm bổ sung thông tin liên hệ.",
     footer: "Performance Marketing & Account Management",
     close: "Đóng",
     overview: "Tổng quan",
@@ -240,7 +239,6 @@ export const copy = {
       "If you’re looking for a marketer who can see the bigger picture while going deep into advertising performance, I’d be happy to connect.",
     email: "Send an email",
     linkedin: "View LinkedIn",
-    pendingContact: "I’ll add my contact details soon.",
     footer: "Performance Marketing & Account Management",
     close: "Close",
     overview: "Overview",
@@ -274,5 +272,11 @@ export const copy = {
 };
 
 export type PortfolioContent = (typeof copy)[Language];
+
+// Language-independent contact details. The profile slug has Vietnamese diacritics, so it is encoded for the href.
+export const contactDetails = {
+  email: "khanhdoanfin316@gmail.com",
+  linkedin: encodeURI("https://www.linkedin.com/in/khánh-đoan-nguyễn-ngọc-057477275/"),
+};
 
 export const statTargets = [3, 600, 4, 360] as const;
