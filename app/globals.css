@@ -109,7 +109,9 @@ body.modal-open {
    Otherwise a wheel that runs out of room inside the modal (or its iframe) scrolls the page. */
 html:has(body.modal-open) {
   overflow: hidden;
+  /* Keeps the page from shifting sideways; the reserved strip is tinted to match the modal backdrop. */
   scrollbar-gutter: stable;
+  background: #071f2d;
 }
 
 button,
@@ -3075,6 +3077,8 @@ footer {
   width: min(1180px, 100%);
   /* Fixed size so the modal doesn't jump when switching between cases. */
   height: min(820px, calc(100vh - 48px));
+  /* Mobile browsers count their toolbars in 100vh, which would push the modal's bottom edge off screen. */
+  height: min(820px, calc(100dvh - 48px));
   display: grid;
   grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
   grid-template-rows: minmax(0, 1fr);
@@ -3356,7 +3360,7 @@ footer {
   .case-folder-body { grid-template-columns: minmax(0, 1fr); align-items: start; row-gap: 20px; padding-top: 24px; }
   .case-folder-metrics { grid-column: auto; }
   .case-folder:last-child .case-folder-body { padding-bottom: 24px; }
-  .case-modal { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); height: calc(100vh - 30px); }
+  .case-modal { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); height: calc(100vh - 30px); height: calc(100dvh - 30px); }
   /* Fixed header height so switching cases doesn't shift the body; text is clamped to fit. */
   .case-modal-header {
     --header-ease: .38s cubic-bezier(.22, .8, .3, 1);
@@ -3418,6 +3422,28 @@ footer {
   .case-evidence-rail { position: absolute; z-index: 4; inset: auto 0 var(--header-strip); max-height: 66%; display: flex; flex-direction: column; padding: 18px 14px 14px; border-top: 1px solid var(--line-dark); border-radius: 18px 18px 0 0; background: #0c3050; box-shadow: 0 -18px 50px rgba(0,0,0,.4); transform: translateY(104%); visibility: hidden; transition: transform .32s cubic-bezier(.22, .8, .3, 1), visibility 0s .32s; }
   .case-evidence[data-menu-open] .case-evidence-rail { transform: none; visibility: visible; transition: transform .32s cubic-bezier(.22, .8, .3, 1); }
   .case-evidence-scrim { position: absolute; z-index: 3; inset: 0; padding: 0; border: 0; background: rgba(3, 16, 25, .6); cursor: pointer; animation: case-modal-fade .2s ease-out; }
+}
+
+@media (max-width: 900px) and (max-height: 520px) {
+  /* Phones held sideways: the header starts as its one-line bar so the case body keeps most of the height. */
+  .case-modal-header[data-has-evidence] { --header-strip: 36px; }
+  .case-modal .case-modal-header { --header-bottom: 16px; height: calc(68px + var(--header-strip)); padding-block: 22px calc(16px + var(--header-strip)); }
+  .case-modal .case-modal-header .discipline-tags,
+  .case-modal .case-modal-header > p { max-height: 0; margin-block: 0; opacity: 0; overflow: hidden; }
+  .case-modal .case-modal-overline > p { opacity: 0; visibility: hidden; }
+  .case-modal .case-modal-header h2 { max-width: calc(100% - 140px); display: block; padding-block: 0; font-size: 20px; line-height: 1.2; letter-spacing: -.03em; white-space: nowrap; text-overflow: ellipsis; }
+  /* Expanded, the title row gives way too: the viewer's own bar already names what is on screen. */
+  .case-modal[data-evidence] .case-modal-header { height: 100cqh; }
+  .case-modal[data-evidence] .case-modal-header h2 { opacity: 0; visibility: hidden; }
+  .case-evidence-stage { inset: 0 0 var(--header-strip); border-top: 0; }
+  .case-evidence-bar { min-height: 52px; padding-right: 52px; }
+  .case-evidence-rail { max-height: 82%; }
+}
+
+/* Without container units the header cannot grow over the body, so the viewer is left out entirely. */
+@supports not (width: 1cqw) {
+  .case-evidence-toggle { display: none; }
+  .case-modal .case-modal-header[data-has-evidence] { --header-strip: 0px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
