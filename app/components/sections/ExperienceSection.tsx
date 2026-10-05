@@ -47,8 +47,14 @@ export function ExperienceSection({ content }: { content: PortfolioContent }) {
             </linearGradient>
           </defs>
           <path
-            className="roadmap-path roadmap-path-progress"
+            className="roadmap-path roadmap-path-progress roadmap-path-wide"
             d="M50 0 C50 60 64 70 64 125 C64 220 36 280 36 375 C36 470 64 530 64 625 C64 720 36 780 36 875 C36 940 50 965 50 1000"
+            pathLength="1"
+          />
+          {/* Narrow screens: a wide wave behind the cards that crosses the centre at every milestone. */}
+          <path
+            className="roadmap-path roadmap-path-progress roadmap-path-compact"
+            d="M14 0 C14 91 86 159 86 250 C86 341 14 409 14 500 C14 591 86 659 86 750 C86 841 14 909 14 1000"
             pathLength="1"
           />
         </svg>
