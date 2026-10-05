@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from
 
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
+import { formatMetricValue } from "../../lib/format";
 import { isPlatform, PlatformIcon } from "../ui/Icons";
 import { CaseEvidenceViewer } from "./CaseEvidenceViewer";
 
@@ -304,7 +305,7 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
             <section className="case-modal-results" aria-label={content.verifiedResults}>
               {metrics.map((metric) => (
                 <div data-metric-status={metric.verified ? "verified" : "pending"} key={metric.label.en}>
-                  <span>{metric.label[language]}</span><strong>{metric.value}</strong>
+                  <span>{metric.label[language]}</span><strong>{formatMetricValue(metric.value, language)}</strong>
                 </div>
               ))}
             </section>

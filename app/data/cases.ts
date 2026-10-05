@@ -1106,7 +1106,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Facebook tập trung vào Tin nhắn, TikTok tập trung vào Click-to-Zalo. Mình điều phối nội dung và lịch quay dựng theo từng nhóm chương trình, để CTA và điểm đến luôn thống nhất.", en: "Facebook focused on Messages, while TikTok focused on Click-to-Zalo. I coordinated content and filming/editing schedules by program group so calls to action and destinations always matched.",
       },
       results: {
-        vi: "Mình hoàn thành hệ thống tuyển sinh hai nền tảng trong ngân sách quảng cáo khoảng 10–16 triệu đồng cho một tháng, với luồng Facebook sang Messenger và TikTok sang Zalo được theo dõi riêng. Mình sẽ bổ sung số liệu chi tiết sau khi có ảnh dashboard đã kiểm tra.", en: "I delivered a two-platform enrollment system within about VND 10–16M in ad spend for one month, with the Facebook-to-Messenger and TikTok-to-Zalo flows tracked separately. I’ll add detailed figures once the dashboard screenshots are verified.",
+        vi: "Mình hoàn thành hệ thống tuyển sinh hai nền tảng trong ngân sách quảng cáo khoảng 10–16 triệu đồng cho một tháng, với luồng Facebook sang Messenger và TikTok sang Zalo được theo dõi riêng.", en: "I delivered a two-platform enrollment system within about VND 10–16M in ad spend for one month, with the Facebook-to-Messenger and TikTok-to-Zalo flows tracked separately.",
       },
       accountScope: {
         vi: "Mình làm đầu mối với khách hàng và lên kế hoạch tuyển sinh, đồng thời điều phối ngân sách, paid media, nội dung, lịch quay dựng, phê duyệt và tiến độ triển khai.", en: "I was the client’s point of contact and planned the enrollment campaign, while coordinating budget, paid media, content, filming/editing schedules, approvals, and delivery timelines.",

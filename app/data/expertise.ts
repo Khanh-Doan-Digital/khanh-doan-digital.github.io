@@ -6,15 +6,15 @@ export const expertise: Expertise[] = [
     kind: "core",
     title: { vi: "Chiến lược Paid Media", en: "Paid Media Strategy" },
     description: {
-      vi: "Hoạch định cấu trúc kênh, phân bổ ngân sách tối ưu và vận hành chiến dịch đa nền tảng (Launch & Always-on) hướng tới mục tiêu kinh doanh.",
-      en: "I plan each channel’s role, allocate budgets, and run multi-platform or always-on campaigns.",
+      vi: "Mình xác định vai trò của từng kênh, phân bổ ngân sách và chạy các chiến dịch đa nền tảng, từ đợt ra mắt đến always-on, theo mục tiêu kinh doanh.",
+      en: "I define each channel’s role, allocate budgets, and run multi-platform campaigns, from launches to always-on, toward business goals.",
     },
     subskills: [
-      { vi: "Xây dựng vai trò chiến lược cho từng kênh", en: "Channel role planning" },
-      { vi: "Tối ưu hóa phân bổ ngân sách", en: "Budget allocation" },
+      { vi: "Xác định vai trò từng kênh", en: "Channel role planning" },
+      { vi: "Phân bổ ngân sách", en: "Budget allocation" },
       { vi: "Lập kế hoạch đối tượng và mục tiêu", en: "Audience and objective planning" },
-      { vi: "Vận hành chiến dịch đa kênh (Cross-channel)", en: "Multi-platform execution" },
-      { vi: "Thiết lập khung thử nghiệm Creative (A/B Testing)", en: "Creative testing schedule" },
+      { vi: "Chạy chiến dịch đa nền tảng", en: "Multi-platform execution" },
+      { vi: "Lên lịch thử nghiệm creative (A/B testing)", en: "Creative testing schedule (A/B testing)" },
     ],
     proofs: [
       {
@@ -39,15 +39,15 @@ export const expertise: Expertise[] = [
     kind: "core",
     title: { vi: "Tạo Lead & Tối ưu Funnel", en: "Lead Generation & Funnel Optimization" },
     description: {
-      vi: "Thiết kế và tối ưu toàn diện phễu chuyển đổi (Lead Funnel) trên đa nền tảng (Messenger, Website, Landing Page, Zalo), đảm bảo đo lường chính xác tại từng điểm chạm.",
-      en: "I design and optimize lead flows through Messenger, websites, landing pages, and Zalo, while tracking each touchpoint separately.",
+      vi: "Mình thiết kế và tối ưu luồng thu lead qua Messenger, website, landing page và Zalo, đồng thời đo lường riêng từng điểm chạm.",
+      en: "I design and optimize lead flows through Messenger, websites, landing pages, and Zalo, while measuring each touchpoint separately.",
     },
     subskills: [
       { vi: "Lập kế hoạch funnel", en: "Funnel planning" },
       { vi: "Phân khúc đối tượng", en: "Audience segmentation" },
-      { vi: "Tối ưu tỷ lệ chuyển đổi (CRO) qua Tin nhắn & Website", en: "Messaging and website conversion" },
-      { vi: "Tối ưu trải nghiệm & luồng thu lead trên Landing Page", en: "Landing page coordination" },
-      { vi: "Chuẩn hóa quy trình đánh giá & kiểm soát chất lượng Lead", en: "Lead-quality feedback loop" },
+      { vi: "Tối ưu chuyển đổi qua tin nhắn và website", en: "Messaging and website conversion optimization" },
+      { vi: "Tối ưu luồng thu lead trên landing page", en: "Landing page lead-flow optimization" },
+      { vi: "Đánh giá và kiểm soát chất lượng lead", en: "Lead-quality review and control" },
     ],
     proofs: [
       {
@@ -72,15 +72,15 @@ export const expertise: Expertise[] = [
     kind: "core",
     title: { vi: "Phân tích & Tối ưu Hiệu suất", en: "Performance Analysis & Optimization" },
     description: {
-      vi: "Phân tích dữ liệu chuyên sâu theo mục tiêu KPI, xác định nguyên nhân cốt lõi và chuyển hóa insight thành các hành động tối ưu hóa hiệu suất thực tế.",
+      vi: "Mình đọc dữ liệu theo từng mục tiêu, tìm nguyên nhân gốc, kiểm soát chất lượng tín hiệu và biến insight thành quyết định tối ưu.",
       en: "I read data by objective, find root causes, control signal quality, and turn insights into optimization decisions.",
     },
     subskills: [
-      { vi: "Phân rã & Theo dõi chỉ số KPI/ROAS", en: "KPI decomposition" },
-      { vi: "Đánh giá & So sánh hiệu quả các luồng Funnel", en: "Funnel comparison" },
+      { vi: "Phân rã chỉ số KPI", en: "KPI decomposition" },
+      { vi: "So sánh hiệu quả các luồng funnel", en: "Funnel comparison" },
       { vi: "Theo dõi doanh thu và ROAS", en: "Revenue and ROAS tracking" },
       { vi: "Đánh giá chất lượng tệp đối tượng", en: "Audience-quality assessment" },
-      { vi: "Báo cáo chuyên sâu & Đề xuất Actionable Insights", en: "Reporting and actionable insight" },
+      { vi: "Báo cáo và đề xuất từ insight", en: "Reporting and actionable insights" },
     ],
     proofs: [
       {
@@ -108,15 +108,15 @@ export const expertise: Expertise[] = [
       en: "Account & Integrated Campaign Management",
     },
     description: {
-      vi: "Đảm nhận vai trò đầu mối kết nối trực tiếp với khách hàng; làm chủ mục tiêu KPI và điều phối toàn bộ tài nguyên (Ngân sách, Creative, Landing Page, Production) để đảm bảo tiến độ & chất lượng.",
+      vi: "Mình là đầu mối làm việc với khách hàng. Mình thống nhất KPI và điều phối ngân sách, nội dung, landing page, sản xuất, phê duyệt và báo cáo.",
       en: "I’m the client’s point of contact. I align KPIs and coordinate budgets, content, landing pages, production, approvals, and reporting.",
     },
     subskills: [
-      { vi: "Quản trị mối quan hệ & Kỳ vọng của khách hàng", en: "Client communication" },
-      { vi: "Quản lý phạm vi dự án (Scope) & Ngân sách", en: "Scope and budget coordination" },
-      { vi: "Điều phối & Kết nối các đội ngũ liên chức năng (Cross-functional)", en: "Cross-functional delivery" },
-      { vi: "Điều phối nội dung và production", en: "Content and production coordination" },
-      { vi: "Tiến độ, phê duyệt và báo cáo", en: "Progress, approval, and reporting" },
+      { vi: "Giao tiếp và quản lý kỳ vọng khách hàng", en: "Client communication and expectation management" },
+      { vi: "Quản lý phạm vi dự án và ngân sách", en: "Scope and budget management" },
+      { vi: "Điều phối các đội ngũ liên quan", en: "Cross-functional coordination" },
+      { vi: "Điều phối nội dung và sản xuất", en: "Content and production coordination" },
+      { vi: "Tiến độ, phê duyệt và báo cáo", en: "Progress, approvals, and reporting" },
     ],
     proofs: [
       {
@@ -151,14 +151,14 @@ export const expertise: Expertise[] = [
       en: "Brand, Content & Creative Production",
     },
     description: {
-      vi: "Bổ trợ mạnh mẽ cho Performance & Account Management thông qua tư duy định hướng nội dung, copywriting, thiết kế đồ họa và sản xuất video chuẩn định dạng quảng cáo.",
-      en: "I support performance and account work with skills in brand identity, copywriting, content planning, design, and video production.",
+      vi: "Mình hỗ trợ mảng performance và account bằng kỹ năng nhận diện thương hiệu, copywriting, định hướng nội dung, thiết kế và sản xuất video.",
+      en: "I support performance and account work with skills in brand identity, copywriting, content direction, design, and video production.",
     },
     subskills: [
-      { vi: "Ứng dụng Định hướng Nhận diện Thương hiệu", en: "Brand identity" },
-      { vi: "Copywriting & Định hướng Content chuẩn Performance", en: "Copywriting and content direction" },
+      { vi: "Nhận diện thương hiệu", en: "Brand identity" },
+      { vi: "Copywriting và định hướng nội dung", en: "Copywriting and content direction" },
       { vi: "Thiết kế đồ họa", en: "Graphic design" },
-      { vi: "Sản xuất Multimedia Content đa nền tảng", en: "Multi-format content production" },
+      { vi: "Sản xuất nội dung đa định dạng", en: "Multi-format content production" },
       { vi: "Quay và dựng video", en: "Filming and video editing" },
     ],
     proofs: [],

@@ -1,5 +1,6 @@
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
+import { formatMetricValue } from "../../lib/format";
 
 type CaseFolderProps = {
   caseStudy: CaseStudy;
@@ -47,7 +48,7 @@ export function CaseFolder({ caseStudy, content, language, isOpen, onSelect, pre
             {metrics.map((metric) => (
               <div data-metric-status={metric.verified ? "verified" : "pending"} key={metric.label.en}>
                 <dt>{metric.label[language]}</dt>
-                <dd>{metric.value}</dd>
+                <dd>{formatMetricValue(metric.value, language)}</dd>
               </div>
             ))}
           </dl>
