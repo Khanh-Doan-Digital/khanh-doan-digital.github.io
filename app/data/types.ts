@@ -28,13 +28,27 @@ export type VerifiedMetric = {
   verified: boolean;
 };
 
-export type CaseAsset = {
-  src: string;
-  type: "image" | "video";
-  alt: LocalizedText;
+// One Google Drive file, shown through Drive's embeddable preview.
+export type CaseEvidenceFile = {
+  driveId: string;
+  // Tab label when an evidence item groups several files (e.g. one per month).
+  label?: LocalizedText;
+};
+
+// Branches of the evidence tree in the viewer.
+export type CaseEvidenceGroup = "image" | "content" | "video" | "link";
+
+export type CaseEvidence = {
+  kind: "image" | "video" | "link";
+  // Which branch the item is listed under; defaults to its kind.
+  group?: CaseEvidenceGroup;
+  title: LocalizedText;
   platform?: string;
-  poster?: string;
-  captions?: string;
+  // Empty for a "link" item, or while the file is still being added (shown as pending).
+  files: CaseEvidenceFile[];
+  // Required for "link" items: an external page opened in a new tab.
+  href?: string;
+  note?: LocalizedText;
 };
 
 export type CaseDetail = {
@@ -66,7 +80,7 @@ export type CaseStudy = {
   metrics: VerifiedMetric[];
   detail?: CaseDetail;
   coverVariant: CapabilityId;
-  assets: CaseAsset[];
+  evidence: CaseEvidence[];
   confidential: boolean;
   dataStatus: DataStatus;
 };

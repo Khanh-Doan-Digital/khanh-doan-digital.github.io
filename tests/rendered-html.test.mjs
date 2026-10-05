@@ -65,3 +65,29 @@ test("does not ship unapproved case copy in browser assets", async () => {
   assert.doesNotMatch(browserSource, /Course Registration Growth/);
   assert.doesNotMatch(browserSource, /🟨|\[___\]|⇔/);
 });
+
+test("ships the evidence viewer with Drive previews and renamed industries", async () => {
+  const nextRoot = new URL("_next/", pagesRoot);
+  const pending = [nextRoot];
+  const sources = [];
+
+  while (pending.length > 0) {
+    const directory = pending.pop();
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      const url = new URL(entry.name, directory);
+      if (entry.isDirectory()) pending.push(new URL(`${entry.name}/`, directory));
+      else if (entry.name.endsWith(".js")) sources.push(await readFile(url, "utf8"));
+    }
+  }
+
+  // Case data reaches the browser through the page's serialized props; UI copy through the bundles.
+  const shipped = [await readFile(new URL("index.html", pagesRoot), "utf8"), ...sources].join("\n");
+  const ships = (text) => shipped.includes(text);
+  // Evidence is embedded through Drive's preview page, one iframe at a time.
+  assert.ok(ships("drive.google.com/file/d/"), "Drive preview URL");
+  assert.ok(ships("16HXQNQBoobaUs2r96hGXXWeRClCY5H9W"), "Case 1 evidence file");
+  assert.ok(ships("Đang bổ sung"), "pending evidence label");
+  assert.ok(ships("hoanmydesign.com.vn"), "Case 15 landing page link");
+  assert.ok(ships("Nhà ở xã hội"), "renamed Case 8 industry");
+  assert.ok(!ships("Nước hoa cá nhân hóa") && !ships("Dịch vụ doanh nghiệp"), "old industry names");
+});

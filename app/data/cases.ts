@@ -1,3 +1,4 @@
+import { caseEvidence } from "./evidence";
 import type {
   CaseStudy
 } from "./types";
@@ -87,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     coverVariant: "paid-media-strategy",
-    assets: [],
+    evidence: caseEvidence[1],
     confidential: true,
     dataStatus: "approved",
   },
@@ -177,7 +178,7 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     coverVariant: "lead-generation-funnel",
-    assets: [],
+    evidence: caseEvidence[2],
     confidential: true,
     dataStatus: "approved",
   },
@@ -264,7 +265,7 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     coverVariant: "performance-analysis",
-    assets: [],
+    evidence: caseEvidence[3],
     confidential: true,
     dataStatus: "approved",
   },
@@ -281,7 +282,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     presentationTier: "evidence-only",
     industry: {
-      vi: "Nước hoa cá nhân hóa", en: "Personalized Fragrance"
+      vi: "Nước hoa", en: "Fragrance"
     },
     serviceCategory: {
       vi: "Paid Media", en: "Paid Media"
@@ -339,7 +340,7 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     coverVariant: "paid-media-strategy",
-    assets: [], confidential: true, dataStatus: "approved",
+    evidence: caseEvidence[4], confidential: true, dataStatus: "approved",
   },
   {
     id: 5,
@@ -410,7 +411,7 @@ export const caseStudies: CaseStudy[] = [
         en: "Clearly separating the conversation channel from the traffic channel let me measure each platform’s real contribution to the funnel.",
       },
     },
-    coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "lead-generation-funnel", evidence: caseEvidence[5], confidential: true, dataStatus: "approved",
   },
   {
     id: 6,
@@ -496,7 +497,7 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     coverVariant: "account-integrated-management",
-    assets: [], confidential: true, dataStatus: "approved",
+    evidence: caseEvidence[6], confidential: true, dataStatus: "approved",
   },
   {
     id: 7,
@@ -563,7 +564,7 @@ export const caseStudies: CaseStudy[] = [
         en: "With a small local budget, clearly splitting the conversation channel from the reach channel helped me get the most out of every dong spent.",
       },
     },
-    coverVariant: "paid-media-strategy", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "paid-media-strategy", evidence: caseEvidence[7], confidential: true, dataStatus: "approved",
   },
   {
     id: 8,
@@ -575,7 +576,7 @@ export const caseStudies: CaseStudy[] = [
       "performance-analysis"
     ], presentationTier: "evidence-only",
     industry: {
-      vi: "Bất động sản", en: "Real Estate"
+      vi: "Nhà ở xã hội", en: "Social Housing"
     },
     serviceCategory: {
       vi: "Paid Media", en: "Paid Media"
@@ -621,7 +622,7 @@ export const caseStudies: CaseStudy[] = [
         en: "Running two objectives in parallel on the same audience showed me clearly which flow produced cheaper leads, and which better fit how people research real estate.",
       },
     },
-    coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "performance-analysis", evidence: caseEvidence[8], confidential: true, dataStatus: "approved",
   },
   {
     id: 9,
@@ -688,7 +689,7 @@ export const caseStudies: CaseStudy[] = [
         en: "For a category that relies on direct consultation like jewelry, pairing 1-on-1 conversations with livestream selling speeds up customer decisions compared to static ads alone.",
       },
     },
-    coverVariant: "account-integrated-management", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "account-integrated-management", evidence: caseEvidence[9], confidential: true, dataStatus: "approved",
   },
   {
     id: 10,
@@ -745,7 +746,7 @@ export const caseStudies: CaseStudy[] = [
         en: "Sustaining steady engagement over time keeps the restaurant top of mind for nearby customers, rather than relying on short, isolated bursts of activity.",
       },
     },
-    coverVariant: "paid-media-strategy", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "paid-media-strategy", evidence: caseEvidence[10], confidential: true, dataStatus: "approved",
   },
   {
     id: 11,
@@ -811,7 +812,7 @@ export const caseStudies: CaseStudy[] = [
         en: "In early-childhood education, authentic and continuously refreshed content matters as much as ad optimization, since parents need to see the real learning environment before reaching out.",
       },
     },
-    coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "lead-generation-funnel", evidence: caseEvidence[11], confidential: true, dataStatus: "approved",
   },
   {
     id: 12,
@@ -882,7 +883,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "CPA thấp chưa đủ khi tín hiệu tệp bị nhiễu. Mình cần đánh giá cả chất lượng hội thoại lẫn lịch sử tương tác.", en: "A low CPA isn’t enough when audience signals are noisy. I need to evaluate conversation quality and engagement history together."
       },
     },
-    coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "performance-analysis", evidence: caseEvidence[12], confidential: true, dataStatus: "approved",
   },
   {
     id: 13,
@@ -935,7 +936,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với sản phẩm giá trị cao như ô tô, giữ độ tiếp cận đủ rộng song song với tối ưu hội thoại giúp mình không bỏ lỡ những khách còn đang tìm hiểu.", en: "For a high-value product like a car, keeping reach broad alongside conversation optimization helped me avoid missing buyers who were still researching.",
       },
     },
-    coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "lead-generation-funnel", evidence: caseEvidence[13], confidential: true, dataStatus: "approved",
   },
   {
     id: 14,
@@ -988,7 +989,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Báo cáo tách biệt theo mục tiêu giúp mình tránh đánh giá sai khi trộn tin nhắn có ý định cao với tương tác bề mặt.", en: "Reporting separately by objective kept me from misjudging performance by mixing high-intent messages with surface-level engagement.",
       },
     },
-    coverVariant: "performance-analysis", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "performance-analysis", evidence: caseEvidence[14], confidential: true, dataStatus: "approved",
   },
   {
     id: 15,
@@ -1051,7 +1052,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với ngành cần nhiều niềm tin như xây dựng, việc nối liền quảng cáo, nội dung và landing page giúp khách có đủ thông tin trước khi để lại liên hệ.", en: "For a trust-heavy category like construction, connecting ads, content, and the landing page gives customers enough information before they leave their contact details.",
       },
     },
-    coverVariant: "account-integrated-management", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "account-integrated-management", evidence: caseEvidence[15], confidential: true, dataStatus: "approved",
   },
   {
     id: 16,
@@ -1114,7 +1115,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Dẫn lead về kênh nhắn tin mà từng nhóm đối tượng quen dùng (Messenger cho Facebook, Zalo cho TikTok) giúp tăng tỷ lệ phản hồi so với dồn tất cả vào một kênh.", en: "Routing leads to the messaging channel each audience already prefers (Messenger for Facebook, Zalo for TikTok) improves response rates compared to funneling everyone into one channel.",
       },
     },
-    coverVariant: "lead-generation-funnel", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "lead-generation-funnel", evidence: caseEvidence[16], confidential: true, dataStatus: "approved",
   },
   {
     id: 17,
@@ -1126,7 +1127,7 @@ export const caseStudies: CaseStudy[] = [
       "brand-content-creative"
     ], presentationTier: "evidence-only",
     industry: {
-      vi: "Dịch vụ doanh nghiệp", en: "Business Services"
+      vi: "Bất động sản & quản lý tòa nhà", en: "Real Estate & Building Management"
     },
     serviceCategory: {
       vi: "Design & Copywriting", en: "Design & Copywriting"
@@ -1169,7 +1170,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Có bộ guideline rõ ràng ngay từ đầu giúp các hạng mục sau (banner, tài liệu, biển chỉ dẫn) được triển khai nhanh và đồng bộ hơn, thay vì thiết kế rời rạc từng lần.", en: "A clear guideline set from the start lets downstream materials (banners, sales docs, wayfinding) ship faster and stay consistent, instead of being designed piecemeal each time.",
       },
     },
-    coverVariant: "brand-content-creative", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "brand-content-creative", evidence: caseEvidence[17], confidential: true, dataStatus: "approved",
   },
   {
     id: 18,
@@ -1223,7 +1224,7 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với doanh nghiệp dịch vụ, một hệ thống nội dung nền tảng giúp giữ giọng thương hiệu nhất quán ngay cả khi số lượng bài đăng tăng lên.", en: "For a services business, a foundational content system keeps the brand voice consistent even as posting volume grows.",
       },
     },
-    coverVariant: "brand-content-creative", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "brand-content-creative", evidence: caseEvidence[18], confidential: true, dataStatus: "approved",
   },
   {
     id: 19,
@@ -1279,6 +1280,6 @@ export const caseStudies: CaseStudy[] = [
         vi: "Với phòng khám phục vụ nhiều nhu cầu khác nhau, đa dạng định dạng nội dung (bài viết, thiết kế, video) giúp tiếp cận đúng từng nhóm khách hơn là dùng một công thức chung.", en: "For a clinic serving varied patient needs, mixing content formats (copy, design, video) reaches each audience segment more precisely than a one-size-fits-all approach.",
       },
     },
-    coverVariant: "brand-content-creative", assets: [], confidential: true, dataStatus: "approved",
+    coverVariant: "brand-content-creative", evidence: caseEvidence[19], confidential: true, dataStatus: "approved",
   },
 ];

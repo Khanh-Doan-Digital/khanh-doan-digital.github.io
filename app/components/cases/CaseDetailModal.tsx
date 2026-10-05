@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from
 import type { Language, PortfolioContent } from "../../data/content";
 import type { CaseStudy } from "../../data/types";
 import { isPlatform, PlatformIcon } from "../ui/Icons";
-import { CaseAssetCarousel } from "./CaseAssetCarousel";
+import { CaseEvidenceViewer } from "./CaseEvidenceViewer";
 
 type CaseDetailModalProps = {
   caseStudy: CaseStudy;
@@ -20,6 +20,8 @@ type CaseDetailModalProps = {
 };
 
 const UNFOLD_EASING = "cubic-bezier(.3, .75, .2, 1)";
+// Matches --evidence-slide in globals.css.
+const EVIDENCE_SLIDE_MS = 460;
 
 export function CaseDetailModal({ caseStudy, content, language, onClose, onNavigate, position, previewMode, unfold = false }: CaseDetailModalProps) {
   const backdropRef = useRef<HTMLDivElement | null>(null);
@@ -33,12 +35,18 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
   const swapTimerRef = useRef<number | null>(null);
   const [condensed, setCondensed] = useState(false);
   const [swap, setSwap] = useState<{ phase: "out" | "in"; direction: -1 | 1 } | null>(null);
+  // "opening" covers the header's slide; the viewer only loads its iframe once it is "open".
+  const [evidenceState, setEvidenceState] = useState<"closed" | "opening" | "open">("closed");
+  const evidenceTimerRef = useRef<number | null>(null);
+  const evidenceOpenRef = useRef(false);
+  const toggleEvidenceRef = useRef<() => void>(() => {});
+  const evidenceOpen = evidenceState !== "closed";
   const caseNumber = String(caseStudy.id).padStart(2, "0");
   const metrics = caseStudy.metrics.filter((metric) => metric.verified || previewMode);
 
   // Slide the current case out before swapping, then slide the next one in from the same direction.
   const navigate = (direction: -1 | 1) => {
-    if (!onNavigate || swapTimerRef.current !== null) return;
+    if (!onNavigate || swapTimerRef.current !== null || evidenceOpen) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       onNavigate(direction);
       return;
@@ -102,9 +110,32 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
     animation.finished.then(onClose, onClose);
   };
 
+  // The header slides over the body to show the evidence viewer, and back again.
+  const toggleEvidence = () => {
+    if (evidenceTimerRef.current !== null) {
+      window.clearTimeout(evidenceTimerRef.current);
+      evidenceTimerRef.current = null;
+    }
+    if (evidenceOpen) {
+      setEvidenceState("closed");
+      return;
+    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setEvidenceState("open");
+      return;
+    }
+    setEvidenceState("opening");
+    evidenceTimerRef.current = window.setTimeout(() => {
+      evidenceTimerRef.current = null;
+      setEvidenceState("open");
+    }, EVIDENCE_SLIDE_MS);
+  };
+
   useEffect(() => {
     navigateRef.current = onNavigate ? navigate : undefined;
     requestCloseRef.current = requestClose;
+    evidenceOpenRef.current = evidenceOpen;
+    toggleEvidenceRef.current = toggleEvidence;
   });
 
   // Runs before first paint so the modal is never seen at full size before it unfolds.
@@ -116,6 +147,7 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
 
   useEffect(() => () => {
     if (swapTimerRef.current !== null) window.clearTimeout(swapTimerRef.current);
+    if (evidenceTimerRef.current !== null) window.clearTimeout(evidenceTimerRef.current);
   }, []);
 
   useEffect(() => {
@@ -129,21 +161,24 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        requestCloseRef.current();
+        // Escape steps back one level: out of the evidence viewer first, then out of the modal.
+        if (evidenceOpenRef.current) toggleEvidenceRef.current();
+        else requestCloseRef.current();
         return;
       }
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-        // The asset carousel and video controls use the arrow keys themselves.
+        // The evidence viewer uses the arrow keys to move between its own items.
+        if (evidenceOpenRef.current) return;
         const target = event.target instanceof HTMLElement ? event.target : null;
-        if (target?.closest(".case-assets, video, input, textarea")) return;
+        if (target?.closest("input, textarea")) return;
         navigateRef.current?.(event.key === "ArrowLeft" ? -1 : 1);
         return;
       }
       if (event.key !== "Tab") return;
 
       const focusable = [...(dialogRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), video[controls], [tabindex]:not([tabindex="-1"])',
-      ) ?? [])].filter((element) => !element.hasAttribute("hidden"));
+        'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])',
+      ) ?? [])].filter((element) => !element.hasAttribute("hidden") && !element.closest("[inert]"));
       if (focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -180,6 +215,7 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
       <section
         className="case-modal"
         data-condensed={condensed ? "true" : undefined}
+        data-evidence={evidenceOpen ? "open" : undefined}
         data-swap={swap?.phase}
         data-unfold={unfold ? "true" : undefined}
         style={{ "--swap-direction": swap?.direction ?? 1 } as CSSProperties}
@@ -198,10 +234,13 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
           </svg>
         </button>
 
-        <header className={`case-modal-header case-modal-header-${caseStudy.coverVariant}`}>
+        <header
+          className={`case-modal-header case-modal-header-${caseStudy.coverVariant}`}
+          data-has-evidence={caseStudy.evidence.length > 0 ? "true" : undefined}
+        >
           <div className="case-modal-overline">
             <p><span>CASE {caseNumber}</span><span>{caseStudy.industry[language]}</span></p>
-            {onNavigate && (
+            {onNavigate && !evidenceOpen && (
               <nav className="case-modal-nav" aria-label={`${content.previousCase} / ${content.nextCase}`}>
                 <button type="button" onClick={() => navigate(-1)} aria-label={content.previousCase}>←</button>
                 {position && <span key={position}>{position}</span>}
@@ -214,11 +253,30 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
           </div>
           <h2 id={`case-title-${caseNumber}`}>{caseStudy.title[language]}</h2>
           <p>{caseStudy.roles[language]}</p>
+          {caseStudy.evidence.length > 0 && (
+            <button className="case-evidence-toggle" type="button" onClick={toggleEvidence} aria-expanded={evidenceOpen}>
+              <span>{evidenceOpen ? content.evidenceCollapse : content.evidenceExpand}</span>
+              {!evidenceOpen && <em>{caseStudy.evidence.length}</em>}
+              <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3.5 4l4 4-4 4M8.5 4l4 4-4 4" />
+              </svg>
+            </button>
+          )}
+          {evidenceOpen && (
+            <CaseEvidenceViewer
+              content={content}
+              evidence={caseStudy.evidence}
+              key={caseStudy.id}
+              language={language}
+              ready={evidenceState === "open"}
+            />
+          )}
         </header>
 
         <div
           className="case-modal-body"
           ref={bodyRef}
+          inert={evidenceOpen}
           onScroll={(event) => {
             const { scrollTop } = event.currentTarget;
             setCondensed((current) => (scrollTop > 48 ? true : scrollTop <= 4 ? false : current));
@@ -255,7 +313,6 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
           {detail.accountScope && <div className="case-detail-block"><span>04 · {content.accountScope}</span><p>{detail.accountScope[language]}</p></div>}
           {detail.insight && <div className="case-detail-insight"><span>{content.insight}</span><p>{detail.insight[language]}</p></div>}
 
-          <CaseAssetCarousel assets={caseStudy.assets} caseId={caseStudy.id} content={content} key={caseStudy.id} language={language} />
           <p className="case-modal-note">ⓘ {content.confidential}</p>
         </div>
       </section>

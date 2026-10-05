@@ -3221,19 +3221,118 @@ footer {
 
 .case-modal-note { margin: 26px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
-.case-assets { margin-top: 42px; outline: 0; }
-.case-assets:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 4px; }
-.case-asset-stage { position: relative; aspect-ratio: 16 / 10; display: grid; place-items: center; background: #e6ece9; border-radius: 16px; overflow: hidden; }
-.case-asset-stage img, .case-asset-stage video { width: 100%; height: 100%; display: block; object-fit: contain; }
-.case-asset-platform { position: absolute; left: 12px; bottom: 12px; padding: 6px 9px; border-radius: 999px; background: var(--ink); color: var(--white); font-size: 10px; }
-.case-asset-controls { display: grid; grid-template-columns: auto 1fr auto auto; gap: 12px; align-items: center; margin-top: 12px; }
-.case-asset-controls > button { width: 38px; height: 38px; border: 1px solid var(--line-light); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
-.case-asset-controls > span { color: var(--muted); font-size: 11px; }
-.case-asset-dots { display: flex; flex-wrap: wrap; justify-content: center; }
-/* 24px hit area around a 7px dot. */
-.case-asset-dots button { width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
-.case-asset-dots button::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(22,88,123,.22); }
-.case-asset-dots button.active::before { background: var(--accent-ink); }
+/* Evidence viewer: the header slides over the body and shows the case's evidence as Google Drive previews. */
+.case-modal {
+  --evidence-slide: .46s cubic-bezier(.3, .75, .2, 1);
+  --evidence-rail: 340px;
+  /* Lets the header grow to the whole modal (100cqw / 100cqh) while staying in its own grid cell. */
+  container-type: size;
+}
+
+.case-modal-body { transition: opacity .28s ease .14s; }
+.case-modal[data-evidence] .case-modal-body { opacity: 0; visibility: hidden; transition: opacity .16s ease, visibility 0s .16s; }
+
+.case-evidence-toggle {
+  order: 1;
+  flex: none;
+  align-self: stretch;
+  min-height: 46px;
+  /* Centred in the free space between the title block and the case counter. */
+  margin-block: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px 0 18px;
+  border: 1px solid var(--case-accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+.case-evidence-toggle em { min-width: 22px; height: 22px; display: grid; place-items: center; padding: 0 6px; border-radius: 999px; background: var(--case-accent); color: var(--ink); font-size: 11px; font-style: normal; font-weight: 600; }
+.case-evidence-toggle svg { margin-left: auto; transition: transform var(--evidence-slide); }
+.case-evidence-toggle:hover { background: var(--case-accent); color: var(--ink); }
+.case-evidence-toggle:hover em { background: var(--ink); color: var(--case-accent); }
+.case-evidence-toggle:focus-visible { outline: 2px solid var(--case-accent); outline-offset: 3px; }
+
+/* The wrapper has no box: the rail joins the header's own column and the stage is pinned beside it. */
+.case-evidence { display: contents; }
+.case-evidence-heading { flex: none; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.6); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; animation: case-evidence-item .4s ease-out .1s both; }
+.case-evidence-heading span + span { padding: 2px 7px; border: 1px solid var(--line-dark); border-radius: 999px; font-size: 10px; }
+.case-evidence-list { flex: 1; min-height: 0; margin: 0 -8px 0 0; padding: 0 8px 0 0; display: flex; flex-direction: column; gap: 6px; list-style: none; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.28) transparent; }
+/* A two-level tree: a branch per group, with its items hanging off a guide line. */
+.case-evidence-group { flex: none; }
+.case-evidence-group > ul { margin: 2px 0 4px 17px; padding: 0 0 0 9px; display: flex; flex-direction: column; gap: 2px; border-left: 1px solid var(--line-dark); list-style: none; }
+/* Rows rise in one after another; the delay stops growing so long lists don't trail on. */
+.case-evidence-branch, .case-evidence-group > ul > li { animation: case-evidence-item .42s cubic-bezier(.22, .8, .3, 1) both; animation-delay: calc(min(var(--i), 8) * 45ms + 160ms); }
+.case-evidence-branch { width: 100%; min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent; color: rgba(255,255,255,.86); font: inherit; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-align: left; text-transform: uppercase; cursor: pointer; transition: background-color .15s ease; }
+.case-evidence-branch svg { flex: none; color: var(--case-accent); transition: transform .2s ease; }
+.case-evidence-branch[aria-expanded="true"] svg { transform: rotate(90deg); }
+.case-evidence-branch em { margin-left: auto; color: rgba(255,255,255,.5); font-size: 11px; font-style: normal; font-weight: 400; font-variant-numeric: tabular-nums; }
+.case-evidence-leaf { width: 100%; min-height: 44px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 7px 12px; border: 1px solid transparent; border-radius: 12px; background: transparent; color: rgba(255,255,255,.76); font: inherit; text-align: left; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+:is(.case-evidence-branch, .case-evidence-leaf):hover { background: rgba(255,255,255,.06); color: var(--white); }
+.case-evidence-leaf[aria-current] { border-color: var(--line-dark); background: rgba(255,255,255,.1); color: var(--white); }
+:is(.case-evidence-branch, .case-evidence-leaf):focus-visible { outline: 2px solid var(--case-accent); outline-offset: -2px; }
+.case-evidence-index { color: rgba(255,255,255,.46); font-size: 11px; letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.case-evidence-leaf[aria-current] .case-evidence-index { color: var(--case-accent); }
+.case-evidence-name { min-width: 0; display: flex; flex-direction: column; gap: 2px; font-size: 13px; line-height: 1.35; }
+.case-evidence-name small { color: var(--case-accent); font-size: 11px; }
+.case-evidence-leaf .platform-icon { height: 16px; }
+.case-evidence-kind { display: block; opacity: .7; }
+
+@keyframes case-evidence-item { from { opacity: 0; transform: translateY(12px); } }
+@keyframes case-evidence-stage { from { opacity: 0; transform: translate(var(--stage-x, 28px), var(--stage-y, 0)); } }
+@keyframes case-evidence-spin { to { transform: rotate(360deg); } }
+
+.case-evidence-stage { position: absolute; inset: 0 0 0 var(--evidence-rail); min-width: 0; display: flex; flex-direction: column; padding: 0 16px 16px; border-left: 1px solid var(--line-dark); background: rgba(4, 22, 34, .42); animation: case-evidence-stage .5s cubic-bezier(.22, .8, .3, 1) .16s both; }
+/* The right padding keeps the bar clear of the modal's close button. */
+.case-evidence-bar { flex: none; min-height: 68px; display: flex; align-items: center; gap: 10px; padding: 0 52px 0 6px; }
+.case-evidence-bar > p { flex: 1; min-width: 0; margin: 0; display: flex; align-items: baseline; gap: 12px; }
+.case-evidence-bar > p span { flex: none; color: var(--case-accent); font-size: 11px; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.case-evidence-bar > p strong { min-width: 0; overflow: hidden; font-size: 14px; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; }
+.case-evidence-step { flex: none; display: flex; gap: 6px; }
+.case-evidence-step button, .case-evidence-menu { flex: none; width: 34px; height: 34px; display: grid; place-items: center; padding: 0; border: 1px solid var(--line-dark); border-radius: 50%; background: transparent; color: var(--white); font: inherit; font-size: 13px; cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+.case-evidence-open { flex: none; height: 34px; display: inline-flex; align-items: center; gap: 7px; padding: 0 13px; border: 1px solid var(--line-dark); border-radius: 999px; color: var(--white); font-size: 12px; text-decoration: none; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+:is(.case-evidence-step button, .case-evidence-menu, .case-evidence-open):hover { border-color: var(--case-accent); background: var(--case-accent); color: var(--ink); }
+:is(.case-evidence-step button, .case-evidence-menu, .case-evidence-open, .case-evidence-tabs button):focus-visible { outline: 2px solid var(--case-accent); outline-offset: 3px; }
+.case-evidence-tabs { flex: none; display: flex; gap: 6px; padding: 0 6px 12px; overflow-x: auto; scrollbar-width: none; }
+.case-evidence-tabs button { flex: none; height: 30px; padding: 0 13px; border: 1px solid var(--line-dark); border-radius: 999px; background: transparent; color: rgba(255,255,255,.76); font: inherit; font-size: 12px; cursor: pointer; }
+.case-evidence-tabs button[aria-pressed="true"] { border-color: var(--case-accent); background: var(--case-accent); color: var(--ink); }
+.case-evidence-frame { position: relative; flex: 1; min-height: 0; border: 1px solid var(--line-dark); border-radius: 14px; background: #071c2a; overflow: hidden; }
+.case-evidence-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity .3s ease; }
+/* Drive's sign-in and error pages are transparent with dark text, so the loaded frame needs a light backing. */
+.case-evidence-frame[data-loaded] iframe { background: var(--white); opacity: 1; }
+.case-evidence-loader { position: absolute; inset: 0; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: rgba(255,255,255,.6); font-size: 12px; pointer-events: none; }
+.case-evidence-loader span { width: 26px; height: 26px; border: 2px solid rgba(255,255,255,.18); border-top-color: var(--case-accent); border-radius: 50%; animation: case-evidence-spin .8s linear infinite; }
+.case-evidence-frame[data-loaded] .case-evidence-loader { display: none; }
+.case-evidence-empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center; }
+.case-evidence-empty .case-evidence-kind { width: 34px; height: 34px; color: var(--case-accent); opacity: 1; }
+.case-evidence-empty strong { font-size: 18px; font-weight: 500; letter-spacing: -.01em; }
+.case-evidence-empty p { margin: 0 0 8px; color: rgba(255,255,255,.6); font-size: 13px; }
+.case-evidence-note { flex: none; margin: 12px 6px 0; color: rgba(255,255,255,.7); font-size: 12px; line-height: 1.5; }
+
+@media (min-width: 901px) {
+  /* Side-by-side layout: the header widens to the right until it covers the body. */
+  .case-modal-header { z-index: 2; width: 100%; transition: border-color .25s ease, width var(--evidence-slide), padding var(--evidence-slide); }
+  .case-modal-header h2 { transition: font-size var(--evidence-slide), letter-spacing var(--evidence-slide); }
+  .case-modal-header[data-has-evidence] .case-modal-overline { order: 2; margin-top: 0; padding-top: 20px; }
+  .case-modal[data-evidence] .case-modal-header { width: 100cqw; padding: 38px 28px 26px; }
+  /* The header's own content stays in a rail on the left; the stage takes the rest. */
+  .case-modal[data-evidence] .case-modal-header > :is(h2, .case-modal-overline) { max-width: calc(var(--evidence-rail) - 56px); }
+  .case-modal[data-evidence] .case-modal-header > :is(.discipline-tags, p) { display: none; }
+  .case-modal[data-evidence] .case-modal-header h2 { font-size: 26px; line-height: 1.12; letter-spacing: -.03em; }
+  .case-modal[data-evidence] .case-evidence-toggle { align-self: flex-start; width: calc(var(--evidence-rail) - 56px); flex-direction: row-reverse; justify-content: center; padding: 0 18px; }
+  .case-modal[data-evidence] .case-evidence-toggle svg { margin-left: 0; transform: rotate(180deg); }
+  .case-evidence-rail { flex: 1 1 0; min-height: 0; width: calc(var(--evidence-rail) - 56px); display: flex; flex-direction: column; margin: 26px 0 18px; }
+  .case-evidence-menu, .case-evidence-scrim { display: none; }
+}
+
+@media (min-width: 901px) and (max-width: 1080px) {
+  .case-modal { --evidence-rail: 300px; }
+}
 
 @media (max-width: 900px) {
   /* Narrow screens: the folder face stacks vertically. */
@@ -3248,8 +3347,10 @@ footer {
     --header-ease: .38s cubic-bezier(.22, .8, .3, 1);
     --header-inline: 42px 68px;
     --header-bottom: 26px;
-    height: 310px;
-    padding: 34px 68px 26px 42px;
+    /* Room for the evidence toggle strip pinned to the header's bottom edge. */
+    --header-strip: 0px;
+    height: calc(310px + var(--header-strip));
+    padding: 34px 68px calc(26px + var(--header-strip)) 42px;
     transition: border-color .25s ease, height var(--header-ease), padding var(--header-ease);
   }
   .case-modal-header .discipline-tags { flex: none; max-width: 100%; max-height: 34px; flex-wrap: nowrap; margin-bottom: 18px; overflow-x: auto; scrollbar-width: none; transition: max-height var(--header-ease), margin var(--header-ease), opacity .2s ease; }
@@ -3258,11 +3359,11 @@ footer {
   .case-modal-header h2 { flex: none; max-width: 100%; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; padding-block: .08em; line-height: 1.08; overflow: hidden; transition: font-size var(--header-ease), letter-spacing var(--header-ease); }
   .case-modal-header > p { flex: none; max-height: 3.4em; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; margin-top: 16px; overflow: hidden; transition: max-height var(--header-ease), margin var(--header-ease), opacity .2s ease; }
   /* Pinned to the header's bottom edge so it rides up smoothly as the header shrinks. */
-  .case-modal-overline { position: absolute; inset: auto 0 var(--header-bottom); margin: 0; padding: 0; padding-inline: var(--header-inline); transition: bottom var(--header-ease); }
+  .case-modal-overline { position: absolute; inset: auto 0 calc(var(--header-bottom) + var(--header-strip)); margin: 0; padding: 0; padding-inline: var(--header-inline); transition: bottom var(--header-ease); }
   .case-modal-overline > p { transition: opacity .2s ease, visibility .2s; }
   .case-modal-body { padding-right: clamp(28px, 5vw, 68px); }
   /* Once the body is scrolled, the stacked header eases down to a one-line title bar. */
-  .case-modal[data-condensed] .case-modal-header { --header-bottom: 16px; height: 68px; padding-block: 22px 16px; }
+  .case-modal[data-condensed] .case-modal-header { --header-bottom: 16px; height: calc(68px + var(--header-strip)); padding-block: 22px calc(16px + var(--header-strip)); }
   .case-modal[data-condensed] .case-modal-header .discipline-tags,
   .case-modal[data-condensed] .case-modal-header > p { max-height: 0; margin-block: 0; opacity: 0; overflow: hidden; }
   .case-modal[data-condensed] .case-modal-overline > p { opacity: 0; visibility: hidden; }
@@ -3272,11 +3373,36 @@ footer {
 @media (max-width: 680px) {
   .case-folder h3 { font-size: 26px; }
   .case-modal-backdrop { padding: 14px; }
-  .case-modal-header { --header-inline: 24px 64px; --header-bottom: 22px; padding: 26px 64px 22px 24px; }
+  .case-modal-header { --header-inline: 24px 64px; --header-bottom: 22px; padding: 26px 64px calc(22px + var(--header-strip)) 24px; }
   .case-modal-header h2 { font-size: 28px; -webkit-line-clamp: 3; line-clamp: 3; }
   .case-modal-body { padding: 44px 23px 40px; }
   .case-modal-meta, .case-modal-results { grid-template-columns: 1fr; }
   .case-detail-block { grid-template-columns: 1fr; gap: 11px; }
+}
+
+@media (max-width: 900px) {
+  /* Stacked layout: the header pulls down over the body; its toggle is a strip along the bottom edge. */
+  .case-modal-header[data-has-evidence] { --header-strip: 42px; }
+  .case-evidence-toggle { position: absolute; z-index: 2; inset: auto 0 0; height: var(--header-strip); min-height: 0; margin: 0; justify-content: center; padding: 0 16px; border: 0; border-top: 1px solid var(--line-dark); border-radius: 0; background: rgba(255,255,255,.06); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  .case-evidence-toggle em { min-width: 20px; height: 20px; }
+  .case-evidence-toggle svg { margin-left: 2px; transform: rotate(90deg); }
+  .case-modal[data-evidence] .case-evidence-toggle svg { transform: rotate(-90deg); }
+  .case-evidence-toggle:hover { background: rgba(255,255,255,.12); color: var(--white); }
+  .case-evidence-toggle:hover em { background: var(--case-accent); color: var(--ink); }
+  .case-evidence-toggle:focus-visible { outline-offset: -3px; }
+
+  .case-modal[data-evidence] .case-modal-header { --header-bottom: 16px; height: 100cqh; padding-block: 22px calc(16px + var(--header-strip)); }
+  .case-modal[data-evidence] .case-modal-header .discipline-tags,
+  .case-modal[data-evidence] .case-modal-header > p { max-height: 0; margin-block: 0; opacity: 0; overflow: hidden; }
+  .case-modal[data-evidence] .case-modal-overline { opacity: 0; visibility: hidden; }
+  .case-modal[data-evidence] .case-modal-header h2 { max-width: 100%; display: block; padding-block: 0; font-size: 20px; line-height: 1.2; letter-spacing: -.03em; white-space: nowrap; text-overflow: ellipsis; }
+
+  .case-evidence-stage { --stage-x: 0px; --stage-y: 24px; inset: 62px 0 var(--header-strip); padding: 0 10px 10px; border-top: 1px solid var(--line-dark); border-left: 0; }
+  .case-evidence-bar { min-height: 56px; gap: 8px; padding: 0 2px; }
+  /* The list becomes a sheet that rises from the bottom when the "more" button is pressed. */
+  .case-evidence-rail { position: absolute; z-index: 4; inset: auto 0 var(--header-strip); max-height: 66%; display: flex; flex-direction: column; padding: 18px 14px 14px; border-top: 1px solid var(--line-dark); border-radius: 18px 18px 0 0; background: #0c3050; box-shadow: 0 -18px 50px rgba(0,0,0,.4); transform: translateY(104%); visibility: hidden; transition: transform .32s cubic-bezier(.22, .8, .3, 1), visibility 0s .32s; }
+  .case-evidence[data-menu-open] .case-evidence-rail { transform: none; visibility: visible; transition: transform .32s cubic-bezier(.22, .8, .3, 1); }
+  .case-evidence-scrim { position: absolute; z-index: 3; inset: 0; padding: 0; border: 0; background: rgba(3, 16, 25, .6); cursor: pointer; animation: case-modal-fade .2s ease-out; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3284,4 +3410,7 @@ footer {
   .case-folder:has(.case-folder-hitbox:hover), .case-folder:has(.case-folder-hitbox:focus-visible) { transform: none; }
   .case-modal-backdrop, .case-modal, .case-modal-nav > span { animation: none; }
   .case-modal-header, .case-modal-header *, .case-modal-overline { transition: none; }
+  .case-modal-header h2, .case-modal-body, .case-modal[data-evidence] .case-modal-body, .case-evidence-toggle svg, .case-evidence-branch svg, .case-evidence-frame iframe,
+  .case-evidence .case-evidence-rail, .case-evidence[data-menu-open] .case-evidence-rail { transition: none; }
+  .case-evidence-stage, .case-evidence-heading, .case-evidence-branch, .case-evidence-group li, .case-evidence-loader span, .case-evidence-scrim { animation: none; }
 }

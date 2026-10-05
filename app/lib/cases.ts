@@ -3,6 +3,7 @@ import { expertise } from "../data/expertise";
 import type { CaseStudy, LocalizedText } from "../data/types";
 
 const INTERNAL_MARKERS = ["🟨", "[___]", "⇔", "để chỗ"];
+const DRIVE_ID_PATTERN = /^[\w-]{25,}$/;
 
 function hasLocalizedText(value: LocalizedText | undefined) {
   return Boolean(value?.vi.trim() && value?.en.trim());
@@ -31,6 +32,13 @@ function collectPublicText(item: CaseStudy) {
     item.detail?.accountScope?.en,
     item.detail?.insight?.vi,
     item.detail?.insight?.en,
+    ...(item.evidence ?? []).flatMap((evidence) => [
+      evidence.title.vi,
+      evidence.title.en,
+      evidence.note?.vi,
+      evidence.note?.en,
+      ...evidence.files.flatMap((file) => [file.label?.vi, file.label?.en]),
+    ]),
   ].filter(Boolean).join(" ");
 }
 
@@ -46,6 +54,8 @@ export function validateCaseStudies() {
 
   const slugs = caseStudies.map((item) => item.slug);
   if (new Set(slugs).size !== slugs.length) throw new Error("Case slugs must be unique.");
+
+  const driveIds = new Set<string>();
 
   for (const item of caseStudies) {
     if (item.roleTags.length > 3) throw new Error(`Case ${item.id} has more than three role tags.`);
@@ -67,13 +77,22 @@ export function validateCaseStudies() {
         throw new Error(`Approved flagship Case ${item.id} contains an unverified metric.`);
       }
     }
-    for (const asset of item.assets) {
-      if (!hasLocalizedText(asset.alt)) throw new Error(`Case ${item.id} has an asset without localized alt text.`);
-      if (item.dataStatus === "approved" && /^https?:/i.test(asset.src)) {
-        throw new Error(`Approved Case ${item.id} must use local asset files.`);
+    if (!Array.isArray(item.evidence)) throw new Error(`Case ${item.id} is missing its evidence list.`);
+    for (const evidence of item.evidence) {
+      if (!hasLocalizedText(evidence.title)) throw new Error(`Case ${item.id} has evidence without a localized title.`);
+      if (evidence.note && !hasLocalizedText(evidence.note)) {
+        throw new Error(`Case ${item.id} has evidence with an incomplete note.`);
       }
-      if (item.dataStatus === "approved" && asset.type === "video" && (!asset.poster || !asset.captions)) {
-        throw new Error(`Approved video in Case ${item.id} requires a poster and captions.`);
+      if (evidence.kind === "link" && !/^https:\/\//.test(evidence.href ?? "")) {
+        throw new Error(`Link evidence in Case ${item.id} requires an https URL.`);
+      }
+      if (evidence.files.length > 1 && evidence.files.some((file) => !hasLocalizedText(file.label))) {
+        throw new Error(`Grouped evidence in Case ${item.id} requires a localized label per file.`);
+      }
+      for (const file of evidence.files) {
+        if (!DRIVE_ID_PATTERN.test(file.driveId)) throw new Error(`Case ${item.id} has an invalid Drive file ID.`);
+        if (driveIds.has(file.driveId)) throw new Error(`Drive file ${file.driveId} is used more than once.`);
+        driveIds.add(file.driveId);
       }
     }
   }
