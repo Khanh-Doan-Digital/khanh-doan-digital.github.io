@@ -3265,7 +3265,8 @@ footer {
   transition: background-color .15s ease, color .15s ease;
 }
 .case-evidence-toggle em { min-width: 22px; height: 22px; display: grid; place-items: center; padding: 0 6px; border-radius: 999px; background: var(--case-accent); color: var(--ink); font-size: 11px; font-style: normal; font-weight: 600; }
-.case-evidence-toggle svg { margin-left: auto; transition: transform var(--evidence-slide); }
+.case-evidence-toggle svg { margin-left: auto; }
+.case-evidence-toggle > * { animation: case-modal-fade .3s ease-out .14s both; }
 .case-evidence-toggle:hover { background: var(--case-accent); color: var(--ink); }
 .case-evidence-toggle:hover em { background: var(--ink); color: var(--case-accent); }
 .case-evidence-toggle:focus-visible { outline: 2px solid var(--case-accent); outline-offset: 3px; }
@@ -3330,6 +3331,8 @@ footer {
   /* Side-by-side layout: the header widens to the right until it covers the body. */
   .case-modal-header { z-index: 2; width: 100%; transition: border-color .25s ease, width var(--evidence-slide), padding var(--evidence-slide); }
   .case-modal-header h2 { transition: font-size var(--evidence-slide), letter-spacing var(--evidence-slide); }
+  /* Content keeps the collapsed column's width, so nothing rewraps while the header widens or narrows. */
+  .case-modal-header > * { max-width: calc(max(300px, 36cqw) - 84px); }
   .case-modal-header[data-has-evidence] .case-modal-overline { order: 2; margin-top: 0; padding-top: 20px; }
   .case-modal[data-evidence] .case-modal-header { width: 100cqw; padding: 38px 28px 26px; }
   /* The header's own content stays in a rail on the left; the stage takes the rest. */
@@ -3422,7 +3425,7 @@ footer {
   .case-folder:has(.case-folder-hitbox:hover), .case-folder:has(.case-folder-hitbox:focus-visible) { transform: none; }
   .case-modal-backdrop, .case-modal, .case-modal-nav > span { animation: none; }
   .case-modal-header, .case-modal-header *, .case-modal-overline { transition: none; }
-  .case-modal-header h2, .case-modal-body, .case-modal[data-evidence] .case-modal-body, .case-evidence-toggle svg, .case-evidence-branch svg, .case-evidence-frame iframe,
+  .case-modal-header h2, .case-modal-body, .case-modal[data-evidence] .case-modal-body, .case-evidence-branch svg, .case-evidence-frame iframe,
   .case-evidence .case-evidence-rail, .case-evidence[data-menu-open] .case-evidence-rail { transition: none; }
-  .case-evidence-stage, .case-evidence-heading, .case-evidence-branch, .case-evidence-group li, .case-evidence-loader span, .case-evidence-scrim { animation: none; }
+  .case-evidence-toggle > *, .case-evidence-stage, .case-evidence-heading, .case-evidence-branch, .case-evidence-group li, .case-evidence-loader span, .case-evidence-scrim { animation: none; }
 }

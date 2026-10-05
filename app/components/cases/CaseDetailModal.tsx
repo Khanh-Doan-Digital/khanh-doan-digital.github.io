@@ -40,6 +40,9 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
   const evidenceTimerRef = useRef<number | null>(null);
   const evidenceOpenRef = useRef(false);
   const toggleEvidenceRef = useRef<() => void>(() => {});
+  const evidenceToggleRef = useRef<HTMLButtonElement | null>(null);
+  // Where the toggle sat before the last expand/collapse, so it can glide to its new place.
+  const evidenceToggleFromRef = useRef<DOMRect | null>(null);
   const evidenceOpen = evidenceState !== "closed";
   const caseNumber = String(caseStudy.id).padStart(2, "0");
   const metrics = caseStudy.metrics.filter((metric) => metric.verified || previewMode);
@@ -112,6 +115,7 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
 
   // The header slides over the body to show the evidence viewer, and back again.
   const toggleEvidence = () => {
+    evidenceToggleFromRef.current = evidenceToggleRef.current?.getBoundingClientRect() ?? null;
     if (evidenceTimerRef.current !== null) {
       window.clearTimeout(evidenceTimerRef.current);
       evidenceTimerRef.current = null;
@@ -137,6 +141,19 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
     evidenceOpenRef.current = evidenceOpen;
     toggleEvidenceRef.current = toggleEvidence;
   });
+
+  // The same button is "view evidence" and "collapse": it morphs from its old spot and size into the new one.
+  useLayoutEffect(() => {
+    const button = evidenceToggleRef.current;
+    const from = evidenceToggleFromRef.current;
+    evidenceToggleFromRef.current = null;
+    if (!button || !from || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const to = button.getBoundingClientRect();
+    button.animate([
+      { transform: `translate(${from.left - to.left}px, ${from.top - to.top}px)`, width: `${from.width}px` },
+      { transform: "translate(0, 0)", width: `${to.width}px` },
+    ], { duration: EVIDENCE_SLIDE_MS, easing: UNFOLD_EASING });
+  }, [evidenceOpen]);
 
   // Runs before first paint so the modal is never seen at full size before it unfolds.
   const unfoldOnMountRef = useRef(unfold);
@@ -254,10 +271,11 @@ export function CaseDetailModal({ caseStudy, content, language, onClose, onNavig
           <h2 id={`case-title-${caseNumber}`}>{caseStudy.title[language]}</h2>
           <p>{caseStudy.roles[language]}</p>
           {caseStudy.evidence.length > 0 && (
-            <button className="case-evidence-toggle" type="button" onClick={toggleEvidence} aria-expanded={evidenceOpen}>
-              <span>{evidenceOpen ? content.evidenceCollapse : content.evidenceExpand}</span>
+            <button className="case-evidence-toggle" type="button" onClick={toggleEvidence} aria-expanded={evidenceOpen} ref={evidenceToggleRef}>
+              {/* Keyed by state so the old label fades out of the way while the button moves. */}
+              <span key={evidenceOpen ? "collapse" : "expand"}>{evidenceOpen ? content.evidenceCollapse : content.evidenceExpand}</span>
               {!evidenceOpen && <em>{caseStudy.evidence.length}</em>}
-              <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg key={evidenceOpen ? "collapse-icon" : "expand-icon"} aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3.5 4l4 4-4 4M8.5 4l4 4-4 4" />
               </svg>
             </button>
