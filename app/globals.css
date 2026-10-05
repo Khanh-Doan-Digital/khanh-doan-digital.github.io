@@ -105,6 +105,13 @@ body.modal-open {
   overflow: hidden;
 }
 
+/* The viewport takes its scrolling from <html> here, so the page behind a modal is locked on it too.
+   Otherwise a wheel that runs out of room inside the modal (or its iframe) scrolls the page. */
+html:has(body.modal-open) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
 button,
 a {
   font: inherit;
@@ -126,6 +133,11 @@ a {
 
 .site-cursor {
   display: none;
+}
+
+/* Over an iframe the embedded page draws its own cursor, so ours steps aside. */
+html:has(iframe:hover) .site-cursor {
+  opacity: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {

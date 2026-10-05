@@ -14,6 +14,7 @@ export function SiteCursor() {
     const interactiveSelector = "a, button:not(:disabled), input, textarea, select, label, [role='button'], [tabindex]";
 
     const onPointerMove = (event: PointerEvent) => {
+      if (event.target instanceof HTMLIFrameElement) return;
       cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
       cursor.classList.add("is-visible");
 
@@ -23,11 +24,21 @@ export function SiteCursor() {
     const onPointerDown = () => cursor.classList.add("is-pressed");
     const onPointerUp = () => cursor.classList.remove("is-pressed");
     const onPointerLeave = () => cursor.classList.remove("is-visible", "is-pressed");
+    // An iframe swallows pointer moves and draws its own cursor, so ours would freeze at its edge.
+    // Entering one shows up as a pointerover on the iframe element, or as a pointerout with nowhere to go.
+    const onPointerOver = (event: PointerEvent) => {
+      if (event.target instanceof HTMLIFrameElement) onPointerLeave();
+    };
+    const onPointerOut = (event: PointerEvent) => {
+      if (!event.relatedTarget || event.relatedTarget instanceof HTMLIFrameElement) onPointerLeave();
+    };
 
     root.classList.add("custom-cursor-ready");
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerdown", onPointerDown, { passive: true });
     window.addEventListener("pointerup", onPointerUp, { passive: true });
+    window.addEventListener("pointerover", onPointerOver, { passive: true });
+    window.addEventListener("pointerout", onPointerOut, { passive: true });
     document.addEventListener("mouseleave", onPointerLeave);
     window.addEventListener("blur", onPointerLeave);
 
@@ -36,6 +47,8 @@ export function SiteCursor() {
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointerover", onPointerOver);
+      window.removeEventListener("pointerout", onPointerOut);
       document.removeEventListener("mouseleave", onPointerLeave);
       window.removeEventListener("blur", onPointerLeave);
     };
