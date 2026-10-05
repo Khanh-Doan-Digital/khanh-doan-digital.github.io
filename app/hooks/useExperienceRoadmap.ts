@@ -2,14 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 
-function getRoadmapMilestoneThresholds(path: SVGPathElement) {
+type RoadmapPoint = { x: number; y: number };
+
+// Where each milestone sits on the two paths, in the SVG's 100 x 1000 viewBox.
+const WIDE_MILESTONES: RoadmapPoint[] = [
+  { x: 64, y: 125 },
+  { x: 36, y: 375 },
+  { x: 64, y: 625 },
+  { x: 36, y: 875 },
+];
+const COMPACT_MILESTONES: RoadmapPoint[] = [125, 375, 625, 875].map((y) => ({ x: 50, y }));
+// Matches the breakpoint in globals.css where the roadmap switches to its compact path.
+const COMPACT_QUERY = "(max-width: 820px)";
+
+function getRoadmapMilestoneThresholds(path: SVGPathElement, milestonePoints: RoadmapPoint[]) {
   const totalLength = path.getTotalLength();
-  const milestonePoints = [
-    { x: 64, y: 125 },
-    { x: 36, y: 375 },
-    { x: 64, y: 625 },
-    { x: 36, y: 875 },
-  ];
   const samples = 1200;
 
   return milestonePoints.map((target) => {
@@ -42,20 +49,25 @@ export function useExperienceRoadmap() {
 
     let frameId = 0;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const progressPath = roadmap.querySelector<SVGPathElement>(".roadmap-path-progress");
-    const pathLength = progressPath?.getTotalLength() ?? 1;
-    const thresholds = progressPath
-      ? getRoadmapMilestoneThresholds(progressPath)
-      : [0.125, 0.375, 0.625, 0.875];
-
-    if (progressPath) {
-      progressPath.style.strokeDasharray = `${pathLength}`;
-      progressPath.style.strokeDashoffset = `${pathLength}`;
-    }
+    const compactLayout = window.matchMedia(COMPACT_QUERY);
+    // One track per layout; only the one matching the current breakpoint is visible and drawn.
+    const tracks = ([["wide", WIDE_MILESTONES], ["compact", COMPACT_MILESTONES]] as const).map(([name, milestones]) => {
+      const path = roadmap.querySelector<SVGPathElement>(`.roadmap-path-${name}`);
+      if (!path) return null;
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = `${length}`;
+      path.style.strokeDashoffset = `${length}`;
+      return { path, length, thresholds: getRoadmapMilestoneThresholds(path, milestones) };
+    });
 
     const updateRoadmap = () => {
       window.cancelAnimationFrame(frameId);
       frameId = window.requestAnimationFrame(() => {
+        const track = tracks[compactLayout.matches ? 1 : 0];
+        const progressPath = track?.path;
+        const pathLength = track?.length ?? 1;
+        const thresholds = track?.thresholds ?? [0.125, 0.375, 0.625, 0.875];
+
         if (reducedMotion.matches) {
           roadmap.style.setProperty("--roadmap-progress", "1");
           if (progressPath) progressPath.style.strokeDashoffset = "0";
@@ -115,6 +127,7 @@ export function useExperienceRoadmap() {
     window.addEventListener("scroll", updateRoadmap, { passive: true });
     window.addEventListener("resize", updateRoadmap);
     reducedMotion.addEventListener("change", updateRoadmap);
+    compactLayout.addEventListener("change", updateRoadmap);
 
     return () => {
       window.cancelAnimationFrame(frameId);
@@ -122,6 +135,7 @@ export function useExperienceRoadmap() {
       window.removeEventListener("scroll", updateRoadmap);
       window.removeEventListener("resize", updateRoadmap);
       reducedMotion.removeEventListener("change", updateRoadmap);
+      compactLayout.removeEventListener("change", updateRoadmap);
     };
   }, []);
 

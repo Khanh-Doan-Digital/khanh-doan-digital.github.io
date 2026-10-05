@@ -99,7 +99,7 @@ export const copy = {
         tags: ["Content Management", "Social Media", "Graphic Design", "Brand Identity"],
       },
     ],
-    contactKicker: "SẴN SÀNG CHO CƠ HỘI MỚI",
+    contactKicker: "MÌNH ĐÃ SẴN SÀNG CHO CƠ HỘI MỚI",
     contactTitle: "Cùng nhau tạo ra kết quả tốt hơn nhé.",
     contactText:
       "Nếu bạn đang tìm một marketer vừa nhìn được bức tranh lớn, vừa đào sâu vào hiệu quả quảng cáo, mình rất muốn được trò chuyện với bạn.",
@@ -234,7 +234,7 @@ export const copy = {
         tags: ["Content Management", "Social Media", "Graphic Design", "Brand Identity"],
       },
     ],
-    contactKicker: "OPEN TO NEW OPPORTUNITIES",
+    contactKicker: "I'M OPEN TO NEW OPPORTUNITIES",
     contactTitle: "Let’s create better results together.",
     contactText:
       "If you’re looking for a marketer who can see the bigger picture while going deep into advertising performance, I’d be happy to connect.",
